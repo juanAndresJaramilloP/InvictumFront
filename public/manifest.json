@@ -1,19 +1,19 @@
 {
-  "short_name": "Invictum App",
+  "short_name": "React App",
   "name": "Create React App Sample",
   "icons": [
     {
-      "src": "Invictum.ico",
+      "src": "favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "InvictumLogo.png",
+      "src": "logo192.png",
       "type": "image/png",
-      "sizes": "26x98"
+      "sizes": "192x192"
     },
     {
-      "src": "InvictumLogo.png",
+      "src": "logo512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
