@@ -1,0 +1,23 @@
+.navbar {
+    background-color: #030A1C;
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#basic-nav-dropdown {
+    color: rgb(255, 255, 255);
+    background-color: #030A1C;
+    margin-right: 1rem;
+
+}
+
+#standardButton {
+    margin-right: 1rem;
+}
+
+
+.right-aligned{
+    justify-content: flex-end;
+}
