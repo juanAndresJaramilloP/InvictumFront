@@ -1,30 +1,47 @@
 import React, { useState } from 'react';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
 function Acordeon( props ) {
 
   const [visible, setVisible] = useState(new Array(props.informacion.length).fill(false));
 
   const toggleVisibility = (index) => {
-    setVisible(visible.map((item, idx) => idx === index ? !item : item));
+    setVisible(visible.map((item, idx) => idx === index ? !visible[index] : false));
   };
+  
 
   return (
-    <div className='mt-5 ml-4'>
-      {props.informacion.map((elemento, index) => (
-        <div key={index}>
-          <button onClick={() => toggleVisibility(index)}>{elemento.nombre}</button>
-          {visible[index] && (
-            <div>
-              {elemento.hijos.map((hijo, hijoIndex) => (
-                <div key={hijoIndex}>
-                  <a href={hijo.link}>{hijo.nombre}</a>
+    <Container  style={{ backgroundColor: '#F4F6FD' }}>
+      <Row>
+        <Col>
+
+          <div className='mt-5 ml-4'>
+            <h2 className='mx-4 mb-5'>Que quieres aprender hoy?</h2>
+            {props.informacion.map((elemento, index) => (
+              <div key={index}>
+                <div onClick={() => toggleVisibility(index)} style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
+                  <div className='my-3 mx-4'  style={{ fontWeight: 'bold' }}>{elemento.nombre}</div> 
+                  {visible[index] ? <FaChevronUp /> : <FaChevronDown />}
                 </div>
-              ))}
-            </div>
-          )}
-        </div>
-      ))}
-    </div>
+                {visible[index] && (
+                  <div>
+                    {elemento.hijos.map((hijo, hijoIndex) => (
+                      <div className='mx-5 mt-2' key={hijoIndex}>
+                        • <a href={hijo.link}>{hijo.nombre}</a>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </Col>
+      </Row>
+    </Container>
+    
   );
 }
 
