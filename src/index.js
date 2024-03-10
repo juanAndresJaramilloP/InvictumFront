@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import Acordeon from './components/AcordeonAprendizaje.js'
 import Video from './components/video.js'
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 
