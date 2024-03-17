@@ -4,7 +4,12 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'home-img1': "url('/src/assets/home1.png')",
+        'home-img2': "url('/src/assets/home2.png')",
+      }
+    },
   },
   plugins: [require("daisyui")],
 
