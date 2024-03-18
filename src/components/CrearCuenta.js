@@ -6,28 +6,19 @@ import { useLocation } from 'react-router-dom';
 const Login = () => {
 
     const location = useLocation();
-    const { email, password } = location.state;
-
-    const [name, setName] = useState('');
-    const [isNameValid, setIsNameValid] = useState(false);
-
     const navigate = useNavigate();
 
+    const { email, password } = location.state;
+    const [name, setName] = useState('');
+    
     const handleNameChange = (e) => {
         setName(e.target.value);
-        validateName(e.target.value);
-    }
-
-    const validateName = (name) => {
-        const isValid = (name.length > 0);
-        setIsNameValid(isValid);
-        return isValid;
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (validateName) {
+        if (name) {
             // Valid inputs, proceed with authentication
             console.log('Authentication successful');
         } else {
@@ -37,8 +28,8 @@ const Login = () => {
     };
 
     return (
-        <div className="flex container mx-auto justify-center mt-20">
-            <div className="hero h-2/4 w-2/4 min-w-fit bg-base-200 rounded-md">
+        <div className="flex container justify-center mx-auto my-20">
+            <div className="hero min-w-fit bg-base-200 rounded-md lg:max-w-screen-md">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left flex items-center">
                         <img className='h-20' src={logo} alt="Logo" />
@@ -52,8 +43,7 @@ const Login = () => {
                                 </label>
                                 <label className="input input-bordered flex items-center gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4 opacity-70"><path fillRule="evenodd" d="M14 6a4 4 0 0 1-4.899 3.899l-1.955 1.955a.5.5 0 0 1-.353.146H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.293a.5.5 0 0 1 .146-.353l3.955-3.955A4 4 0 1 1 14 6Zm-4-2a.75.75 0 0 0 0 1.5.5.5 0 0 1 .5.5.75.75 0 0 0 1.5 0 2 2 0 0 0-2-2Z" clipRule="evenodd" /></svg>
-                                    <input type="text" className="grow" placeholder="Juan Andres Jaramillo" onChange={handleNameChange} required  isValid={!isNameValid} />
-                                    {!isNameValid && <label className="label">Tu nombre no puede ser una cadena vacia.</label>}
+                                    <input type="text" className="grow" placeholder="Juan Andres Jaramillo" onChange={handleNameChange} required minLength="1"/>
                                 </label>
                             </div>
                             <div className="form-control">

@@ -1,10 +1,17 @@
-import React from 'react';
 import logo from '../Invictum.svg'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const NavBar = () => {
+    const navigate = useNavigate();
+
+    const handleLogin = () => {
+        navigate('/login');
+    }
+
     return (
         <div className="navbar bg-[#030A1C] text-white">
-            <div className="navbar-start">
+            <div className="navbar-start ml-8">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
@@ -22,7 +29,7 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <img className='h-20' src={logo} alt="Logo" />
-                <a className="btn btn-ghost p-0 text-xl">NVICTUM</a>
+                <a className="btn btn-ghost p-0 text-xl" href='/'>NVICTUM</a>
             </div>
             <div className="navbar-center hidden md:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -39,9 +46,8 @@ const NavBar = () => {
                     <li><a>Item 3</a></li>
                 </ul>
             </div>
-            <div className="navbar-end flex">
-                <a className="btn btn-outline rounded-lg" style={{ color: 'white' }}>Iniciar Sesión</a>
-                <a className="btn btn-primary m-3 rounded-lg text-white">Crear Cuenta</a>
+            <div className="navbar-end flex mr-8">
+                <a className="btn btn-primary rounded-lg" style={{ color: 'white' }} onClick={handleLogin}>Empezar</a>
             </div>
         </div>
     );

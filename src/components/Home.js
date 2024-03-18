@@ -1,6 +1,8 @@
 import React from 'react';
 import NavBar from './NavBar';
 import Footer from './Footer';
+import { useNavigate } from 'react-router-dom';
+
 import img1 from '../assets/1.png';
 import img2 from '../assets/2.png';
 import img3 from '../assets/3.png';
@@ -9,7 +11,15 @@ import img5 from '../assets/5.png';
 import img6 from '../assets/6.png';
 import img7 from '../assets/7.png';
 
+
+
 function Home() {
+    const navigate = useNavigate();
+
+    const handleLogin = () => {
+        navigate('/login');
+    }
+
     return (
         <div>
             <NavBar />
@@ -19,7 +29,7 @@ function Home() {
                     <div className="hero-content text-center text-neutral-content">
                         <div className="max-w-md">
                             <h1 className=" mb-16 text-4xl text-black font-bold">La Mejor Manera de Empezar a Construir Riqueza</h1>
-                            <button className="btn btn-primary rounded-lg text-white">Empezar Ahora</button>
+                            <button className="btn btn-primary rounded-lg text-white" onClick={handleLogin}>Empezar Ahora</button>
                         </div>
                     </div>
                 </div>
