@@ -6,15 +6,7 @@ const Sidemenu = () => {
         <div className="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col items-center justify-center">
-                ahsgdujvsdkjv
-                <div className='flex flex-col sm:flex-row gap-8'>
-                    <div>Punto 1</div>
-                    <div>Punto 2</div>
-                    <div>Punto 3</div>
-                    <div>Punto 4</div>
-                </div>
                 <label for="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
-
             </div>
             <div className="drawer-side">
                 <label for="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>

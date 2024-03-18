@@ -1,0 +1,9 @@
+
+/* Para customizar el display del pdf */
+.react-pdf__Page {
+    width: fit-content;
+}
+
+canvas.react-pdf__Page__canvas {
+    margin-bottom: 15px;
+}
