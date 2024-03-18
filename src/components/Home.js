@@ -13,10 +13,15 @@ function Home() {
     return (
         <div>
             <NavBar />
-            <div className="container mx-auto px-8">
-                <div className=" h-screen bg-cover bg-center bg-home-img1 flex flex-col items-center">
-                    <h1 className="text-3xl font-bold text-black w-3/4 text-center mt-32">La Mejor Manera de Empezar a Construir Riqueza </h1>
-                    <a className="btn btn-primary m-3 rounded-lg text-white">Empezar Ahora</a>
+            <div className="container justify-center mx-auto shadow-2xl xl:max-w-screen-xl">
+                <div className="hero min-h-screen bg-home-img1">
+                    <div className="hero-overlay bg-opacity-10"></div>
+                    <div className="hero-content text-center text-neutral-content">
+                        <div className="max-w-md">
+                            <h1 className=" mb-16 text-4xl text-black font-bold">La Mejor Manera de Empezar a Construir Riqueza</h1>
+                            <button className="btn btn-primary rounded-lg text-white">Empezar Ahora</button>
+                        </div>
+                    </div>
                 </div>
                 <div className='bg-[#030A1C] text-white'>
                     <div className="justify-center items-center flex flex-col sm:flex-row">
@@ -43,8 +48,8 @@ function Home() {
                     </div>
                 </div>
                 <div className=" h-screen bg-cover bg-center bg-home-img2 flex flex-col items-center">
-                    <h1 className="text-3xl font-bold text-black w-3/4 text-center mt-32">No importa si tienes poco dinero para invertir...</h1>
-                    <h1 className="text-3xl font-bold text-black w-3/4 text-center mt-32">¡En Invictum, todos son bienvenidos!</h1>
+                    <h1 className="text-4xl font-bold text-black w-3/4 max-w-96 text-center mt-20">No importa si tienes poco dinero para invertir...</h1>
+                    <h1 className="text-4xl font-bold text-black w-3/4 max-w-96 text-center mt-12">¡En Invictum, todos son bienvenidos!</h1>
                 </div>
                 <div className='bg-[#030A1C] text-white justify-center flex flex-col'>
                     <h1 className="text-4xl font-bold text-center mt-16">Sobre Nosotros</h1>
@@ -58,14 +63,14 @@ function Home() {
                     <h1 className="text-2xl font-bold mt-12 ml-16">Nuestra Historia</h1>
                     <div className="container px-2 flex flex-row justify-center">
                         <p className="text-base my-4 ml-16 mr-12">Invictum se fundó con la visión de poner las oportunidades de inversión
-                         al alcance de todas las personas, independientemente de su estatus social o edad. Creemos en el poder de la tecnología 
-                         para transformar la industria de la inversión y esa creencia es lo que nos impulsa todos los días. </p>
+                            al alcance de todas las personas, independientemente de su estatus social o edad. Creemos en el poder de la tecnología
+                            para transformar la industria de la inversión y esa creencia es lo que nos impulsa todos los días. </p>
                         <img className=" h-24 mx-auto mr-12 my-4" src={img5} alt="Logo" />
                     </div>
                     <h1 className="text-2xl font-bold mt-12 ml-16">Nuestra Visión</h1>
                     <div className="container px-2 flex flex-row justify-center">
-                        <p className="text-base my-4 ml-16 mr-12">Nuestra visión es convertirnos en la firma de capital riesgo líder en el mundo. 
-                        Queremos capacitar a las personas para que inviertan en su futuro y hagan realidad sus sueños. </p>
+                        <p className="text-base my-4 ml-16 mr-12">Nuestra visión es convertirnos en la firma de capital riesgo líder en el mundo.
+                            Queremos capacitar a las personas para que inviertan en su futuro y hagan realidad sus sueños. </p>
                         <img className=" h-24 mx-auto mr-12 my-4" src={img6} alt="Logo" />
                     </div>
                 </div>
