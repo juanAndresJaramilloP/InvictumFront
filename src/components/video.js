@@ -7,6 +7,7 @@ import NavBar from './NavBar';
 import { calcularVideosAnteriorSiguiente } from './utils';
 import { useEffect } from "react";
 import { useState } from "react";
+import { FormattedMessage } from 'react-intl';
 
 function Video(props) {
   let { nombre } = useParams();
@@ -81,23 +82,23 @@ function Video(props) {
               onClick={() => console.log("Ir a la clase anterior")}
             >
               <Link to={`/Aprendizaje/videos/${videoAnterior}`} className="nav-button mx-2">
-                Anterior
+              <FormattedMessage id="video.anterior" defaultMessage="Previous lesson" />
               </Link>
 
             </button>
 
             <Link to={`/Aprendizaje/videos/${videoSiguiente}`} className="nav-button mx-2">
-              Siguiente
+            <FormattedMessage id="video.siguiente" defaultMessage="Next lesson" />
             </Link>
 
             <Link to="/Aprendizaje" className="nav-button" onClick={() => console.log("Salir al menú principal")}>
-              Salir al menú
+            <FormattedMessage id="video.menu" defaultMessage="Go to principal menu" />
             </Link>
           </div>
         </div>
         <div className="video-container mx-auto">
 
-          <VideoPlayer key={idDelVideo} className="mb-5 video " videoId={IdVideo(linkVideo(props.informacion, nombre))} />
+          <VideoPlayer key={idDelVideo} className=" video " videoId={IdVideo(linkVideo(props.informacion, nombre))} />
 
 
 

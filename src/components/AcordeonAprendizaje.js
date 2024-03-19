@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/solid';
 import NavBar from './NavBar';
+import { FormattedMessage } from 'react-intl';
 
 function Acordeon(props) {
   const [visible, setVisible] = useState(new Array(props.informacion.length).fill(false));
@@ -15,7 +16,7 @@ function Acordeon(props) {
 
       <div className="mt-36 mx-20">
         <div>
-          <h2 className="text-4xl font-semibold mx-4 mb-5">¿Qué quieres aprender hoy?</h2>
+          <h2 className="text-4xl font-semibold mx-4 mb-5"><FormattedMessage id="acordeon.titulo" defaultMessage="What do you want to learn today?" /></h2>
           {props.informacion.map((elemento, index) => (
             <div key={index}>
               <div

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import NavBar from './NavBar';
 import { useNavigate } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 
 function WithdrawtForm() {
   const [form, setForm] = useState({
@@ -21,15 +22,15 @@ function WithdrawtForm() {
     let tempErrors = {};
 
 
-    tempErrors.amount = form.amount ? '' : 'Amount is required and must be a number';
+    tempErrors.amount = form.amount ? '' :  <FormattedMessage id="depositar.error.amount" defaultMessage="Amount is required and it must be a number" />;
 
 
-    tempErrors.bankName = form.bankName ? '' : 'Bank name is required';
+    tempErrors.bankName = form.bankName ? '' :  <FormattedMessage id="retirar.error.bank" defaultMessage="The bank's name is required." />;
     // Validate accounts id to ensure it's 16 digits
-    tempErrors.accountId = /^\d{16}$/.test(form.accountId) ? '' : 'Account id is invalid. It should have 16 digits';
+    tempErrors.accountId = /^\d{16}$/.test(form.accountId) ? '' :<FormattedMessage id="retirar.error.account" defaultMessage="Account id is invalid. It should have 16 digits." />;
 
     // Check if cardholder is provided, is a number, and is 3 digits
-    tempErrors.cardholder = form.cardholder  ? '' : 'Cardholder name is invalid';
+    tempErrors.cardholder = form.cardholder  ? '' : <FormattedMessage id="depositar.error.cardholder" defaultMessage="Cardholder name is required" />;
 
     setErrors(tempErrors);
 
@@ -61,7 +62,7 @@ function WithdrawtForm() {
         <svg className="w-4 h-4 mr-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
           <path d="M10 15l-5-5 5-5v10zM5 10h10V9H5v1z" />
         </svg>
-        Return
+        <FormattedMessage id="formulario.volver" defaultMessage="Return" />
       </button>
 
 
@@ -70,7 +71,7 @@ function WithdrawtForm() {
           <div className="flex justify-between items-center mt-4 px-4 w-full"></div>
 
 
-          <h2 className="text-3xl font-semibold text-center text-gray-700 font-inter -mt-20">Withdraw funds</h2>
+          <h2 className="text-3xl font-semibold text-center text-gray-700 font-inter -mt-20"><FormattedMessage id="retirar.titulo" defaultMessage="Withdraw funds" /></h2>
 
           <div style={{ width: '72px' }}>
           </div>
@@ -80,13 +81,13 @@ function WithdrawtForm() {
             className="w-full px-4 my-20 py-5 text-xl text-white bg-blue-500 rounded-3xl focus:outline-none color-disponible text-center  rounded-3x1"
 
           >
-            Available: 1000 USD
+            <FormattedMessage id="retirar.disponible" defaultMessage="Available:" /> 1000 USD
           </p>
           <form className="mt-6" onSubmit={handleSubmit}>
             <div className="mb-4">
 
               <label htmlFor="amount" className="block text-gray-900 text-sm font-medium mt-20">
-                Insert USD amount to withdraw
+              <FormattedMessage id="retirar.amount" defaultMessage="Insert withdrawal amount in USD" />
               </label>
 
               <input
@@ -102,7 +103,7 @@ function WithdrawtForm() {
             </div>
             <div className="mb-4">
               <label htmlFor="bank" className="block text-gray-900  text-sm font-medium mt-11 ">
-                Your bank’s name
+              <FormattedMessage id="retirar.bank" defaultMessage="Your bank's name" />
               </label>
 
               <input
@@ -118,7 +119,7 @@ function WithdrawtForm() {
             </div>
             <div className="mb-4">
               <label htmlFor="amount" className="block text-gray-900  text-sm font-medium mt-11 ">
-                Your account’s id
+              <FormattedMessage id="retirar.account" defaultMessage="Account number" />
               </label>
               <input
                 type="text"
@@ -133,7 +134,7 @@ function WithdrawtForm() {
             </div>
             <div className="mb-6">
               <label htmlFor="amount" className="block text-gray-900  text-sm font-medium mt-11 ">
-                Cardholder’s name
+              <FormattedMessage id="retirar.cardholder" defaultMessage="Cardholder's name" />
               </label>
 
               <input
@@ -153,7 +154,7 @@ function WithdrawtForm() {
                 className="w-full px-4 my-20 py-5 text-xl text-white bg-blue-500 rounded-3xl hover:bg-blue-600 focus:outline-none color-pagar"
          
               >
-                Withdraw
+                <FormattedMessage id="retirar" defaultMessage="Withdraw" />
               </button>
 
             </div>

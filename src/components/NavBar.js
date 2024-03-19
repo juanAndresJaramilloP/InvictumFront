@@ -34,13 +34,13 @@ const NavBar = () => {
             </div>
             <div className="navbar-center hidden md:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <li><a href='/Aprendizaje'>Educación</a></li>
+                    <li><a href='/Aprendizaje'><FormattedMessage id="navbar.educacion" defaultMessage="Education" /></a></li>
                     <li>
                         <details>
-                            <summary>Transacciones</summary>
+                            <summary><FormattedMessage id="navbar.transacciones" defaultMessage="Transactions" /></summary>
                             <ul className="p-2 text-black w-32">
-                                <li><a  href='/Depositar'>Depositar fondos</a></li>
-                                <li><a  href='/Retirar'>Retirar fondos</a></li>
+                                <li><a  href='/Depositar'><FormattedMessage id="navbar.depositar" defaultMessage="Deposit funds" /></a></li>
+                                <li><a  href='/Retirar'><FormattedMessage id="navbar.retirar" defaultMessage="Withdraw funds" /></a></li>
                             </ul>
                         </details>
                     </li>

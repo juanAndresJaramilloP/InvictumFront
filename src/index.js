@@ -14,60 +14,6 @@ const messages = userLanguage.startsWith("es") ? localeEsMessages : localeEnMess
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-var objetos = [
-  {
-    "nombre": "Basic concepts",
-    "hijos": [
-      {
-        "nombre": "Introduction to Economics",
-        "link": "https://example.com/basic-concepts/economics"
-      },
-      {
-        "nombre": "Principles of Accounting",
-        "link": "https://example.com/basic-concepts/accounting"
-      }
-    ]
-  },
-  {
-    "nombre": "Investment analysis",
-    "hijos": [
-      {
-        "nombre": "Market Trends",
-        "link": "https://example.com/investment-analysis/market-trends"
-      },
-      {
-        "nombre": "Risk Assessment",
-        "link": "https://example.com/investment-analysis/risk-assessment"
-      }
-    ]
-  },
-  {
-    "nombre": "Fixed-income instruments",
-    "hijos": [
-      {
-        "nombre": "Bonds Fundamentals",
-        "link": "https://example.com/fixed-income/bonds-fundamentals"
-      },
-      {
-        "nombre": "Bond Market Strategies",
-        "link": "https://example.com/fixed-income/bond-market-strategies"
-      }
-    ]
-  },
-  {
-    "nombre": "Variable-income instruments",
-    "hijos": [
-      {
-        "nombre": "Stocks and Shares",
-        "link": "https://example.com/variable-income/stocks-and-shares"
-      },
-      {
-        "nombre": "Dividends Analysis",
-        "link": "https://example.com/variable-income/dividends-analysis"
-      }
-    ]
-  }
-]
 
 //root.render(<Acordeon informacion ={ objetos } ></Acordeon>);
 root.render(

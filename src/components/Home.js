@@ -66,22 +66,17 @@ function Home() {
                     <h1 className="text-4xl font-bold text-center mt-16"><FormattedMessage id="Sobre Nosotros" /></h1>
                     <h1 className="text-2xl font-bold mt-12 ml-16"><FormattedMessage id="¿Qué hacemos?" /></h1>
                     <div className="container px-2 flex flex-row justify-center">
-                        <p className="text-base my-4 ml-16 mr-12"><FormattedMessage id="En Invictum, estamos eliminando las barreras tradicionales al
-                            mundo de las inversiones. Proporcionamos a la clase media y a los adultos jóvenes la oportunidad de acceder a
-                            servicios de construcción y gestión de riqueza profesionales a través de nuestra plataforma digital." /> </p>
+                        <p className="text-base my-4 ml-16 mr-12"><FormattedMessage id="home.quesehace" /> </p>
                         <img className=" h-24 mx-auto mr-12 my-4" src={img7} alt="Logo" />
                     </div>
                     <h1 className="text-2xl font-bold mt-12 ml-16"><FormattedMessage id="Nuestra Historia" /></h1>
                     <div className="container px-2 flex flex-row justify-center">
-                        <p className="text-base my-4 ml-16 mr-12"><FormattedMessage id="Invictum se fundó con la visión de poner las oportunidades de inversión
-                            al alcance de todas las personas, independientemente de su estatus social o edad. Creemos en el poder de la tecnología
-                            para transformar la industria de la inversión y esa creencia es lo que nos impulsa todos los días." /> </p>
+                        <p className="text-base my-4 ml-16 mr-12"><FormattedMessage id="home.historia.contenido" /> </p>
                         <img className=" h-24 mx-auto mr-12 my-4" src={img5} alt="Logo" />
                     </div>
                     <h1 className="text-2xl font-bold mt-12 ml-16"><FormattedMessage id="Nuestra Visión" /></h1>
                     <div className="container px-2 flex flex-row justify-center">
-                        <p className="text-base my-4 ml-16 mr-12"><FormattedMessage id="Nuestra visión es convertirnos en la firma de capital riesgo líder en el mundo.
-                            Queremos capacitar a las personas para que inviertan en su futuro y hagan realidad sus sueños." /> </p>
+                        <p className="text-base my-4 ml-16 mr-12"><FormattedMessage id="home.vision.contenido" /> </p>
                         <img className=" h-24 mx-auto mr-12 my-4" src={img6} alt="Logo" />
                     </div>
                 </div>
