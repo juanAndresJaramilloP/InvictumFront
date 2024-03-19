@@ -4,7 +4,13 @@ import './index.css';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import App from './App';
+import { IntlProvider } from 'react-intl';
 
+import localeEsMessages from "./locales/es";
+import localeEnMessages from "./locales/en";
+
+const userLanguage = navigator.language || navigator.userLanguage;
+const messages = userLanguage.startsWith("es") ? localeEsMessages : localeEnMessages;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -64,7 +70,11 @@ var objetos = [
 ]
 
 //root.render(<Acordeon informacion ={ objetos } ></Acordeon>);
-root.render(<App />);
+root.render(
+  <IntlProvider locale={userLanguage} messages={messages}>
+    <App />
+  </IntlProvider>
+);
 
 
 

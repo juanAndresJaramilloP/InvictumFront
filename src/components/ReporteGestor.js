@@ -6,6 +6,7 @@ import { useState } from 'react';
 import pdf from '../assets/reporteGestion.pdf';
 import './Reporte.css'
 import pdfIcon from '../assets/pdfIcon.svg';
+import { FormattedMessage } from 'react-intl';
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
     'pdfjs-dist/build/pdf.worker.min.js',
@@ -40,8 +41,8 @@ const ReporteGestor = () => {
                 <div className="drawer-side">
                     <label for="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
-                        <li><button className="btn btn-ghost"> <img src={pdfIcon} className=' h-6'/>Reporte de Gestión 2024/02</button></li>
-                        <li><button className="btn btn-ghost"> <img src={pdfIcon} className=' h-6'/>Reporte de Gestión 2024/01</button></li>
+                        <li><button className="btn btn-ghost"> <img src={pdfIcon} className=' h-6'/><FormattedMessage id="Reporte de Gestión" /> 2024/02</button></li>
+                        <li><button className="btn btn-ghost"> <img src={pdfIcon} className=' h-6'/><FormattedMessage id="Reporte de Gestión" />Reporte de Gestión 2024/01</button></li>
                     </ul>
                 </div>
             </div>
