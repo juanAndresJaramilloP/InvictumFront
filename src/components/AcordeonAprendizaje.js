@@ -11,7 +11,7 @@ function Acordeon(props) {
 
   return (
     <div className="color-gris-fondo h-screen" >
-    <NavBar />
+      <NavBar />
 
       <div className="mt-36 mx-20">
         <div>
@@ -30,7 +30,12 @@ function Acordeon(props) {
                   {elemento.hijos.map((hijo, hijoIndex) => (
                     <div className="mx-5 mt-2" key={hijoIndex}>
                       <span className="mr-1">•</span>
-                      <a href={"/Aprendizaje/videos/" + hijo.nombre}>{hijo.nombre}</a>
+                      <a
+                        href={"/Aprendizaje/videos/" + hijo.nombre}
+                        className="text-blue-600 hover:text-blue-800 focus:text-blue-800"
+                      >
+                        {hijo.nombre}
+                      </a>
                     </div>
                   ))}
                 </div>

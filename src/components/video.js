@@ -5,13 +5,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import NavBar from './NavBar';
 import { calcularVideosAnteriorSiguiente } from './utils';
+import { useEffect } from "react";
+import { useState } from "react";
 
 function Video(props) {
   let { nombre } = useParams();
-
   const informacion = props.informacion;
 
-  const index = informacion.findIndex(cat => cat.nombre === nombre);
+  const [linkDelVideo, setLinkDelVideo] = useState('');
+  const [idDelVideo, setIdDelVideo] = useState('');
 
   const { videoAnterior, videoSiguiente } = calcularVideosAnteriorSiguiente(props.informacion, nombre);
 
@@ -47,11 +49,28 @@ function Video(props) {
 
 
 
+  useEffect(() => {
+
+    
+    const nuevoLink = linkVideo(informacion, nombre);
+    setLinkDelVideo(nuevoLink); 
+
+    if (nuevoLink) {
+      const nuevoId = IdVideo(nuevoLink);
+      console.log(nuevoId)
+      setIdDelVideo(nuevoId); 
+    }
+    
+  }, [nombre, informacion]); 
+
+
+
+
   return (
     <div className="flex flex-col justify-between ">
       <NavBar />
       <div className="anchoVideo mx-auto">
-        <div className="video-nav-container">
+        <div className="video-nav-container my-5">
           <div className="video-nav-title">
             <h1 class="text-4xl font-bold">{nombre}</h1>
 
@@ -78,7 +97,9 @@ function Video(props) {
         </div>
         <div className="video-container mx-auto">
 
-          <VideoPlayer className="mb-5 video" videoId={IdVideo(linkVideo(props.informacion, nombre))} />
+          <VideoPlayer key={idDelVideo} className="mb-5 video " videoId={IdVideo(linkVideo(props.informacion, nombre))} />
+
+
 
         </div>
       </div>

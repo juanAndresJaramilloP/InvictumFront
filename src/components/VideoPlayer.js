@@ -6,6 +6,7 @@ function VideoPlayer(props) {
 
 
   const videoUrl = `https://www.youtube.com/embed/${videoId}`;
+  console.log(videoUrl)
 
   return (
     <div className="video-container ">

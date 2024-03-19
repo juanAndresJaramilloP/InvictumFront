@@ -17,4 +17,3 @@ module.exports = {
     themes: ["corporate", "forest", "synthwave","luxury"],
   },
 }
-

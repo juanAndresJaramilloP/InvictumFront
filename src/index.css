@@ -26,9 +26,18 @@ code {
   background-color: #F4F6FD;
 }
 
+.color-pagar {
+  background-color: #000AFF;
+}
+.color-disponible {
+  background-color: #030A1C;
+}
+
+
 .hide-scroll {
   overflow: hidden;
 }
 .anchoVideo {
   max-width: 80vw;
 }
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');

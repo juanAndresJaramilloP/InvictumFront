@@ -13,7 +13,10 @@ import ReporteGestor from './components/ReporteGestor.js';
 import Login from './components/Login.js';
 import CrearCuenta from './components/CrearCuenta.js';
 import AcordeonAprendizaje from './components/AcordeonAprendizaje.js'
-
+import DepositForm from './components/DepositForm.js';
+import ConfirmacionDeposito from './components/ConfirmacionDeposito.js';
+import WithdrawForm from './components/WithdrawForm.js';
+import ConfirmacionRetiro from './components/ConfirmacionRetiro.js';
 
 function App() {
   var objetos = [
@@ -26,7 +29,7 @@ function App() {
         },
         {
           "nombre": "Principles of Accounting",
-          "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+          "link": "https://www.youtube.com/watch?v=r5eZcLR5ztg"
         }
       ]
     },
@@ -81,8 +84,11 @@ function App() {
           <Route path="/login" element={<Login />}/>
           <Route path="/Aprendizaje" element={<AcordeonAprendizaje informacion={objetos} />} />
           <Route path="/Aprendizaje/videos/:nombre" element={<Video informacion={objetos} />} />
+          <Route path="/Depositar" element={<DepositForm />} />
+          <Route path="/Retirar" element={<WithdrawForm />} />
           <Route path="/crearcuenta" element={<CrearCuenta />}/>
-
+          <Route path="/confirmacionDeposito" element={<ConfirmacionDeposito />}/>
+          <Route path="/confirmacionRetiro" element={<ConfirmacionRetiro />}/>
         </Routes>
       </BrowserRouter>
     </div>

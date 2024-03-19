@@ -37,10 +37,10 @@ const NavBar = () => {
                     <li><a href='/Aprendizaje'>Educación</a></li>
                     <li>
                         <details>
-                            <summary>Parent</summary>
+                            <summary>Transacciones</summary>
                             <ul className="p-2 text-black w-32">
-                                <li><a>Submenu 1</a></li>
-                                <li><a>Submenu 2</a></li>
+                                <li><a  href='/Depositar'>Depositar fondos</a></li>
+                                <li><a  href='/Retirar'>Retirar fondos</a></li>
                             </ul>
                         </details>
                     </li>
@@ -48,7 +48,7 @@ const NavBar = () => {
                 </ul>
             </div>
             <div className="navbar-end flex mr-8">
-                <a className="btn btn-primary rounded-lg" style={{ color: 'white' }} onClick={handleLogin}><FormattedMessage id='Empezar' /></a>
+                <a className="btn btn-primary rounded-lg " style={{ color: 'white' }} onClick={handleLogin}><FormattedMessage id='Empezar' /></a>
             </div>
         </div>
     );
