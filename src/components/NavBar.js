@@ -34,7 +34,7 @@ const NavBar = () => {
             </div>
             <div className="navbar-center hidden md:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <li><a>Item 1</a></li>
+                    <li><a href='/Aprendizaje'>Educación</a></li>
                     <li>
                         <details>
                             <summary>Parent</summary>
