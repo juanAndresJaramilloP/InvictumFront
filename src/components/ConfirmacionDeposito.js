@@ -11,9 +11,6 @@ const ConfirmacionDeposito = (props) => {
   let { cantidad } = useParams();
 
 
-
-
-
   const calcularBalance = () => {
     if (balance === undefined) {
       return parseFloat(cantidad);
