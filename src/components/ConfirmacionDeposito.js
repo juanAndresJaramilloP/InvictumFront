@@ -3,9 +3,11 @@ import { FormattedMessage } from 'react-intl';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const ConfirmacionDeposito = () => {
- 
+  
+  const location = useLocation();
   const {fullName, balance} = location.state;
 
   let { cantidad } = useParams();
