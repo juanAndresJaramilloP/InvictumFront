@@ -29,8 +29,20 @@ const NavBarLogin = (props) => {
             .catch(error => console.log(error));
     }, []);
 
+    const handleHome = () => {
+        navigate('/homeLogin', {
+            state: { email: email, password: password }
+        });
+    }
+
     const handleAdminAccount = () => {
         navigate('/administrarCuenta', {
+            state: { email: email, password: password }
+        });
+    }
+
+    const handleChangePassword = () => {
+        navigate('/reestablecerContraseña', {
             state: { email: email, password: password }
         });
     }
@@ -55,7 +67,7 @@ const NavBarLogin = (props) => {
 
     return (
         <div className="navbar bg-[#030A1C] text-white">
-            <div className="navbar-start ml-8">
+            <div className="navbar-start ml-8" onClick={handleHome}>
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
@@ -92,7 +104,13 @@ const NavBarLogin = (props) => {
             </div>
             <div className="navbar-end flex mr-8">
                 <p className="text-xl mr-4">{fullName}</p>
-                <img className='h-20 bg-black rounded-full p-3 mr-4' src={profileImage} alt="Profile Image" onClick={handleAdminAccount} />
+                <details class="dropdown dropdown-end">
+                    <summary><img className='h-20 bg-black rounded-full p-3 mr-4' src={profileImage} alt="Profile Image"/></summary>
+                    <ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+                        <li onClick={handleAdminAccount}><a className='text-black'><FormattedMessage id="Configuración de administrador"/></a></li>
+                        <li onClick={handleChangePassword}><a className='text-black'><FormattedMessage id="Reestablecer Contraseña"/></a></li>
+                    </ul>
+                </details>
             </div>
         </div>
     );

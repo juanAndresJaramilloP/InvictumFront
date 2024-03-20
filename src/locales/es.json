@@ -65,5 +65,9 @@
     "Confirmar contraseña nueva": "Confirmar contraseña nueva",
     "confirmacionDeposito.balance":"Su balance actual es: ",
     "Reports": "Reportes",
-    "Invalid email":"Correo inválido"
+    "Invalid email":"Correo inválido",
+    "Configuración de administrador": "Configuración de administrador",
+    "Contraseña actual incorrecta": "Contraseña actual incorrecta",
+    "Contraseña nueva incorrecta": "La contraseña nueva no es igual en ambos campos o no es válida como contraseña. Recuerde que su contraseña debe tener al menos 5 caracteres de largo e incluir números y letras",
+    "Contraseña cambiada correctamente": "Contraseña reestablecida correctamente"
 }

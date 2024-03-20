@@ -35,6 +35,7 @@ const Login = () => {
     };
 
     const handleLogin = () => {
+        console.log(data);
         if (data.length === 0) {
             console.log('Data is still fetching...');
             return;
