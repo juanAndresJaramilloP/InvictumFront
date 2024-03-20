@@ -21,8 +21,6 @@ const Reporte = () => {
 
     const {email, tiempo} = location.state;
 
-    console.log(tiempo);
-
     function onDocumentLoadSuccess({ numPages }) {
         setNumPages(numPages);
     }
