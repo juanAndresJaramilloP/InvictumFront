@@ -4,8 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import NavBarLogin from './NavBarLogin';
+import { useLocation } from 'react-router-dom';
 
-function WithdrawtForm(props) {
+
+function WithdrawtForm() {
+  const location = useLocation();
+  const { fullName, balance } = location.state;
+
   const [form, setForm] = useState({
     amount: '',
     cardHolderName: '',
@@ -14,12 +20,16 @@ function WithdrawtForm(props) {
   });
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
-  let balance = props.balance;
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
   };
 
+  useEffect(() => { console.log("cargo balance", balance)}, [balance]);
+
+
+
+  
   const validateForm = () => {
     let tempErrors = {};
 
@@ -38,25 +48,36 @@ function WithdrawtForm(props) {
 
     return Object.values(tempErrors).every(x => x === '');
   };
-
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
       console.log('Form is valid');
-      navigate('/confirmacionRetiro/'+form.amount);
+      navigate('/confirmacionRetiro',  {state:{amount:form.amount, balance:balance}});
     } else {
       console.log('Form is invalid');
     }
   };
+
+
   const handleReturn = () => {
     navigate('/');
   }
 
 
+  const calcularBalance = () => {
+    if (balance.length === 0) {
+      return 100;
+    } else {
+      return parseFloat(balance); 
+    }
+  };
+
+
   return (
     <div className="">
-      <NavBar />
+      <NavBarLogin />
       <button
         onClick={handleReturn}
         className="flex items-center justify-center bg-blue-500 hover:bg-blue-400 text-black font-bold py-2 px-4 m-10 color-gris-fondo rounded focus:outline-none focus:shadow-outline"
@@ -83,7 +104,7 @@ function WithdrawtForm(props) {
             className="w-full px-4 my-20 py-5 text-xl text-white bg-blue-500 rounded-3xl focus:outline-none color-disponible text-center  rounded-3x1"
 
           >
-            <FormattedMessage id="retirar.disponible" defaultMessage="Available:" /> {balance}
+            <FormattedMessage id="retirar.disponible" defaultMessage="Available:" /> {calcularBalance()}
           </p>
           <form className="mt-6" onSubmit={handleSubmit}>
             <div className="mb-4">

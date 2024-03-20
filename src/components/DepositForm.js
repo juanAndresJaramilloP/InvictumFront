@@ -3,8 +3,13 @@ import NavBar from './NavBar';
 import { useNavigate } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import NavBarLogin from './NavBarLogin';
 
 function DepositForm() {
+  const location = useLocation();
+  const {fullName, balance} = location.state;
+
   const [form, setForm] = useState({
     amount: '',
     cardHolderName: '',
@@ -41,19 +46,20 @@ function DepositForm() {
     e.preventDefault();
     if (validateForm()) {
       console.log('Form is valid');
-      navigate('/confirmacionDeposito/'+form.amount);
+      navigate('/confirmacionDeposito', {state:{amount:form.amount, balance:balance}});
     } else {
       console.log('Form is invalid');
     }
   };
   const handleReturn = () => {
-    navigate('/');
+    navigate('/homeLogin');
   }
 
 
   return (
     <div className="">
-      <NavBar />
+      <NavBarLogin />
+      {balance}
       <button
         onClick={handleReturn}
         className="flex items-center justify-center bg-blue-500 hover:bg-blue-400 text-black font-bold py-2 px-4 m-10 color-gris-fondo rounded focus:outline-none focus:shadow-outline"

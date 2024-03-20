@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/solid';
 import NavBar from './NavBar';
 import { FormattedMessage } from 'react-intl';
+import NavBarLogin from './NavBarLogin';
 
 function Acordeon(props) {
   
@@ -26,7 +27,7 @@ function Acordeon(props) {
 
   return (
     <div className="color-gris-fondo min-h-screen" >
-      <NavBar />
+      <NavBarLogin />
 
       <div className="mt-36 mx-20">
         <div>

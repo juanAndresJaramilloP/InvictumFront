@@ -8,21 +8,27 @@ import { useLocation } from 'react-router-dom';
 const ConfirmacionDeposito = () => {
   
   const location = useLocation();
-  const {fullName, balance} = location.state;
-
-  let { cantidad } = useParams();
+  const {amount, balance} = location.state;
+  const [isLoading, setIsLoading] = useState(true);
 
 
   const calcularBalance = () => {
-    if (balance === undefined) {
-      return parseFloat(cantidad);
-    }
-    return parseFloat(balance) + parseFloat(cantidad);
-
+    return parseFloat(balance) + parseFloat(amount);
   };
 
 
-  
+  useEffect(() => {
+
+    if (balance !== undefined) {
+      console.log("cargo balance", balance);
+      setIsLoading(false); 
+    }
+  }, [balance]);
+
+  if (isLoading) {
+    return <div>loading...</div>;
+  }
+
 
 
   return (

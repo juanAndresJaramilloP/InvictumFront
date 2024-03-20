@@ -8,6 +8,7 @@ import { calcularVideosAnteriorSiguiente } from './utils';
 import { useEffect } from "react";
 import { useState } from "react";
 import { FormattedMessage } from 'react-intl';
+import NavBarLogin from "./NavBarLogin";
 
 function Video(props) {
   let { nombre } = useParams();
@@ -87,7 +88,7 @@ function Video(props) {
 
   return (
     <div className="flex flex-col justify-between ">
-      <NavBar />
+      <NavBarLogin />
       <div className="anchoVideo mx-auto">
         <div className="video-nav-container my-5">
           <div className="video-nav-title">
