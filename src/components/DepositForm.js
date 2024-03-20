@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import NavBar from './NavBar';
 import { useNavigate } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
+import { useEffect } from 'react';
 
 function DepositForm() {
   const [form, setForm] = useState({
@@ -21,15 +22,13 @@ function DepositForm() {
   const validateForm = () => {
     let tempErrors = {};
 
-    // Check if amount is provided and is a number
-    tempErrors.amount = form.amount ? '' : <FormattedMessage id="depositar.error.amount" />;
+    tempErrors.amount = form.amount ? '' : <FormattedMessage id="depositar.error.amount" defaultMessage="Amount is required and it must be a number" />;
 
     tempErrors.cardHolderName = form.cardHolderName ? '' : <FormattedMessage id="depositar.error.cardholder" defaultMessage="Cardholder name is required" />;
 
-    // Validate card number to ensure it's 16 digits
+
     tempErrors.cardNumber = /^\d{16}$/.test(form.cardNumber) ? '' : <FormattedMessage id="depositar.error.cardnumber" defaultMessage="Card number is invalid. It should have 16 digits" />;
 
-    // Check if csv is provided, is a number, and is 3 digits
     tempErrors.csv = form.csv && /^\d{3}$/.test(form.csv.toString()) ? '' : <FormattedMessage id="depositar.error.csv" defaultMessage="CSV is invalid and must be a 3 digit number" />;
 
     setErrors(tempErrors);
@@ -42,7 +41,7 @@ function DepositForm() {
     e.preventDefault();
     if (validateForm()) {
       console.log('Form is valid');
-      navigate('/confirmacionDeposito');
+      navigate('/confirmacionDeposito/'+form.amount);
     } else {
       console.log('Form is invalid');
     }
@@ -76,12 +75,12 @@ function DepositForm() {
           <div style={{ width: '72px' }}>
           </div>
 
-          
+
           <form className="mt-6" onSubmit={handleSubmit}>
             <div className="mb-4">
 
               <label htmlFor="amount" className="block text-gray-900 text-sm font-medium mt-20">
-              <FormattedMessage id="depositar.amount" defaultMessage="Insert deposit amount in USD" />
+                <FormattedMessage id="depositar.amount" defaultMessage="Insert deposit amount in USD" />
               </label>
 
               <input
@@ -97,7 +96,7 @@ function DepositForm() {
             </div>
             <div className="mb-4">
               <label htmlFor="amount" className="block text-gray-900  text-sm font-medium mt-11 ">
-              <FormattedMessage id="depositar.Cardholder's name" defaultMessage="Cardholder's name" />
+                <FormattedMessage id="depositar.Cardholder's name" defaultMessage="Cardholder's name" />
               </label>
 
               <input
@@ -113,7 +112,7 @@ function DepositForm() {
             </div>
             <div className="mb-4">
               <label htmlFor="amount" className="block text-gray-900  text-sm font-medium mt-11 ">
-              <FormattedMessage id="depositar.Card number" defaultMessage="Card number" />
+                <FormattedMessage id="depositar.Card number" defaultMessage="Card number" />
               </label>
               <input
                 type="text"
@@ -128,7 +127,7 @@ function DepositForm() {
             </div>
             <div className="mb-6">
               <label htmlFor="amount" className="block text-gray-900  text-sm font-medium mt-11 ">
-              <FormattedMessage id="depositar.CSV" defaultMessage="CSV" />
+                <FormattedMessage id="depositar.CSV" defaultMessage="CSV" />
               </label>
 
               <input

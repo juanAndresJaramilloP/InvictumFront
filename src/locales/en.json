@@ -63,6 +63,7 @@
     "Contraseña actual": "Current password",
     "Contraseña nueva": "New password",
     "Confirmar contraseña nueva": "Confirm new password",
+    "confirmacionDeposito.balance":"Your current balance is: ",
     "Reportes":"Reports",
     "Correo inválido":"Invalid email"
 }

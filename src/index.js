@@ -14,6 +14,7 @@ const messages = userLanguage.startsWith("es") ? localeEsMessages : localeEnMess
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
+serviceWorkerRegistration.register();
 
 //root.render(<Acordeon informacion ={ objetos } ></Acordeon>);
 root.render(
