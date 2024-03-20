@@ -4,14 +4,28 @@ import NavBar from './NavBar';
 import { FormattedMessage } from 'react-intl';
 
 function Acordeon(props) {
-  const [visible, setVisible] = useState(new Array(props.informacion.length).fill(false));
+  
+  const informacion = props.informacion;
+  const lenInfo = informacion.length;
+  const [activo, setActivo]=useState(-1);
+  const [visible, setVisible] = useState(props.informacion.map(() => false));
 
   const toggleVisibility = (index) => {
-    setVisible(visible.map((item, idx) => (idx === index ? !visible[index] : false)));
-  };
+    if (index === activo) {
+        setActivo(-1);
+        setVisible(Array.from({length: lenInfo}, () => false));
+    } else {
+        setActivo(index);
+    
+        setVisible(Array.from({length: lenInfo}, (_, idx) => idx === index));
+    }
+};
+
+
+  const obtenerLink = (nombre) => {return ("/Aprendizaje/videos/" + nombre)};
 
   return (
-    <div className="color-gris-fondo h-screen" >
+    <div className="color-gris-fondo min-h-screen" >
       <NavBar />
 
       <div className="mt-36 mx-20">
@@ -32,7 +46,7 @@ function Acordeon(props) {
                     <div className="mx-5 mt-2" key={hijoIndex}>
                       <span className="mr-1">•</span>
                       <a
-                        href={"/Aprendizaje/videos/" + hijo.nombre}
+                        href={obtenerLink(hijo.nombre)}
                         className="text-blue-600 hover:text-blue-800 focus:text-blue-800"
                       >
                         {hijo.nombre}

@@ -62,5 +62,7 @@
     "Reestablecer Contraseña": "Change Password",
     "Contraseña actual": "Current password",
     "Contraseña nueva": "New password",
-    "Confirmar contraseña nueva": "Confirm new password"
+    "Confirmar contraseña nueva": "Confirm new password",
+    "Reportes":"Reports",
+    "Correo inválido":"Invalid email"
 }

@@ -1,6 +1,7 @@
 import React from 'react';
-import NavBar from './NavBar';
+import NavBarLogin from './NavBarLogin';
 import Footer from './Footer';
+import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 
@@ -14,8 +15,15 @@ import img7 from '../assets/7.png';
 
 
 
-function Home() {
+function HomeLogin() {
+
+    const location = useLocation();
     const navigate = useNavigate();
+
+    const { emailState, passwordState } = location.state;
+
+    const email = emailState;
+    const password = passwordState;
 
     const handleLogin = () => {
         navigate('/login');
@@ -23,14 +31,13 @@ function Home() {
 
     return (
         <div>
-            <NavBar />
+            <NavBarLogin email={email} password={password}/>
             <div className="container justify-center mx-auto shadow-2xl xl:max-w-screen-xl">
-                <div className="hero min-h-screen  bg-home-img1">
+                <div className="hero min-h-screen bg-home-img1">
                     <div className="hero-overlay bg-opacity-10"></div>
                     <div className="hero-content text-center text-neutral-content">
                         <div className="max-w-md">
                             <h1 className=" mb-16 text-4xl text-black font-bold"><FormattedMessage id="La Mejor Manera de Empezar a Construir Riqueza" /></h1>
-                            <button className="btn btn-primary rounded-lg text-white" onClick={handleLogin}><FormattedMessage id="Empezar Ahora" /></button>
                         </div>
                     </div>
                 </div>
@@ -86,4 +93,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default HomeLogin;
