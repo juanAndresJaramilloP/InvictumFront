@@ -72,6 +72,10 @@ function CambioContrasenia ()
         {
             setPwdCambiada(true);
         }
+        else
+        {
+            setPwdCambiada(false);
+        }
 
     })
 
