@@ -7,18 +7,28 @@ import { useEffect, useState } from 'react';
 
 const NavBarLogin = (props) => {
     const navigate = useNavigate();
+    const [fullName, setFullName] = useState('');
 
-    email = props.email;
-    password = props.password;
+    const email = props.email;
+    const password = props.password;
 
+    const [data, setData] = useState([]);
     useEffect(() => {
         fetch('/users.json')
             .then(response => response.json())
-            .then(jsonData => setData(jsonData))
+            .then(jsonData => {
+                setData(jsonData);
+                const user = jsonData.find(obj => obj.email === email);
+
+                if (user) {
+                    setFullName(user.full_name);
+                    // Use the value of fullName as needed
+                }
+            })
             .catch(error => console.log(error));
     }, []);
 
-    
+
 
     const handleAdmin = () => {
         navigate('/login');
@@ -26,7 +36,7 @@ const NavBarLogin = (props) => {
 
     const handleAdminAccount = () => {
         navigate('/administrarCuenta', {
-            state: { email: sendEmail, password: sendPassword }
+            state: { email: email, password: password }
         });
     }
 
@@ -68,7 +78,7 @@ const NavBarLogin = (props) => {
                 </ul>
             </div>
             <div className="navbar-end flex mr-8">
-                <p className="text-xl mr-4">Juan Andres Jaramillo</p>
+                <p className="text-xl mr-4">{fullName}</p>
                 <img className='h-20 bg-black rounded-full p-3 mr-4' src={profileImage} alt="Profile Image" onClick={handleAdminAccount} />
             </div>
         </div>
