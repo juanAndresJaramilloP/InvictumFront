@@ -101,14 +101,8 @@ function App() {
           <Route path="/crearcuenta" element={<CrearCuenta />} />
           <Route path="/confirmacionDeposito/:cantidad" element={<ConfirmacionDeposito balance={balance}/>} />
           <Route path="/confirmacionRetiro/:cantidad" element={<ConfirmacionRetiro balance={ balance } />} />
-
-      
-  
-
           <Route path="/reportes" element={<Reporte />} />
           <Route path="/reportesGestor" element={<ReporteGestor />} />
-
- 
           <Route path="/reestablecerContraseña" element={<CambioContrasenia />}/>
           <Route path="/homeLogin" element={<HomeLogin />}/>
           <Route path="/administrarCuenta" element={<AdminCuenta />}/>

@@ -8,7 +8,8 @@ import { useEffect, useState } from 'react';
 const NavBarLogin = (props) => {
     const navigate = useNavigate();
     const [fullName, setFullName] = useState('');
-
+    const [tiempo, setTiempo] = useState('');
+    const [balance, setBalance] = useState('');
     const email = props.email;
     const password = props.password;
 
@@ -19,9 +20,10 @@ const NavBarLogin = (props) => {
             .then(jsonData => {
                 setData(jsonData);
                 const user = jsonData.find(obj => obj.email === email);
-                console.log(email);
                 if (user) {
                     setFullName(user.full_name);
+                    setTiempo(user.tiempo);
+                    setBalance(user.balance);
                 }
             })
             .catch(error => console.log(error));
@@ -32,6 +34,24 @@ const NavBarLogin = (props) => {
             state: { email: email, password: password }
         });
     }
+
+    const handleDepositFund = () => {
+        navigate('/Depositar', {
+            state: { fullName: fullName, balance: balance }
+        });
+    }
+    const handleWithdrawFund = () => {
+        navigate('/Retirar', {
+            state: { fullName: fullName, balance: balance }
+        });
+    }
+
+    const handleVerReporte= () => {
+        navigate('/reportes', {
+            state: { fullName: fullName, tiempo: tiempo }
+        });
+    }
+
 
     return (
         <div className="navbar bg-[#030A1C] text-white">
@@ -62,12 +82,12 @@ const NavBarLogin = (props) => {
                         <details>
                             <summary><FormattedMessage id="navbar.transacciones" defaultMessage="Transactions" /></summary>
                             <ul className="p-2 text-black w-32">
-                                <li><a href='/Depositar'><FormattedMessage id="navbar.depositar" defaultMessage="Deposit funds" /></a></li>
-                                <li><a href='/Retirar'><FormattedMessage id="navbar.retirar" defaultMessage="Withdraw funds" /></a></li>
+                                <li><a onClick={handleDepositFund}><FormattedMessage id="navbar.depositar" defaultMessage="Deposit funds" /></a></li>
+                                <li><a onClick={handleWithdrawFund}><FormattedMessage id="navbar.retirar" defaultMessage="Withdraw funds" /></a></li>
                             </ul>
                         </details>
                     </li>
-                    <li><a href='/reportes'>Reportes</a></li>
+                    <li><a onClick={handleVerReporte}>Reportes</a></li>
                 </ul>
             </div>
             <div className="navbar-end flex mr-8">
