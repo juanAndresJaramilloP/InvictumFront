@@ -2,8 +2,9 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { useParams } from 'react-router-dom';
 
-const ConfirmacionRetiro = (props) => {
-  const balance = props.balance;
+const ConfirmacionRetiro = () => {
+  
+  const {fullName, balance} = location.state;
   let { cantidad } = useParams();
 
   

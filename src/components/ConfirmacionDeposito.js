@@ -4,9 +4,9 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-const ConfirmacionDeposito = (props) => {
-  const [balance, setBalance] = useState(props.balance);
-
+const ConfirmacionDeposito = () => {
+ 
+  const {fullName, balance} = location.state;
 
   let { cantidad } = useParams();
 
