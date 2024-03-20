@@ -7,6 +7,7 @@ import pdf from '../assets/reporte1.pdf';
 import './Reporte.css'
 import pdfIcon from '../assets/pdfIcon.svg';
 import { FormattedMessage } from 'react-intl';
+import { useLocation } from 'react-router-dom';
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
     'pdfjs-dist/build/pdf.worker.min.js',
@@ -16,6 +17,9 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 const Reporte = () => {
     const [numPages, setNumPages] = useState();
     const [pageNumber, setPageNumber] = useState(1);
+    const location = useLocation();
+
+    const {fullName, tiempo} = location.state;
 
     function onDocumentLoadSuccess({ numPages }) {
         setNumPages(numPages);

@@ -7,6 +7,7 @@ import pdf from '../assets/reporteGestion.pdf';
 import './Reporte.css'
 import pdfIcon from '../assets/pdfIcon.svg';
 import { FormattedMessage } from 'react-intl';
+import { useLocation } from 'react-router-dom';
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
     'pdfjs-dist/build/pdf.worker.min.js',
