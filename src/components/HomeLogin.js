@@ -4,6 +4,7 @@ import Footer from './Footer';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
+import { useState } from 'react';
 
 import img1 from '../assets/1.png';
 import img2 from '../assets/2.png';
@@ -19,15 +20,8 @@ function HomeLogin() {
 
     const location = useLocation();
     const navigate = useNavigate();
-
-    const { emailState, passwordState } = location.state;
-
-    const email = emailState;
-    const password = passwordState;
-
-    const handleLogin = () => {
-        navigate('/login');
-    }
+    const [email, setEmail] = useState(location.state.email);
+    const [password, setPassword] = useState(location.state.password);
 
     return (
         <div>

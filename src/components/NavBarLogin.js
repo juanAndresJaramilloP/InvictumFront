@@ -19,20 +19,13 @@ const NavBarLogin = (props) => {
             .then(jsonData => {
                 setData(jsonData);
                 const user = jsonData.find(obj => obj.email === email);
-
+                console.log(email);
                 if (user) {
                     setFullName(user.full_name);
-                    // Use the value of fullName as needed
                 }
             })
             .catch(error => console.log(error));
     }, []);
-
-
-
-    const handleAdmin = () => {
-        navigate('/login');
-    }
 
     const handleAdminAccount = () => {
         navigate('/administrarCuenta', {
