@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import NavBar from './NavBar';
 import { useNavigate } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
-function WithdrawtForm() {
+function WithdrawtForm(props) {
   const [form, setForm] = useState({
     amount: '',
     cardHolderName: '',
@@ -12,7 +14,7 @@ function WithdrawtForm() {
   });
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
-
+  let balance = props.balance;
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
@@ -42,7 +44,7 @@ function WithdrawtForm() {
     e.preventDefault();
     if (validateForm()) {
       console.log('Form is valid');
-      navigate('/confirmacionRetiro');
+      navigate('/confirmacionRetiro/'+form.amount);
     } else {
       console.log('Form is invalid');
     }
@@ -81,7 +83,7 @@ function WithdrawtForm() {
             className="w-full px-4 my-20 py-5 text-xl text-white bg-blue-500 rounded-3xl focus:outline-none color-disponible text-center  rounded-3x1"
 
           >
-            <FormattedMessage id="retirar.disponible" defaultMessage="Available:" /> 1000 USD
+            <FormattedMessage id="retirar.disponible" defaultMessage="Available:" /> {balance}
           </p>
           <form className="mt-6" onSubmit={handleSubmit}>
             <div className="mb-4">

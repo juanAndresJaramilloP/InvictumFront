@@ -22,59 +22,79 @@ import { useState } from 'react';
 
 function App() {
   const [objetos, setObjetos] = useState([]);
+  const [datos, setDatos] = useState([]);
 
 
-
-    useEffect(() => {
+  useEffect(() => {
     const URL = "https://raw.githubusercontent.com/davidzamora9aSyC/datosAprendizaje/main/aprendizajev2.json";
     fetch(URL)
-        .then(data => data.json())
-        .then(data => {
-            // Función para transformar la estructura JSON en un formato manejable
-            const transformData = (items) => {
-                return items.map(item => {
-                    if (item.hijos && item.hijos.length) {
-                        return {
-                            nombre: item.nombre,
-                            hijos: transformData(item.hijos) // Llamada recursiva para los hijos
-                        };
-                    } else {
-                        // Incluye el manejo del 'link' si está disponible
-                        return {
-                            nombre: item.nombre,
-                            link: item.link ? item.link : undefined,
-                            
-                        };
-                    }
-                });
-            };
+      .then(data => data.json())
+      .then(data => {
+        // Función para transformar la estructura JSON en un formato manejable
+        const transformData = (items) => {
+          return items.map(item => {
+            if (item.hijos && item.hijos.length) {
+              return {
+                nombre: item.nombre,
+                hijos: transformData(item.hijos) // Llamada recursiva para los hijos
+              };
+            } else {
 
-            // Transforma los datos y los establece con setData
-            const transformedData = transformData(data);
-            setObjetos(transformedData);
-        });
-}, []);
+              return {
+                nombre: item.nombre,
+                link: item.link ? item.link : undefined,
+
+              };
+            }
+          });
+        };
+        const transformedData = transformData(data);
+        setObjetos(transformedData);
+      });
+  }, []);
 
 
-
+  useEffect(() => {
+    const URL = "https://my.api.mockaroo.com/usuarios_sprint1.json?key=1390d7a0";
+    fetch(URL)
+      .then(data => data.json())
+      .then(data => {
     
+        const transformData1 = (items) => {
+          return items.map(item => {
+            if (item.hijos && item.hijos.length) {
+              return {
+                balance: item.balance,
+                email: item.email,
+                
+              };
+            }
+            });
+        };
+        const transformedData =transformData1(data);
+        setDatos(transformedData);
+        
+      });
+  }, []);
+
+  const balance = 100;
 
 
   return (
     <div className="App color-gris-fondo">
-      
+
 
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />}/>
-          <Route path="/login" element={<Login />}/>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/Aprendizaje" element={<AcordeonAprendizaje informacion={objetos} />} />
           <Route path="/Aprendizaje/videos/:nombre" element={<Video informacion={objetos} />} />
           <Route path="/Depositar" element={<DepositForm />} />
-          <Route path="/Retirar" element={<WithdrawForm />} />
-          <Route path="/crearcuenta" element={<CrearCuenta />}/>
-          <Route path="/confirmacionDeposito" element={<ConfirmacionDeposito />}/>
-          <Route path="/confirmacionRetiro" element={<ConfirmacionRetiro />}/>
+          <Route path="/Retirar" element={<WithdrawForm balance={balance}/>} />
+          <Route path="/crearcuenta" element={<CrearCuenta />} />
+          <Route path="/confirmacionDeposito/:cantidad" element={<ConfirmacionDeposito balance={balance}/>} />
+          <Route path="/confirmacionRetiro/:cantidad" element={<ConfirmacionRetiro balance={ balance } />} />
         </Routes>
       </BrowserRouter>
     </div>
