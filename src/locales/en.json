@@ -58,5 +58,8 @@
     "acordeon.titulo":"What do you want to learn today?",
     "video.anterior":"Previous lesson",
     "video.siguiente":"Next lesson",
-    "video.menu":"Go to main menu"
+    "video.menu":"Go to main menu",
+    "Reportes":"Reports",
+    "Reestablecer Contraseña":"Reset Password",
+    "Correo inválido":"Invalid email"
 }
