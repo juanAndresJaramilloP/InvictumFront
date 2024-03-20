@@ -17,6 +17,10 @@ import DepositForm from './components/DepositForm.js';
 import ConfirmacionDeposito from './components/ConfirmacionDeposito.js';
 import WithdrawForm from './components/WithdrawForm.js';
 import ConfirmacionRetiro from './components/ConfirmacionRetiro.js';
+import HomeLogin from './components/HomeLogin.js';
+import NavBarLogin from './components/NavBarLogin.js';
+
+import AdminCuenta from './components/AdministrarCuenta.js';
 import { useEffect } from 'react';
 import { useState } from 'react';
 
@@ -86,6 +90,7 @@ function App() {
 
       <BrowserRouter>
         <Routes>
+
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/Aprendizaje" element={<AcordeonAprendizaje informacion={objetos} />} />
@@ -95,6 +100,17 @@ function App() {
           <Route path="/crearcuenta" element={<CrearCuenta />} />
           <Route path="/confirmacionDeposito/:cantidad" element={<ConfirmacionDeposito balance={balance}/>} />
           <Route path="/confirmacionRetiro/:cantidad" element={<ConfirmacionRetiro balance={ balance } />} />
+
+      
+  
+
+          <Route path="/reportes" element={<Reporte />} />
+          <Route path="/reportesGestor" element={<ReporteGestor />} />
+
+ 
+          <Route path="/homeLogin" element={<HomeLogin />}/>
+          <Route path="/administrarCuenta" element={<AdminCuenta />}/>
+
         </Routes>
       </BrowserRouter>
     </div>

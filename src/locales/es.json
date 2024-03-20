@@ -59,7 +59,10 @@
     "video.anterior":"Anterior",
     "video.siguiente":"Siguiente",
     "video.menu":"Salir al menu principal",
-    "confirmacionDeposito.balance":"Su balance actual es: "
+    "confirmacionDeposito.balance":"Su balance actual es: ",
 
 
+    "Reports": "Reportes",
+    "Reset Password":"Reestablecer Contraseña",
+    "Invalid email":"Correo inválido"
 }

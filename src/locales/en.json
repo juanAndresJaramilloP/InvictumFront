@@ -59,5 +59,8 @@
     "video.anterior":"Previous lesson",
     "video.siguiente":"Next lesson",
     "video.menu":"Go to main menu",
-    "confirmacionDeposito.balance":"Your current balance is: "
+    "confirmacionDeposito.balance":"Your current balance is: ",
+    "Reportes":"Reports",
+    "Reestablecer Contraseña":"Reset Password",
+    "Correo inválido":"Invalid email"
 }
