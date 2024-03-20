@@ -48,7 +48,7 @@ const NavBarLogin = (props) => {
 
     const handleVerReporte= () => {
         navigate('/reportes', {
-            state: { fullName: fullName, tiempo: tiempo }
+            state: { email: email, tiempo: tiempo }
         });
     }
 

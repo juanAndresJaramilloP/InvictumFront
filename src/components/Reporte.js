@@ -19,15 +19,25 @@ const Reporte = () => {
     const [pageNumber, setPageNumber] = useState(1);
     const location = useLocation();
 
-    const {fullName, tiempo} = location.state;
+    const {email, tiempo} = location.state;
 
     function onDocumentLoadSuccess({ numPages }) {
         setNumPages(numPages);
     }
 
+    const renderizarReportes = () => 
+    {
+        const reportes = [];
+        for (let i = 0; i < tiempo; i++)
+        {
+            reportes.push(<li><button className="btn btn-ghost"> <img src={pdfIcon} className=' h-6'/><FormattedMessage id="Reporte Patrimonial" /> 2024/02</button></li>);
+        }
+        return reportes;
+    }
+
     return (
         <div>
-            <NavBarLogin />
+            <NavBarLogin email = {email}/>
             <div className="drawer lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col items-center justify-center">
@@ -45,8 +55,7 @@ const Reporte = () => {
                 <div className="drawer-side">
                     <label for="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
-                        <li><button className="btn btn-ghost"> <img src={pdfIcon} className=' h-6'/><FormattedMessage id="Reporte Patrimonial" /> 2024/02</button></li>
-                        <li><button className="btn btn-ghost"> <img src={pdfIcon} className=' h-6'/><FormattedMessage id="Reporte Patrimonial" /> 2024/01</button></li>
+                        {renderizarReportes()}                        
                     </ul>
                 </div>
             </div>

@@ -17,6 +17,19 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 const ReporteGestor = () => {
     const [numPages, setNumPages] = useState();
     const [pageNumber, setPageNumber] = useState(1);
+    const location = useLocation();
+
+    const {email, tiempo} = location.state;
+
+    const renderizarReportes = () => 
+    {
+        const reportes = [];
+        for (let i = 0; i < tiempo; i++)
+        {
+            reportes.push(<li><button className="btn btn-ghost"> <img src={pdfIcon} className=' h-6'/><FormattedMessage id="Reporte Patrimonial" /> 2024/02</button></li>);
+        }
+        return reportes;
+    }
 
     function onDocumentLoadSuccess({ numPages }) {
         setNumPages(numPages);
@@ -42,8 +55,7 @@ const ReporteGestor = () => {
                 <div className="drawer-side">
                     <label for="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
-                        <li><button className="btn btn-ghost"> <img src={pdfIcon} className=' h-6'/><FormattedMessage id="Reporte de Gestión" /> 2024/02</button></li>
-                        <li><button className="btn btn-ghost"> <img src={pdfIcon} className=' h-6'/><FormattedMessage id="Reporte de Gestión" />Reporte de Gestión 2024/01</button></li>
+                        {renderizarReportes()}
                     </ul>
                 </div>
             </div>
