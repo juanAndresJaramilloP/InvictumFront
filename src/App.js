@@ -21,62 +21,48 @@ import HomeLogin from './components/HomeLogin.js';
 import NavBarLogin from './components/NavBarLogin.js';
 
 import AdminCuenta from './components/AdministrarCuenta.js';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 function App() {
-  var objetos = [
-    {
-      "nombre": "Basic concepts",
-      "hijos": [
-        {
-          "nombre": "Introduction to Economics",
-          "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        },
-        {
-          "nombre": "Principles of Accounting",
-          "link": "https://www.youtube.com/watch?v=r5eZcLR5ztg"
-        }
-      ]
-    },
-    {
-      "nombre": "Investment analysis",
-      "hijos": [
-        {
-          "nombre": "Market Trends",
-          "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        },
-        {
-          "nombre": "Risk Assessment",
-          "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        }
-      ]
-    },
-    {
-      "nombre": "Fixed-income instruments",
-      "hijos": [
-        {
-          "nombre": "Bonds Fundamentals",
-          "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        },
-        {
-          "nombre": "Bond Market Strategies",
-          "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        }
-      ]
-    },
-    {
-      "nombre": "Variable-income instruments",
-      "hijos": [
-        {
-          "nombre": "Stocks and Shares",
-          "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        },
-        {
-          "nombre": "Dividends Analysis",
-          "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        }
-      ]
-    }
-  ]
+  const [objetos, setObjetos] = useState([]);
+
+
+
+    useEffect(() => {
+    const URL = "https://raw.githubusercontent.com/davidzamora9aSyC/datosAprendizaje/main/aprendizajev2.json";
+    fetch(URL)
+        .then(data => data.json())
+        .then(data => {
+            // Función para transformar la estructura JSON en un formato manejable
+            const transformData = (items) => {
+                return items.map(item => {
+                    if (item.hijos && item.hijos.length) {
+                        return {
+                            nombre: item.nombre,
+                            hijos: transformData(item.hijos) // Llamada recursiva para los hijos
+                        };
+                    } else {
+                        // Incluye el manejo del 'link' si está disponible
+                        return {
+                            nombre: item.nombre,
+                            link: item.link ? item.link : undefined,
+                            
+                        };
+                    }
+                });
+            };
+
+            // Transforma los datos y los establece con setData
+            const transformedData = transformData(data);
+            setObjetos(transformedData);
+        });
+}, []);
+
+
+
+    
+
 
   return (
     <div className="App color-gris-fondo">

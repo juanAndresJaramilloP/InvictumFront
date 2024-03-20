@@ -11,22 +11,29 @@ import { FormattedMessage } from 'react-intl';
 
 function Video(props) {
   let { nombre } = useParams();
-  const informacion = props.informacion;
+ 
+  const [informacion, setInformacion] = useState(props.informacion);
+
+ 
 
   const [linkDelVideo, setLinkDelVideo] = useState('');
   const [idDelVideo, setIdDelVideo] = useState('');
 
-  const { videoAnterior, videoSiguiente } = calcularVideosAnteriorSiguiente(props.informacion, nombre);
+  const { videoAnterior, videoSiguiente } = calcularVideosAnteriorSiguiente(informacion, nombre);
 
   const linkVideo = (data, nombre) => {
+    
     for (let i = 0; i < data.length; i++) {
       const hijos = data[i].hijos;
+      
       for (let j = 0; j < hijos.length; j++) {
+       
         if (hijos[j].nombre === nombre) {
           return hijos[j].link;
         }
       }
     }
+
     return null;
   };
 
@@ -36,8 +43,10 @@ function Video(props) {
       /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/,
       /^(?:(?:https?:)?\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})/
     ];
-
+    
+    
     for (let patron of patrones) {
+
       const coincidencia = link.match(patron);
       if (coincidencia && coincidencia.length >= 2) {
         return coincidencia[1];
@@ -47,16 +56,22 @@ function Video(props) {
 
     return null;
   };
+  useEffect(() => {
+    if (props.informacion && props.informacion !== informacion) {
+      setInformacion(props.informacion);
+    }
+  }, [props.informacion]);
 
 
 
   useEffect(() => {
-
+    
     
     const nuevoLink = linkVideo(informacion, nombre);
     setLinkDelVideo(nuevoLink); 
 
     if (nuevoLink) {
+      
       const nuevoId = IdVideo(nuevoLink);
       console.log(nuevoId)
       setIdDelVideo(nuevoId); 
@@ -64,7 +79,10 @@ function Video(props) {
     
   }, [nombre, informacion]); 
 
+  if (!informacion || informacion.length === 0) {
 
+    return <div>Cargando información...</div>;
+  }
 
 
   return (
@@ -97,8 +115,8 @@ function Video(props) {
           </div>
         </div>
         <div className="video-container mx-auto">
-
-          <VideoPlayer key={idDelVideo} className=" video " videoId={IdVideo(linkVideo(props.informacion, nombre))} />
+        
+          <VideoPlayer key={idDelVideo} className=" video " videoId={IdVideo(linkVideo(informacion, nombre))} />
 
 
 
