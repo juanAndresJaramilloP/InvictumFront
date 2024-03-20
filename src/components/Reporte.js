@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from './NavBar';
+import NavBarLogin from './NavBarLogin';
 import { pdfjs } from 'react-pdf';
 import { Document, Page } from 'react-pdf';
 import { useState } from 'react';
@@ -23,7 +23,7 @@ const Reporte = () => {
 
     return (
         <div>
-            <NavBar />
+            <NavBarLogin />
             <div className="drawer lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col items-center justify-center">

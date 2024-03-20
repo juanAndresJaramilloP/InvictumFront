@@ -17,16 +17,13 @@ import DepositForm from './components/DepositForm.js';
 import ConfirmacionDeposito from './components/ConfirmacionDeposito.js';
 import WithdrawForm from './components/WithdrawForm.js';
 import ConfirmacionRetiro from './components/ConfirmacionRetiro.js';
-<<<<<<< HEAD
 import CambioContrasenia from './components/CambioContrasenia.js';
-=======
 import HomeLogin from './components/HomeLogin.js';
 import NavBarLogin from './components/NavBarLogin.js';
 
 import AdminCuenta from './components/AdministrarCuenta.js';
 import { useEffect } from 'react';
 import { useState } from 'react';
->>>>>>> a79bab202fd4477a514329a773ab20b6f199085f
 
 function App() {
   const [objetos, setObjetos] = useState([]);
