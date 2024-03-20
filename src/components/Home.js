@@ -25,7 +25,7 @@ function Home() {
         <div>
             <NavBar />
             <div className="container justify-center mx-auto shadow-2xl xl:max-w-screen-xl">
-                <div className="hero min-h-screen bg-home-img1">
+                <div className="hero min-h-screen  bg-home-img1">
                     <div className="hero-overlay bg-opacity-10"></div>
                     <div className="hero-content text-center text-neutral-content">
                         <div className="max-w-md">

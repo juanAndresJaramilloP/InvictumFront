@@ -1,0 +1,642 @@
+[
+    {
+        "nombre": "Health Care",
+        "hijos": [
+            {
+                "nombre": "Barracuda Networks, Inc.",
+                "link": "https://www.youtube.com/watch?v=KNtJGQkC-WI&list=PL4fGSI1pDJn77aK7sAW2AT0oOzo5inWY8&index=1"
+            },
+            {
+                "nombre": "Prothena Corporation plc",
+                "link": "https://www.youtube.com/watch?v=Kzq15y2J4UM"
+            },
+            {
+                "nombre": "SemiLEDS Corporation",
+                "link": "https://www.youtube.com/watch?v=1lyu1KKwC74"
+            },
+            {
+                "nombre": "Compass Minerals International, Inc.",
+                "link": "https://www.youtube.com/watch?v=RVmG_d3HKBA"
+            },
+            {
+                "nombre": "Southern National Bancorp of Virginia, Inc.",
+                "link": "https://www.youtube.com/watch?v=r7qovpFAGrQ"
+            },
+            {
+                "nombre": "Ohio Valley Banc Corp.",
+                "link": "https://www.youtube.com/watch?v=Kt-tLuszKBA"
+            },
+            {
+                "nombre": "Becton, Dickinson and Company",
+                "link": "https://www.youtube.com/watch?v=sDcRCHXQ9gs&t=2042s"
+            }
+        ]
+    },
+    {
+        "nombre": "Finance",
+        "hijos": [
+            {
+                "nombre": "Empire State Realty Trust, Inc.",
+                "link": "https://www.youtube.com/watch?v=qIOYw9Yx0N8"
+            },
+            {
+                "nombre": "Flaherty & Crumrine Total Return Fund Inc",
+                "link": "https://www.youtube.com/watch?v=cD5T1Y4b7wA"
+            },
+            {
+                "nombre": "Five9, Inc.",
+                "link": "https://www.youtube.com/watch?v=ZA7ZKB8Mo9k"
+            },
+            {
+                "nombre": "Materion Corporation",
+                "link": "https://www.youtube.com/watch?v=MwpMEbgC7DA"
+            },
+            {
+                "nombre": "AEterna Zentaris Inc.",
+                "link": "https://www.youtube.com/watch?v=2-0BTCemezo"
+            }
+        ]
+    },
+    {
+        "nombre": "Consumer Services",
+        "hijos": [
+            {
+                "nombre": "Pernix Therapeutics Holdings, Inc.",
+                "link": "https://www.youtube.com/watch?v=WC5eZbGGqZ4"
+            },
+            {
+                "nombre": "Preformed Line Products Company",
+                "link": "https://www.youtube.com/watch?v=9Sc-ir2UwGU"
+            },
+            {
+                "nombre": "JetBlue Airways Corporation",
+                "link": "https://www.youtube.com/watch?v=1G4isv_Fylg"
+            },
+            {
+                "nombre": "Robert Half International Inc.",
+                "link": "https://www.youtube.com/watch?v=jGflUbPQfW8"
+            },
+            {
+                "nombre": "Insmed, Inc.",
+                "link": "https://www.youtube.com/watch?v=EkHTsc9PU2A"
+            },
+            {
+                "nombre": "Louisiana-Pacific Corporation",
+                "link": "https://www.youtube.com/watch?v=FTQbiNvZqaY"
+            }
+        ]
+    },
+    {
+        "nombre": "Consumer Non-Durables",
+        "hijos": [
+            {
+                "nombre": "Medovex Corp.",
+                "link": "https://www.youtube.com/watch?v=djV11Xbc914"
+            },
+            {
+                "nombre": "Liberty Media Corporation",
+                "link": "https://www.youtube.com/watch?v=ilw-qmqZ5zY"
+            },
+            {
+                "nombre": "Schlumberger N.V.",
+                "link": "https://www.youtube.com/watch?v=KNtJGQkC-WI&list=PL4fGSI1pDJn77aK7sAW2AT0oOzo5inWY8&index=1"
+            },
+            {
+                "nombre": "Newell Brands Inc.",
+                "link": "https://www.youtube.com/watch?v=Kzq15y2J4UM"
+            },
+            {
+                "nombre": "Rosehill Resources Inc.",
+                "link": "https://www.youtube.com/watch?v=1lyu1KKwC74"
+            }
+        ]
+    },
+    {
+        "nombre": "n/a",
+        "hijos": [
+            {
+                "nombre": "Warrior Met Coal, Inc.",
+                "link": "https://www.youtube.com/watch?v=RVmG_d3HKBA"
+            },
+            {
+                "nombre": "Exa Corporation",
+                "link": "https://www.youtube.com/watch?v=r7qovpFAGrQ"
+            },
+            {
+                "nombre": "UMB Financial Corporation",
+                "link": "https://www.youtube.com/watch?v=Kt-tLuszKBA"
+            },
+            {
+                "nombre": "Affiliated Managers Group, Inc.",
+                "link": "https://www.youtube.com/watch?v=sDcRCHXQ9gs&t=2042s"
+            },
+            {
+                "nombre": "RadNet, Inc.",
+                "link": "https://www.youtube.com/watch?v=qIOYw9Yx0N8"
+            },
+            {
+                "nombre": "Golden Ocean Group Limited",
+                "link": "https://www.youtube.com/watch?v=cD5T1Y4b7wA"
+            },
+            {
+                "nombre": "Liberty Media Corporation",
+                "link": "https://www.youtube.com/watch?v=ZA7ZKB8Mo9k"
+            }
+        ]
+    },
+    {
+        "nombre": "Health Care",
+        "hijos": [
+            {
+                "nombre": "Nuveen New Jersey Quality Municipal Income Fund",
+                "link": "https://www.youtube.com/watch?v=MwpMEbgC7DA"
+            },
+            {
+                "nombre": "Gabelli NextShares Trust",
+                "link": "https://www.youtube.com/watch?v=2-0BTCemezo"
+            },
+            {
+                "nombre": "CBAK Energy Technology, Inc.",
+                "link": "https://www.youtube.com/watch?v=WC5eZbGGqZ4"
+            },
+            {
+                "nombre": "Bank Of New York Mellon Corporation (The)",
+                "link": "https://www.youtube.com/watch?v=9Sc-ir2UwGU"
+            },
+            {
+                "nombre": "Daktronics, Inc.",
+                "link": "https://www.youtube.com/watch?v=1G4isv_Fylg"
+            }
+        ]
+    },
+    {
+        "nombre": "Consumer Services",
+        "hijos": [
+            {
+                "nombre": "ADTRAN, Inc.",
+                "link": "https://www.youtube.com/watch?v=jGflUbPQfW8"
+            },
+            {
+                "nombre": "Appian Corporation",
+                "link": "https://www.youtube.com/watch?v=EkHTsc9PU2A"
+            },
+            {
+                "nombre": "Babson Global Short Duration High Yield Fund",
+                "link": "https://www.youtube.com/watch?v=FTQbiNvZqaY"
+            },
+            {
+                "nombre": "SeaSpine Holdings Corporation",
+                "link": "https://www.youtube.com/watch?v=djV11Xbc914"
+            },
+            {
+                "nombre": "NACCO Industries, Inc.",
+                "link": "https://www.youtube.com/watch?v=ilw-qmqZ5zY"
+            },
+            {
+                "nombre": "eGain Corporation",
+                "link": "https://www.youtube.com/watch?v=KNtJGQkC-WI&list=PL4fGSI1pDJn77aK7sAW2AT0oOzo5inWY8&index=1"
+            },
+            {
+                "nombre": "NextEra Energy, Inc.",
+                "link": "https://www.youtube.com/watch?v=Kzq15y2J4UM"
+            },
+            {
+                "nombre": "Citigroup Inc.",
+                "link": "https://www.youtube.com/watch?v=1lyu1KKwC74"
+            }
+        ]
+    },
+    {
+        "nombre": "n/a",
+        "hijos": [
+            {
+                "nombre": "Amedica Corporation",
+                "link": "https://www.youtube.com/watch?v=RVmG_d3HKBA"
+            },
+            {
+                "nombre": "BlackRock Income Trust Inc. (The)",
+                "link": "https://www.youtube.com/watch?v=r7qovpFAGrQ"
+            },
+            {
+                "nombre": "Entergy Louisiana, Inc.",
+                "link": "https://www.youtube.com/watch?v=Kt-tLuszKBA"
+            },
+            {
+                "nombre": "Citigroup Inc.",
+                "link": "https://www.youtube.com/watch?v=sDcRCHXQ9gs&t=2042s"
+            },
+            {
+                "nombre": "Wells Fargo & Company",
+                "link": "https://www.youtube.com/watch?v=qIOYw9Yx0N8"
+            },
+            {
+                "nombre": "SMTC Corporation",
+                "link": "https://www.youtube.com/watch?v=cD5T1Y4b7wA"
+            },
+            {
+                "nombre": "Heartland Express, Inc.",
+                "link": "https://www.youtube.com/watch?v=ZA7ZKB8Mo9k"
+            }
+        ]
+    },
+    {
+        "nombre": "Consumer Services",
+        "hijos": [
+            {
+                "nombre": "First Trust Total US Market AlphaDEX ETF",
+                "link": "https://www.youtube.com/watch?v=MwpMEbgC7DA"
+            },
+            {
+                "nombre": "PowerShares DWA SmallCap Momentum Portfolio",
+                "link": "https://www.youtube.com/watch?v=2-0BTCemezo"
+            },
+            {
+                "nombre": "Conyers Park Acquisition Corp.",
+                "link": "https://www.youtube.com/watch?v=WC5eZbGGqZ4"
+            },
+            {
+                "nombre": "Natural Health Trends Corp.",
+                "link": "https://www.youtube.com/watch?v=9Sc-ir2UwGU"
+            },
+            {
+                "nombre": "Teekay LNG Partners L.P.",
+                "link": "https://www.youtube.com/watch?v=1G4isv_Fylg"
+            },
+            {
+                "nombre": "GTY Technology Holdings, Inc.",
+                "link": "https://www.youtube.com/watch?v=jGflUbPQfW8"
+            },
+            {
+                "nombre": "Cellectis S.A.",
+                "link": "https://www.youtube.com/watch?v=EkHTsc9PU2A"
+            },
+            {
+                "nombre": "First Hawaiian, Inc.",
+                "link": "https://www.youtube.com/watch?v=FTQbiNvZqaY"
+            }
+        ]
+    },
+    {
+        "nombre": "Consumer Services",
+        "hijos": [
+            {
+                "nombre": "HSBC Holdings plc",
+                "link": "https://www.youtube.com/watch?v=djV11Xbc914"
+            },
+            {
+                "nombre": "ManTech International Corporation",
+                "link": "https://www.youtube.com/watch?v=ilw-qmqZ5zY"
+            },
+            {
+                "nombre": "Toro Company (The)",
+                "link": "https://www.youtube.com/watch?v=KNtJGQkC-WI&list=PL4fGSI1pDJn77aK7sAW2AT0oOzo5inWY8&index=1"
+            },
+            {
+                "nombre": "YPF Sociedad Anonima",
+                "link": "https://www.youtube.com/watch?v=Kzq15y2J4UM"
+            },
+            {
+                "nombre": "Eaton Vance Tax-Managed Diversified Equity Income Fund",
+                "link": "https://www.youtube.com/watch?v=1lyu1KKwC74"
+            },
+            {
+                "nombre": "Alico, Inc.",
+                "link": "https://www.youtube.com/watch?v=RVmG_d3HKBA"
+            },
+            {
+                "nombre": "Proteon Therapeutics, Inc.",
+                "link": "https://www.youtube.com/watch?v=r7qovpFAGrQ"
+            }
+        ]
+    },
+    {
+        "nombre": "Consumer Services",
+        "hijos": [
+            {
+                "nombre": "Health Insurance Innovations, Inc.",
+                "link": "https://www.youtube.com/watch?v=Kt-tLuszKBA"
+            },
+            {
+                "nombre": "EMC Insurance Group Inc.",
+                "link": "https://www.youtube.com/watch?v=sDcRCHXQ9gs&t=2042s"
+            },
+            {
+                "nombre": "Eaton Vance NextShares Trust",
+                "link": "https://www.youtube.com/watch?v=qIOYw9Yx0N8"
+            },
+            {
+                "nombre": "Omega Healthcare Investors, Inc.",
+                "link": "https://www.youtube.com/watch?v=cD5T1Y4b7wA"
+            },
+            {
+                "nombre": "Ocera Therapeutics, Inc.",
+                "link": "https://www.youtube.com/watch?v=ZA7ZKB8Mo9k"
+            }
+        ]
+    },
+    {
+        "nombre": "Capital Goods",
+        "hijos": [
+            {
+                "nombre": "Benitec Biopharma Limited",
+                "link": "https://www.youtube.com/watch?v=MwpMEbgC7DA"
+            },
+            {
+                "nombre": "Principal Financial Group Inc",
+                "link": "https://www.youtube.com/watch?v=2-0BTCemezo"
+            },
+            {
+                "nombre": "Approach Resources Inc.",
+                "link": "https://www.youtube.com/watch?v=WC5eZbGGqZ4"
+            },
+            {
+                "nombre": "State Street Corporation",
+                "link": "https://www.youtube.com/watch?v=9Sc-ir2UwGU"
+            },
+            {
+                "nombre": "Ophthotech Corporation",
+                "link": "https://www.youtube.com/watch?v=1G4isv_Fylg"
+            },
+            {
+                "nombre": "Pioneer Power Solutions, Inc.",
+                "link": "https://www.youtube.com/watch?v=jGflUbPQfW8"
+            },
+            {
+                "nombre": "MER Telemanagement Solutions Ltd.",
+                "link": "https://www.youtube.com/watch?v=EkHTsc9PU2A"
+            },
+            {
+                "nombre": "Comstock Holding Companies, Inc.",
+                "link": "https://www.youtube.com/watch?v=FTQbiNvZqaY"
+            }
+        ]
+    },
+    {
+        "nombre": "n/a",
+        "hijos": [
+            {
+                "nombre": "Entercom Communications Corporation",
+                "link": "https://www.youtube.com/watch?v=djV11Xbc914"
+            },
+            {
+                "nombre": "Alliance Resource Partners, L.P.",
+                "link": "https://www.youtube.com/watch?v=ilw-qmqZ5zY"
+            },
+            {
+                "nombre": "CHS Inc",
+                "link": "https://www.youtube.com/watch?v=KNtJGQkC-WI&list=PL4fGSI1pDJn77aK7sAW2AT0oOzo5inWY8&index=1"
+            },
+            {
+                "nombre": "Ryerson Holding Corporation",
+                "link": "https://www.youtube.com/watch?v=Kzq15y2J4UM"
+            },
+            {
+                "nombre": "RAIT Financial Trust",
+                "link": "https://www.youtube.com/watch?v=1lyu1KKwC74"
+            },
+            {
+                "nombre": "Cherry Hill Mortgage Investment Corporation",
+                "link": "https://www.youtube.com/watch?v=RVmG_d3HKBA"
+            },
+            {
+                "nombre": "SPS Commerce, Inc.",
+                "link": "https://www.youtube.com/watch?v=r7qovpFAGrQ"
+            },
+            {
+                "nombre": "Telephone and Data Systems, Inc.",
+                "link": "https://www.youtube.com/watch?v=Kt-tLuszKBA"
+            }
+        ]
+    },
+    {
+        "nombre": "Consumer Services",
+        "hijos": [
+            {
+                "nombre": "AEterna Zentaris Inc.",
+                "link": "https://www.youtube.com/watch?v=sDcRCHXQ9gs&t=2042s"
+            },
+            {
+                "nombre": "UMH Properties, Inc.",
+                "link": "https://www.youtube.com/watch?v=qIOYw9Yx0N8"
+            },
+            {
+                "nombre": "Eli Lilly and Company",
+                "link": "https://www.youtube.com/watch?v=cD5T1Y4b7wA"
+            },
+            {
+                "nombre": "Precision Drilling Corporation",
+                "link": "https://www.youtube.com/watch?v=ZA7ZKB8Mo9k"
+            },
+            {
+                "nombre": "Federated National Holding Company",
+                "link": "https://www.youtube.com/watch?v=MwpMEbgC7DA"
+            },
+            {
+                "nombre": "Northrop Grumman Corporation",
+                "link": "https://www.youtube.com/watch?v=2-0BTCemezo"
+            },
+            {
+                "nombre": "Allegheny Technologies Incorporated",
+                "link": "https://www.youtube.com/watch?v=WC5eZbGGqZ4"
+            },
+            {
+                "nombre": "BMC Stock Holdings, Inc.",
+                "link": "https://www.youtube.com/watch?v=9Sc-ir2UwGU"
+            }
+        ]
+    },
+    {
+        "nombre": "Miscellaneous",
+        "hijos": [
+            {
+                "nombre": "New York Mortgage Trust, Inc.",
+                "link": "https://www.youtube.com/watch?v=1G4isv_Fylg"
+            },
+            {
+                "nombre": "Blackrock MuniYield Fund, Inc.",
+                "link": "https://www.youtube.com/watch?v=jGflUbPQfW8"
+            },
+            {
+                "nombre": "ClearBridge American Energy MLP Fund Inc.",
+                "link": "https://www.youtube.com/watch?v=EkHTsc9PU2A"
+            },
+            {
+                "nombre": "Chunghwa Telecom Co., Ltd.",
+                "link": "https://www.youtube.com/watch?v=FTQbiNvZqaY"
+            },
+            {
+                "nombre": "Escalade, Incorporated",
+                "link": "https://www.youtube.com/watch?v=djV11Xbc914"
+            },
+            {
+                "nombre": "Ituran Location and Control Ltd.",
+                "link": "https://www.youtube.com/watch?v=ilw-qmqZ5zY"
+            },
+            {
+                "nombre": "Varex Imaging Corporation",
+                "link": "https://www.youtube.com/watch?v=KNtJGQkC-WI&list=PL4fGSI1pDJn77aK7sAW2AT0oOzo5inWY8&index=1"
+            }
+        ]
+    },
+    {
+        "nombre": "Finance",
+        "hijos": [
+            {
+                "nombre": "New York Community Bancorp, Inc.",
+                "link": "https://www.youtube.com/watch?v=Kzq15y2J4UM"
+            },
+            {
+                "nombre": "AppFolio, Inc.",
+                "link": "https://www.youtube.com/watch?v=1lyu1KKwC74"
+            },
+            {
+                "nombre": "BLDRS Asia 50 ADR Index Fund",
+                "link": "https://www.youtube.com/watch?v=RVmG_d3HKBA"
+            },
+            {
+                "nombre": "Tortoise Power and Energy Infrastructure Fund, Inc",
+                "link": "https://www.youtube.com/watch?v=r7qovpFAGrQ"
+            },
+            {
+                "nombre": "Telecom Italia S.P.A.",
+                "link": "https://www.youtube.com/watch?v=Kt-tLuszKBA"
+            },
+            {
+                "nombre": "The First of Long Island Corporation",
+                "link": "https://www.youtube.com/watch?v=sDcRCHXQ9gs&t=2042s"
+            },
+            {
+                "nombre": "MoSys, Inc.",
+                "link": "https://www.youtube.com/watch?v=qIOYw9Yx0N8"
+            },
+            {
+                "nombre": "Remark Holdings, Inc.",
+                "link": "https://www.youtube.com/watch?v=cD5T1Y4b7wA"
+            }
+        ]
+    },
+    {
+        "nombre": "Consumer Services",
+        "hijos": [
+            {
+                "nombre": "First Cash, Inc.",
+                "link": "https://www.youtube.com/watch?v=ZA7ZKB8Mo9k"
+            },
+            {
+                "nombre": "Matlin & Partners Acquisition Corporation",
+                "link": "https://www.youtube.com/watch?v=MwpMEbgC7DA"
+            },
+            {
+                "nombre": "Limelight Networks, Inc.",
+                "link": "https://www.youtube.com/watch?v=2-0BTCemezo"
+            },
+            {
+                "nombre": "iShares FTSE EPRA/NAREIT Global Real Estate ex-U.S. Index Fund",
+                "link": "https://www.youtube.com/watch?v=WC5eZbGGqZ4"
+            },
+            {
+                "nombre": "CVR Refining, LP",
+                "link": "https://www.youtube.com/watch?v=9Sc-ir2UwGU"
+            },
+            {
+                "nombre": "Piedmont Office Realty Trust, Inc.",
+                "link": "https://www.youtube.com/watch?v=1G4isv_Fylg"
+            },
+            {
+                "nombre": "Albany International Corporation",
+                "link": "https://www.youtube.com/watch?v=jGflUbPQfW8"
+            }
+        ]
+    },
+    {
+        "nombre": "n/a",
+        "hijos": [
+            {
+                "nombre": "Rent-A-Center Inc.",
+                "link": "https://www.youtube.com/watch?v=EkHTsc9PU2A"
+            },
+            {
+                "nombre": "SuperValu Inc.",
+                "link": "https://www.youtube.com/watch?v=FTQbiNvZqaY"
+            },
+            {
+                "nombre": "Revolution Lighting Technologies, Inc.",
+                "link": "https://www.youtube.com/watch?v=djV11Xbc914"
+            },
+            {
+                "nombre": "Provident Bancorp, Inc.",
+                "link": "https://www.youtube.com/watch?v=ilw-qmqZ5zY"
+            },
+            {
+                "nombre": "Cementos Pacasmayo S.A.A.",
+                "link": "https://www.youtube.com/watch?v=KNtJGQkC-WI&list=PL4fGSI1pDJn77aK7sAW2AT0oOzo5inWY8&index=1"
+            },
+            {
+                "nombre": "James River Group Holdings, Ltd.",
+                "link": "https://www.youtube.com/watch?v=Kzq15y2J4UM"
+            },
+            {
+                "nombre": "Altra Industrial Motion Corp.",
+                "link": "https://www.youtube.com/watch?v=1lyu1KKwC74"
+            }
+        ]
+    },
+    {
+        "nombre": "n/a",
+        "hijos": [
+            {
+                "nombre": "lululemon athletica inc.",
+                "link": "https://www.youtube.com/watch?v=RVmG_d3HKBA"
+            },
+            {
+                "nombre": "First Trust Indxx Global Natural Resources Income ETF",
+                "link": "https://www.youtube.com/watch?v=r7qovpFAGrQ"
+            },
+            {
+                "nombre": "Smith (A.O.) Corporation",
+                "link": "https://www.youtube.com/watch?v=Kt-tLuszKBA"
+            },
+            {
+                "nombre": "Information Services Group, Inc.",
+                "link": "https://www.youtube.com/watch?v=sDcRCHXQ9gs&t=2042s"
+            },
+            {
+                "nombre": "Veritex Holdings, Inc.",
+                "link": "https://www.youtube.com/watch?v=qIOYw9Yx0N8"
+            }
+        ]
+    },
+    {
+        "nombre": "Finance",
+        "hijos": [
+            {
+                "nombre": "Rex Energy Corporation",
+                "link": "https://www.youtube.com/watch?v=cD5T1Y4b7wA"
+            },
+            {
+                "nombre": "Treehouse Foods, Inc.",
+                "link": "https://www.youtube.com/watch?v=ZA7ZKB8Mo9k"
+            },
+            {
+                "nombre": "Petroquest Energy Inc",
+                "link": "https://www.youtube.com/watch?v=MwpMEbgC7DA"
+            },
+            {
+                "nombre": "Astec Industries, Inc.",
+                "link": "https://www.youtube.com/watch?v=2-0BTCemezo"
+            },
+            {
+                "nombre": "Spring Bank Pharmaceuticals, Inc.",
+                "link": "https://www.youtube.com/watch?v=WC5eZbGGqZ4"
+            },
+            {
+                "nombre": "KraneShares CSI China Internet ETF",
+                "link": "https://www.youtube.com/watch?v=9Sc-ir2UwGU"
+            },
+            {
+                "nombre": "Alliance One International, Inc.",
+                "link": "https://www.youtube.com/watch?v=1G4isv_Fylg"
+            }
+        ]
+    }
+]
