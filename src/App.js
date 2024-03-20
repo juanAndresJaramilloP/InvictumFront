@@ -17,6 +17,7 @@ import DepositForm from './components/DepositForm.js';
 import ConfirmacionDeposito from './components/ConfirmacionDeposito.js';
 import WithdrawForm from './components/WithdrawForm.js';
 import ConfirmacionRetiro from './components/ConfirmacionRetiro.js';
+import CambioContrasenia from './components/CambioContrasenia.js';
 
 function App() {
   var objetos = [
@@ -89,6 +90,7 @@ function App() {
           <Route path="/crearcuenta" element={<CrearCuenta />}/>
           <Route path="/confirmacionDeposito" element={<ConfirmacionDeposito />}/>
           <Route path="/confirmacionRetiro" element={<ConfirmacionRetiro />}/>
+          <Route path="/reestablecerContraseña" element={<CambioContrasenia />}/>
         </Routes>
       </BrowserRouter>
     </div>

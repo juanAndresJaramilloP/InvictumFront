@@ -22,7 +22,7 @@ function DepositForm() {
     let tempErrors = {};
 
     // Check if amount is provided and is a number
-    tempErrors.amount = form.amount ? '' : <FormattedMessage id="depositar.error.amount" defaultMessage="Amount is required and it must be a number" />;
+    tempErrors.amount = form.amount ? '' : <FormattedMessage id="depositar.error.amount" />;
 
     tempErrors.cardHolderName = form.cardHolderName ? '' : <FormattedMessage id="depositar.error.cardholder" defaultMessage="Cardholder name is required" />;
 
