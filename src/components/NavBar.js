@@ -1,4 +1,5 @@
 import logo from '../Invictum.svg'
+import LoginButton from './LoginButton';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
@@ -17,7 +18,8 @@ const NavBar = () => {
                 <a className="btn btn-ghost p-0 text-xl" href='/'>NVICTUM</a>
             </div>
             <div className="navbar-end flex mr-8">
-                <a className="btn btn-primary rounded-lg " style={{ color: 'white' }} onClick={handleLogin}><FormattedMessage id='Empezar' /></a>
+                {/* <a className="btn btn-primary rounded-lg " style={{ color: 'white' }} onClick={handleLogin}><FormattedMessage id='Empezar' /></a> */}
+                <LoginButton />
             </div>
         </div>
     );

@@ -65,7 +65,7 @@
     "Confirmar contraseña nueva": "Confirm new password",
     "confirmacionDeposito.balance":"Your current balance is: ",
     "Reportes":"Reports",
-    "Correo inválido":"Invalid email",
+    "Correo o contraseña inválidos": "Invalid Email or Password",
     "Configuración de administrador": "Admin settings",
     "Contraseña actual incorrecta": "Current password is incorrect",
     "Contraseña nueva incorrecta": "New password isn't equal in both fields or isn't valid as a password. Remember your password must be at least 5 characters long and have letters and numbers",

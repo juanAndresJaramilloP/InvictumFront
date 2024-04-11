@@ -5,7 +5,7 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import App from './App';
 import { IntlProvider } from 'react-intl';
-
+import { Auth0Provider } from '@auth0/auth0-react';
 import localeEsMessages from "./locales/es";
 import localeEnMessages from "./locales/en";
 
@@ -18,9 +18,17 @@ serviceWorkerRegistration.register();
 
 //root.render(<Acordeon informacion ={ objetos } ></Acordeon>);
 root.render(
-  <IntlProvider locale={userLanguage} messages={messages}>
-    <App />
-  </IntlProvider>
+  <Auth0Provider
+    domain="dev-nipytnid51efqpry.us.auth0.com"
+    clientId="9lGeaP5aQbj8ZMNcVO2ODhypykazZpu5"
+    authorizationParams={{
+      redirect_uri: window.location.origin
+    }}
+  >
+    <IntlProvider locale={userLanguage} messages={messages}>
+      <App />
+    </IntlProvider>
+  </Auth0Provider>
 );
 
 

@@ -67,17 +67,17 @@ function Home() {
                     <h1 className="text-2xl font-bold mt-12 ml-16"><FormattedMessage id="¿Qué hacemos?" /></h1>
                     <div className="container px-2 flex flex-row justify-center">
                         <p className="text-base my-4 ml-16 mr-12"><FormattedMessage id="home.quesehace" /> </p>
-                        <img className=" h-24 mx-auto mr-12 my-4" src={img7} alt="Logo" />
+                        <img className=" h-24 mx-auto mr-12" src={img7} alt="Logo" />
                     </div>
                     <h1 className="text-2xl font-bold mt-12 ml-16"><FormattedMessage id="Nuestra Historia" /></h1>
                     <div className="container px-2 flex flex-row justify-center">
                         <p className="text-base my-4 ml-16 mr-12"><FormattedMessage id="home.historia.contenido" /> </p>
-                        <img className=" h-24 mx-auto mr-12 my-4" src={img5} alt="Logo" />
+                        <img className=" h-24 mx-auto mr-12" src={img5} alt="Logo" />
                     </div>
                     <h1 className="text-2xl font-bold mt-12 ml-16"><FormattedMessage id="Nuestra Visión" /></h1>
-                    <div className="container px-2 flex flex-row justify-center">
+                    <div className="container px-2 flex flex-row justify-center mb-24">
                         <p className="text-base my-4 ml-16 mr-12"><FormattedMessage id="home.vision.contenido" /> </p>
-                        <img className=" h-24 mx-auto mr-12 my-4" src={img6} alt="Logo" />
+                        <img className=" h-24 mx-auto mr-12" src={img6} alt="Logo" />
                     </div>
                 </div>
             </div>
