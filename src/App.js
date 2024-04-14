@@ -1,13 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-
-// Aqui se importan todos los componentes
 import Home from './components/Home';
 import NavBar from './components/NavBar';
 import Sidemenu from './components/Sidemenu';
-import Acordeon from './components/AcordeonAprendizaje.js'
-import Video from './components/video.js'
+import Acordeon from './components/AcordeonAprendizaje.js';
+import Video from './components/video.js';
 import Reporte from './components/Reporte.js';
 import ReporteGestor from './components/ReporteGestor.js';
 import Login from './components/Login.js';
@@ -20,7 +18,6 @@ import ConfirmacionRetiro from './components/ConfirmacionRetiro.js';
 import CambioContrasenia from './components/CambioContrasenia.js';
 import HomeLogin from './components/HomeLogin.js';
 import NavBarLogin from './components/NavBarLogin.js';
-
 import AdminCuenta from './components/AdministrarCuenta.js';
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -56,9 +53,6 @@ function App() {
       });
   }, []);
 
-
-
-  
   return (
     <div className="App color-gris-fondo">
 
@@ -78,7 +72,7 @@ function App() {
           <Route path="/reportes" element={<Reporte />} />
           <Route path="/reportesGestor" element={<ReporteGestor />} />
           <Route path="/reestablecerContraseña" element={<CambioContrasenia />}/>
-          <Route path="/homeLogin" element={<HomeLogin />}/>
+          {/* <Route path="/homeLogin" element={<HomeLogin />}/> */}
           <Route path="/administrarCuenta" element={<AdminCuenta />}/>
 
         </Routes>

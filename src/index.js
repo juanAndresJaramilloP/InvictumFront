@@ -12,6 +12,9 @@ import localeEnMessages from "./locales/en";
 const userLanguage = navigator.language || navigator.userLanguage;
 const messages = userLanguage.startsWith("es") ? localeEsMessages : localeEnMessages;
 
+const domain = process.env.REACT_APP_AUTH0_DOMAIN;
+const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 serviceWorkerRegistration.register();
@@ -19,8 +22,8 @@ serviceWorkerRegistration.register();
 //root.render(<Acordeon informacion ={ objetos } ></Acordeon>);
 root.render(
   <Auth0Provider
-    domain="dev-nipytnid51efqpry.us.auth0.com"
-    clientId="9lGeaP5aQbj8ZMNcVO2ODhypykazZpu5"
+    domain={domain}
+    clientId={clientId}
     authorizationParams={{
       redirect_uri: window.location.origin
     }}

@@ -1,6 +1,10 @@
 import React from 'react';
 import NavBar from './NavBar';
+import NavBarLogin from './NavBarLogin';
 import Footer from './Footer';
+import LoginButton from './LoginButton';
+import LogoutButton from './LogoutButton';
+import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 
@@ -15,6 +19,9 @@ import img7 from '../assets/7.png';
 
 
 function Home() {
+
+    const {user, isAuthenticated } = useAuth0();
+
     const navigate = useNavigate();
 
     const handleLogin = () => {
@@ -23,18 +30,19 @@ function Home() {
 
     return (
         <div>
-            <NavBar />
-            <div className="container justify-center mx-auto shadow-2xl xl:max-w-screen-xl">
-                <div className="hero min-h-screen  bg-home-img1">
+           {isAuthenticated ? <NavBarLogin user={user}/> : <NavBar />}
+            <div className="container justify-center mx-auto">
+                <div className="hero min-h-screen bg-home-img1">
                     <div className="hero-overlay bg-opacity-10"></div>
                     <div className="hero-content text-center text-neutral-content">
                         <div className="max-w-md">
-                            <h1 className=" mb-16 text-4xl text-black font-bold"><FormattedMessage id="La Mejor Manera de Empezar a Construir Riqueza" /></h1>
-                            <button className="btn btn-primary rounded-lg text-white" onClick={handleLogin}><FormattedMessage id="Empezar Ahora" /></button>
+                            <h1 className=" mb-16 text-4xl text-black font-bold"><FormattedMessage id="La Mejor Manera de Empezar a Construir Riqueza" defaultMessage="La Mejor Manera de Empezar a Construir Riqueza"/></h1>
+                            <LoginButton />
+                            <LogoutButton/>
                         </div>
                     </div>
                 </div>
-                <div className='bg-[#030A1C] text-white'>
+                <div id='Propuesta Valor' className='bg-[#030A1C] text-white'>
                     <div className=" justify-center items-start flex flex-col sm:flex-row p-10">
                         <div className="container mx-1.5 px-2 flex-col">
                             <img className="h-14 mx-auto" src={img1} alt="Logo" />
@@ -62,22 +70,28 @@ function Home() {
                     <h1 className="text-4xl font-bold text-black w-3/4 max-w-96 text-center mt-20"><FormattedMessage id="No importa si tienes poco dinero para invertir..." /></h1>
                     <h1 className="text-4xl font-bold text-black w-3/4 max-w-96 text-center mt-12"><FormattedMessage id="¡En Invictum, todos son bienvenidos!" /></h1>
                 </div>
-                <div className='bg-[#030A1C] text-white justify-center flex flex-col'>
+                <div id='Sobre Nosotros' className='bg-[#030A1C] text-white justify-center flex flex-col'>
                     <h1 className="text-4xl font-bold text-center mt-16"><FormattedMessage id="Sobre Nosotros" /></h1>
-                    <h1 className="text-2xl font-bold mt-12 ml-16"><FormattedMessage id="¿Qué hacemos?" /></h1>
-                    <div className="container px-2 flex flex-row justify-center">
-                        <p className="text-base my-4 ml-16 mr-12"><FormattedMessage id="home.quesehace" /> </p>
-                        <img className=" h-24 mx-auto mr-12" src={img7} alt="Logo" />
+                    <div className='container mx-auto mt-14'>
+                        <h1 className="text-2xl font-bold text-center my-3"><FormattedMessage id="¿Qué hacemos?" /></h1>
+                        <div className="container flex flex-row flex-wrap justify-evenly">
+                            <p className="text-base max-w-3xl px-10 lg:px-0 text-center lg:text-justify"><FormattedMessage id="home.quesehace" /> </p>
+                            <img className=" h-24  mt-4 lg:mt-0" src={img7} alt="Logo" />
+                        </div>
                     </div>
-                    <h1 className="text-2xl font-bold mt-12 ml-16"><FormattedMessage id="Nuestra Historia" /></h1>
-                    <div className="container px-2 flex flex-row justify-center">
-                        <p className="text-base my-4 ml-16 mr-12"><FormattedMessage id="home.historia.contenido" /> </p>
-                        <img className=" h-24 mx-auto mr-12" src={img5} alt="Logo" />
+                    <div className='container mx-auto mt-14'>
+                        <h1 className="text-2xl font-bold text-center my-3"><FormattedMessage id="Nuestra Historia" /></h1>
+                        <div className="container flex flex-row flex-wrap justify-evenly">
+                            <p className="text-base max-w-3xl px-10 lg:px-0 text-center lg:text-justify"><FormattedMessage id="home.historia.contenido" /> </p>
+                            <img className=" h-24  mt-4 lg:mt-0" src={img5} alt="Logo" />
+                        </div>
                     </div>
-                    <h1 className="text-2xl font-bold mt-12 ml-16"><FormattedMessage id="Nuestra Visión" /></h1>
-                    <div className="container px-2 flex flex-row justify-center mb-24">
-                        <p className="text-base my-4 ml-16 mr-12"><FormattedMessage id="home.vision.contenido" /> </p>
-                        <img className=" h-24 mx-auto mr-12" src={img6} alt="Logo" />
+                    <div className='container mx-auto mt-14 mb-14'>
+                        <h1 className="text-2xl font-bold text-center my-3"><FormattedMessage id="Nuestra Visión" /></h1>
+                        <div className="container flex flex-row flex-wrap justify-evenly">
+                            <p className="text-base max-w-3xl px-10 lg:px-0 text-center lg:text-justify"><FormattedMessage id="home.vision.contenido" /> </p>
+                            <img className=" h-24 mt-4 lg:mt-0" src={img6} alt="Logo" />
+                        </div>
                     </div>
                 </div>
             </div>
