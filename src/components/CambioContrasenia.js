@@ -109,19 +109,19 @@ function CambioContrasenia ()
                 <div className="flex flex-col w-full max-w-md">
                     <span className="text-base text-blue-950"><FormattedMessage id="Contraseña actual"/></span>     
                     <input id='pwdActual' type="password" placeholder="..." className="input input-ghost" onChange={manejoPwdActual}/>
-                    <div class="border-t border-gray-400"></div>
+                    <div className="border-t border-gray-400"></div>
                 </div>
 
                 <div className="flex flex-col w-full max-w-md">
                     <span className="text-base text-blue-950"><FormattedMessage id="Contraseña nueva"/></span>     
                     <input id='pwdNueva' type="password" placeholder="..." className="input input-ghost" onChange={manejoPwdNueva} />
-                    <div class="border-t border-gray-400"></div>
+                    <div className="border-t border-gray-400"></div>
                 </div>
 
                 <div className="flex flex-col w-full max-w-md">
                     <span className="text-base text-blue-950"><FormattedMessage id="Confirmar contraseña nueva"/></span>     
                     <input id='copiaPwdNueva' type="password" placeholder="..." className="input input-ghost" onChange={manejoConfPwdNueva}/>
-                    <div class="border-t border-gray-400"></div>
+                    <div className="border-t border-gray-400"></div>
                 </div>
 
                 <button className="btn btn-primary text-white rounded-full" onClick={handleReestablecerContraseña}><FormattedMessage id="Reestablecer Contraseña"/></button>
