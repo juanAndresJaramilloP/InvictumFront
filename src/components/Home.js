@@ -20,7 +20,7 @@ import img7 from '../assets/7.png';
 
 function Home() {
 
-    const {user, isAuthenticated } = useAuth0();
+  
 
     const navigate = useNavigate();
 
@@ -30,15 +30,14 @@ function Home() {
 
     return (
         <div>
-           {isAuthenticated ? <NavBarLogin user={user}/> : <NavBar />}
-            <div className="container justify-center mx-auto">
-                <div className="hero min-h-screen bg-home-img1">
+           <NavBar />
+            <div className="container justify-center mx-auto shadow-2xl xl:max-w-screen-xl">
+                <div className="hero min-h-screen  bg-home-img1">
                     <div className="hero-overlay bg-opacity-10"></div>
                     <div className="hero-content text-center text-neutral-content">
                         <div className="max-w-md">
                             <h1 className=" mb-16 text-4xl text-black font-bold"><FormattedMessage id="La Mejor Manera de Empezar a Construir Riqueza" defaultMessage="La Mejor Manera de Empezar a Construir Riqueza"/></h1>
-                            <LoginButton />
-                            <LogoutButton/>
+                            <button className="btn btn-primary rounded-lg text-white" onClick={handleLogin}><FormattedMessage id="Empezar Ahora" /></button>
                         </div>
                     </div>
                 </div>

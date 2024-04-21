@@ -3,9 +3,14 @@ import LoginButton from './LoginButton';
 import LogoutButton from './LogoutButton';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
+import { useNavigate } from 'react-router-dom';
 
-const NavBar = () => {
-
+const NavBar = () => {  
+    const navigate = useNavigate();
+    const handleLogin = () => {
+        navigate('/login');
+    }
+    
     const handleScrollToOurValue = () => {
         
         const section = document.getElementById('Propuesta Valor');
@@ -43,8 +48,8 @@ const NavBar = () => {
                 <a className="btn btn-ghost hidden sm:block content-center" id='Nuestro Valor' onClick={handleScrollToOurValue}><FormattedMessage id="Nuestro Valor" /></a>
             </div>
             <div className="navbar-end mr-5">
-                <LoginButton />
-                <LogoutButton/>
+                <a className="btn btn-primary rounded-lg " style={{ color: 'white' }} onClick={handleLogin}><FormattedMessage id='Empezar' /></a>
+              
             </div>
         </div>
     );
