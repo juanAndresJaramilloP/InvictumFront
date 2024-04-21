@@ -102,9 +102,9 @@ const NavBarLogin = (props) => {
             </div>
             <div className="navbar-end flex mr-8">
                 <p className="text-xl mr-4">{fullName}</p>
-                <details class="dropdown dropdown-end">
+                <details className="dropdown dropdown-end">
                     <summary><img className='h-20 bg-black rounded-full p-3 mr-4' src={profileImage} alt="Profile Image"/></summary>
-                    <ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+                    <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
                         <li onClick={handleAdminAccount}><a className='text-black'><FormattedMessage id="Configuración de administrador"/></a></li>
                         <li onClick={handleChangePassword}><a className='text-black'><FormattedMessage id="Reestablecer Contraseña"/></a></li>
                     </ul>

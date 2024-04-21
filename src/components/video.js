@@ -92,7 +92,7 @@ function Video(props) {
       <div className="anchoVideo mx-auto">
         <div className="video-nav-container my-5">
           <div className="video-nav-title">
-            <h1 class="text-4xl font-bold">{nombre}</h1>
+            <h1 className="text-4xl font-bold">{nombre}</h1>
 
           </div>
           <div className="video-nav-buttons">
