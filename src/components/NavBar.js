@@ -48,7 +48,7 @@ const NavBar = () => {
                 <a className="btn btn-ghost hidden sm:block content-center" id='Nuestro Valor' onClick={handleScrollToOurValue}><FormattedMessage id="Nuestro Valor" /></a>
             </div>
             <div className="navbar-end mr-5">
-                <a className="btn btn-primary rounded-lg " style={{ color: 'white' }} onClick={handleLogin}><FormattedMessage id='Empezar' /></a>
+                <a className="btn btn-primary rounded-lg " id='Empezar' style={{ color: 'white' }} onClick={handleLogin}><FormattedMessage id='Empezar' /></a>
               
             </div>
         </div>

@@ -34,7 +34,7 @@ jest.mock('react-router-dom', () => ({
 
 describe('Acordeon Component', () => {
   test('debe estar cerrado por defecto', () => {
-    render(<IntlProvider locale='es'>
+    render(<IntlProvider locale='es' messages={message}>
             <Acordeon informacion={informacionMock} />
         </IntlProvider>);
 

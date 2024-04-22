@@ -4,6 +4,11 @@ import { IntlProvider } from 'react-intl';
 import localeEsMessages from "../../locales/es";
 const message = localeEsMessages;
 
+jest.mock('react-router-dom', () => ({
+    ...jest.requireActual('react-router-dom'),
+    useNavigate: () => jest.fn(),
+  }));
+
 describe('NavBar', () => {
     test('renders logo', () => {
         render(
@@ -21,7 +26,7 @@ describe('NavBar', () => {
                 <NavBar />
             </IntlProvider>
         );
-        const loginButtonElement = screen.getByRole('button', { name: 'Empezar Ahora' });
+        const loginButtonElement = screen.getByRole('link', { id: 'Empezar' });
         expect(loginButtonElement).toBeInTheDocument();
     });
 
