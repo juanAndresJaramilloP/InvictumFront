@@ -26,12 +26,12 @@ function HomeLogin() {
     return (
         <div>
             <NavBarLogin email={email} password={password}/>
-            <div className="container justify-center mx-auto shadow-2xl xl:max-w-screen-xl">
+            <div className="container justify-center mx-auto shadow-2xl">
                 <div className="hero min-h-screen bg-home-img1">
                     <div className="hero-overlay bg-opacity-10"></div>
                     <div className="hero-content text-center text-neutral-content">
                         <div className="max-w-md">
-                            <h1 className=" mb-16 text-4xl text-black font-bold"><FormattedMessage id="La Mejor Manera de Empezar a Construir Riqueza" /></h1>
+                            <h1 className=" mb-80 text-4xl text-black font-bold"><FormattedMessage id="La Mejor Manera de Empezar a Construir Riqueza" /></h1>
                         </div>
                     </div>
                 </div>

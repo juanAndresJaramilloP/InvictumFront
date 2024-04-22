@@ -2,9 +2,6 @@ import React from 'react';
 import NavBar from './NavBar';
 import NavBarLogin from './NavBarLogin';
 import Footer from './Footer';
-import LoginButton from './LoginButton';
-import LogoutButton from './LogoutButton';
-import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 
@@ -31,13 +28,13 @@ function Home() {
     return (
         <div>
            <NavBar />
-            <div className="container justify-center mx-auto shadow-2xl xl:max-w-screen-xl">
-                <div className="hero min-h-screen  bg-home-img1">
+            <div className="container justify-center mx-auto shadow-2xl">
+                <div className="hero min-h-screen bg-home-img1">
                     <div className="hero-overlay bg-opacity-10"></div>
                     <div className="hero-content text-center text-neutral-content">
                         <div className="max-w-md">
                             <h1 className=" mb-16 text-4xl text-black font-bold"><FormattedMessage id="La Mejor Manera de Empezar a Construir Riqueza" defaultMessage="La Mejor Manera de Empezar a Construir Riqueza"/></h1>
-                            <button className="btn btn-primary rounded-lg text-white" onClick={handleLogin}><FormattedMessage id="Empezar Ahora" /></button>
+                            <button className="btn btn-primary rounded-lg text-white mb-80" onClick={handleLogin}><FormattedMessage id="Empezar Ahora" /></button>
                         </div>
                     </div>
                 </div>
@@ -66,8 +63,8 @@ function Home() {
                     </div>
                 </div>
                 <div className=" h-screen bg-cover bg-center bg-home-img2 flex flex-col items-center">
-                    <h1 className="text-4xl font-bold text-black w-3/4 max-w-96 text-center mt-20"><FormattedMessage id="No importa si tienes poco dinero para invertir..." /></h1>
-                    <h1 className="text-4xl font-bold text-black w-3/4 max-w-96 text-center mt-12"><FormattedMessage id="¡En Invictum, todos son bienvenidos!" /></h1>
+                    <h1 className="text-4xl font-bold text-black w-3/4 max-w-xl text-center mt-20"><FormattedMessage id="No importa si tienes poco dinero para invertir..." /></h1>
+                    <h1 className="text-4xl font-bold text-black w-3/4 max-w-xl text-center mt-12"><FormattedMessage id="¡En Invictum, todos son bienvenidos!" /></h1>
                 </div>
                 <div id='Sobre Nosotros' className='bg-[#030A1C] text-white justify-center flex flex-col'>
                     <h1 className="text-4xl font-bold text-center mt-16"><FormattedMessage id="Sobre Nosotros" /></h1>

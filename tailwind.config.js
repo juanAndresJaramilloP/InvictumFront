@@ -6,8 +6,8 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'home-img1': "url('/src/assets/home1.png')",
-        'home-img2': "url('/src/assets/home2.png')",
+        'home-img1': "url('/src/assets/home1_alt.jpg')",
+        'home-img2': "url('/src/assets/home2.jpg')",
       }
     },
   },
