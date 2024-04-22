@@ -1,10 +1,9 @@
 import React from 'react';
-import { render, fireEvent, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
 import Acordeon from '../AcordeonAprendizaje';
 import localeEsMessages from "../../locales/es";
-
-const message = localeEsMessages;
+import '@testing-library/jest-dom/extend-expect'; // Importa extend-expect para tener todos los matchers de jest-dom disponibles
 
 const informacionMock = [
   {
@@ -23,48 +22,51 @@ const informacionMock = [
   },
 ];
 
-
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   useNavigate: () => jest.fn(),
 }));
 
 
-
-
 describe('Acordeon Component', () => {
   test('debe estar cerrado por defecto', () => {
-    render(<IntlProvider locale='es'>
-            <Acordeon informacion={informacionMock} />
-        </IntlProvider>);
-
-    const subcategoria1_1 = screen.queryByText('Subcategoría 1.1'); 
-    const subcategoria2_1 = screen.queryByText('Subcategoría 2.1');
-    
-
-    expect(subcategoria1_1).not.toBeInTheDocument();
-    expect(subcategoria2_1).not.toBeInTheDocument();
-    
-  });
-});
-
-describe('Acordeon Component', () => {
-  test('should toggle visibility on click', () => {
     render(
-      <IntlProvider locale="es" messages={message}>
+      <IntlProvider locale='es'  messages={localeEsMessages}>
         <Acordeon informacion={informacionMock} />
       </IntlProvider>
     );
 
-    expect(screen.queryByText('Subcategoría 1.1')).not.toBeInTheDocument();
+    const categorias = screen.getAllByRole('checkbox'); 
 
-    fireEvent.click(screen.getByText('Categoría 1'));
-
-    expect(screen.queryByText('Subcategoría 1.1')).toBeInTheDocument();
-
-
-    fireEvent.click(screen.getByText('Categoría 1'));
-
-    expect(screen.queryByText('Subcategoría 1.1')).not.toBeInTheDocument();
+    expect(categorias[0]).not.toBeChecked();
+    expect(categorias[1]).not.toBeChecked();
   });
 });
+
+describe('Acordeon Component', () => {
+  test('debe cambiar el estado al hacer clic en el checkbox', () => {
+    render(
+      <IntlProvider locale='es' messages={localeEsMessages}>
+        <Acordeon informacion={informacionMock} />
+      </IntlProvider>
+    );
+
+    const checkboxes = screen.getAllByRole('checkbox');
+
+
+    checkboxes.forEach((checkbox, index) => {
+
+      expect(checkbox).not.toBeChecked();
+      
+      fireEvent.click(checkbox);
+      expect(checkbox).toBeChecked();
+      
+      fireEvent.click(checkbox);
+      expect(checkbox).not.toBeChecked();
+    });
+  });
+});
+
+
+
+

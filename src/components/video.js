@@ -4,7 +4,7 @@ import VideoPlayer from './VideoPlayer';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import NavBar from './NavBar';
-import { calcularVideosAnteriorSiguiente } from './utils';
+import { calcularVideosAnteriorSiguiente, IdVideo, linkVideo  } from './utils';
 import { useEffect } from "react";
 import { useState } from "react";
 import { FormattedMessage } from 'react-intl';
@@ -21,42 +21,7 @@ function Video(props) {
   const [idDelVideo, setIdDelVideo] = useState('');
 
   const { videoAnterior, videoSiguiente } = calcularVideosAnteriorSiguiente(informacion, nombre);
-
-  const linkVideo = (data, nombre) => {
-    
-    for (let i = 0; i < data.length; i++) {
-      const hijos = data[i].hijos;
-      
-      for (let j = 0; j < hijos.length; j++) {
-       
-        if (hijos[j].nombre === nombre) {
-          return hijos[j].link;
-        }
-      }
-    }
-
-    return null;
-  };
-
-  const IdVideo = (link) => {
-
-    const patrones = [
-      /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/,
-      /^(?:(?:https?:)?\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})/
-    ];
-    
-    
-    for (let patron of patrones) {
-
-      const coincidencia = link.match(patron);
-      if (coincidencia && coincidencia.length >= 2) {
-        return coincidencia[1];
-      }
-    }
-
-
-    return null;
-  };
+  
   useEffect(() => {
     if (props.informacion && props.informacion !== informacion) {
       setInformacion(props.informacion);
