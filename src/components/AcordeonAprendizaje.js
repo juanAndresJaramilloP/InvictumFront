@@ -13,10 +13,12 @@ function Acordeon(props) {
   const [abierto, setAbierto] = useState(new Array(informacion.length).fill(false));
 
   const toggleAcordeon = index => {
-    const nuevoEstado = abierto.map((estado, i) => i === index ? !estado : false);
+    const nuevoEstado = new Array(informacion.length).fill(false);
+    nuevoEstado[index] = !abierto[index];
     setAbierto(nuevoEstado);
   };
 
+  
 
   return (
     <div className="color-gris-fondo min-h-screen" >
