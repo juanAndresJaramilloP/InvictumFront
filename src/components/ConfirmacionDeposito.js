@@ -8,7 +8,7 @@ import { useLocation } from 'react-router-dom';
 const ConfirmacionDeposito = () => {
   
   const location = useLocation();
-  const {amount, balance} = location.state;
+  const {amount, balance} = location.state|| { amount: 0, balance: 0 };;
   const [isLoading, setIsLoading] = useState(true);
 
 
