@@ -33,6 +33,7 @@
     "navbar.transacciones": "Transacciones",
     "navbar.depositar":"Depositar fondos",
     "navbar.retirar":"Retirar fondos",
+    "navbar.upload":"Subir reportes",
     "depositar.amount":"Ingrese la cantidad a depositar en USD",
     "depositar.Cardholder's name":"Nombre del titular de la tarjeta",
     "depositar.Card number":"Numero de tarjeta",
