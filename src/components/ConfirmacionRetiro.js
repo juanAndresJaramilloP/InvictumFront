@@ -5,13 +5,13 @@ import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useState } from 'react';
 
-
+import { useNavigate } from 'react-router-dom';
   
 
 const ConfirmacionRetiro = () => {
-
+  const navigate = useNavigate();
   const location = useLocation();
-  const { amount, balance } = location.state;
+  const { amount, balance, email } = location.state || { amount: 0, balance: 0, email: "" };
   const [calculatedBalance, setCalculatedBalance] = useState();
 
   useEffect(() => {
@@ -25,6 +25,10 @@ const ConfirmacionRetiro = () => {
 
     setCalculatedBalance(calcularBalance());
   }, [balance, amount]);
+  
+  const handleReturn = () => {
+    navigate('/homeLogin', { state: { email: email } });
+  };
 
   return (
     <div className="flex flex-col items-center justify-center h-screen">
@@ -38,12 +42,12 @@ const ConfirmacionRetiro = () => {
         <p className="text-lg mb-8 font-bold"> 
           <FormattedMessage id="confirmacionDeposito.balance" defaultMessage="Your current balance is: "/>{calculatedBalance}
         </p>
-        <a
-          href="/"
+        <button
+          onClick={handleReturn}
           className="px-6 py-3 text-white bg-green-500 rounded-lg hover:bg-green-700 focus:outline-none transition duration-300 ease-in-out"
         >
           <FormattedMessage id="formulario.confirmacion.volver" defaultMessage="Go to homepage." />
-        </a>
+        </button>
       </div>
     </div>
   );

@@ -10,14 +10,17 @@ import { useLocation } from 'react-router-dom';
 
 function WithdrawtForm() {
   const location = useLocation();
-  const { fullName, balance } = location.state;
+  const { email = "" } = location.state || {};
+  const balance = 100;
 
   const [form, setForm] = useState({
     amount: '',
     cardHolderName: '',
     bankName: '',
-
+    accountId: '', 
+    cardholder: ''  
   });
+  
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
   const handleInputChange = (e) => {
@@ -54,7 +57,7 @@ function WithdrawtForm() {
     e.preventDefault();
     if (validateForm()) {
       console.log('Form is valid');
-      navigate('/confirmacionRetiro',  {state:{amount:form.amount, balance:balance}});
+      navigate('/confirmacionRetiro',  {state:{amount:form.amount, balance:balance, email: email}});
     } else {
       console.log('Form is invalid');
     }
@@ -77,7 +80,7 @@ function WithdrawtForm() {
 
   return (
     <div className="">
-      <NavBarLogin />
+      <NavBarLogin email = {email}/>
       <button
         onClick={handleReturn}
         className="flex items-center justify-center bg-blue-500 hover:bg-blue-400 text-black font-bold py-2 px-4 m-10 color-gris-fondo rounded focus:outline-none focus:shadow-outline"
@@ -116,6 +119,7 @@ function WithdrawtForm() {
               <input
                 type="number"
                 name="amount"
+                id='amount'
 
                 value={form.amount}
                 onChange={handleInputChange}
@@ -125,11 +129,12 @@ function WithdrawtForm() {
               {errors.amount && <p className="text-red-500 text-xs mt-1">{errors.amount}</p>}
             </div>
             <div className="mb-4">
-              <label htmlFor="bank" className="block text-gray-900  text-sm font-medium mt-11 ">
+              <label htmlFor="bankName" className="block text-gray-900  text-sm font-medium mt-11 ">
               <FormattedMessage id="retirar.bank" defaultMessage="Your bank's name" />
               </label>
 
               <input
+              id='bankName'
                 type="text"
                 name="bankName"
 
@@ -141,10 +146,11 @@ function WithdrawtForm() {
               {errors.bankName && <p className="text-red-500 text-xs mt-1">{errors.bankName}</p>}
             </div>
             <div className="mb-4">
-              <label htmlFor="amount" className="block text-gray-900  text-sm font-medium mt-11 ">
+              <label htmlFor="accountId" className="block text-gray-900  text-sm font-medium mt-11 ">
               <FormattedMessage id="retirar.account" defaultMessage="Account number" />
               </label>
               <input
+              id='accountId'
                 type="text"
                 name="accountId"
                 placeholder=""
@@ -156,11 +162,12 @@ function WithdrawtForm() {
               {errors.accountId && <p className="text-red-500 text-xs mt-1">{errors.accountId}</p>}
             </div>
             <div className="mb-6">
-              <label htmlFor="amount" className="block text-gray-900  text-sm font-medium mt-11 ">
+              <label htmlFor="cardholderName" className="block text-gray-900  text-sm font-medium mt-11 ">
               <FormattedMessage id="retirar.cardholder" defaultMessage="Cardholder's name" />
               </label>
 
               <input
+              id='cardholderName'
                 type="text"
                 name="cardholder"
 

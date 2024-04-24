@@ -47,3 +47,68 @@ export function calcularVideosAnteriorSiguiente(informacion, nombreActual) {
 
     return { videoAnterior, videoSiguiente };
 }
+
+
+export const linkVideo = (data, nombre) => {
+    
+    for (let i = 0; i < data.length; i++) {
+      const hijos = data[i].hijos;
+      
+      for (let j = 0; j < hijos.length; j++) {
+       
+        if (hijos[j].nombre === nombre) {
+          return hijos[j].link;
+        }
+      }
+    }
+
+    return null;
+  };
+
+  export const IdVideo = (link) => {
+
+    const patrones = [
+      /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/,
+      /^(?:(?:https?:)?\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})/
+    ];
+    
+    
+    for (let patron of patrones) {
+
+      const coincidencia = link.match(patron);
+      if (coincidencia && coincidencia.length >= 2) {
+        return coincidencia[1];
+      }
+    }
+
+
+    return null;
+  };
+
+  
+export const conseguirData= () => {
+    const URL = "https://raw.githubusercontent.com/davidzamora9aSyC/datosAprendizaje/main/aprendizajev2.json";
+    fetch(URL)
+      .then(data => data.json())
+      .then(data => {
+        // Función para transformar la estructura JSON en un formato manejable
+        const transformData = (items) => {
+          return items.map(item => {
+            if (item.hijos && item.hijos.length) {
+              return {
+                nombre: item.nombre,
+                hijos: transformData(item.hijos) // Llamada recursiva para los hijos
+              };
+            } else {
+
+              return {
+                nombre: item.nombre,
+                link: item.link ? item.link : undefined,
+
+              };
+            }
+          });
+        };
+        const transformedData = transformData(data);
+         return transformedData;
+      });}

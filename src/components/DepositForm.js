@@ -3,13 +3,14 @@ import NavBar from './NavBar';
 import { useNavigate } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 import NavBarLogin from './NavBarLogin';
+import { useLocation } from 'react-router-dom';
 
 function DepositForm() {
   const location = useLocation();
-  const {fullName, balance} = location.state;
-
+  const { email = "" } = location.state || {};
+  console.log(email);
+  const balance =100;
   const [form, setForm] = useState({
     amount: '',
     cardHolderName: '',
@@ -46,7 +47,7 @@ function DepositForm() {
     e.preventDefault();
     if (validateForm()) {
       console.log('Form is valid');
-      navigate('/confirmacionDeposito', {state:{amount:form.amount, balance:balance}});
+      navigate('/confirmacionDeposito', {state:{amount:form.amount, balance:balance, email: email}});
     } else {
       console.log('Form is invalid');
     }
@@ -58,8 +59,8 @@ function DepositForm() {
 
   return (
     <div className="">
-      <NavBarLogin />
-      {balance}
+      <NavBarLogin email = {email}/>
+   
       <button
         onClick={handleReturn}
         className="flex items-center justify-center bg-blue-500 hover:bg-blue-400 text-black font-bold py-2 px-4 m-10 color-gris-fondo rounded focus:outline-none focus:shadow-outline"
@@ -90,6 +91,7 @@ function DepositForm() {
               </label>
 
               <input
+                id="amount"
                 type="number"
                 name="amount"
 
@@ -101,11 +103,12 @@ function DepositForm() {
               {errors.amount && <p className="text-red-500 text-xs mt-1">{errors.amount}</p>}
             </div>
             <div className="mb-4">
-              <label htmlFor="amount" className="block text-gray-900  text-sm font-medium mt-11 ">
+              <label htmlFor="cardholder" className="block text-gray-900  text-sm font-medium mt-11 ">
                 <FormattedMessage id="depositar.Cardholder's name" defaultMessage="Cardholder's name" />
               </label>
 
               <input
+                id="cardholder"
                 type="text"
                 name="cardHolderName"
 
@@ -117,10 +120,11 @@ function DepositForm() {
               {errors.cardHolderName && <p className="text-red-500 text-xs mt-1">{errors.cardHolderName}</p>}
             </div>
             <div className="mb-4">
-              <label htmlFor="amount" className="block text-gray-900  text-sm font-medium mt-11 ">
+              <label htmlFor="cardnumber" className="block text-gray-900  text-sm font-medium mt-11 ">
                 <FormattedMessage id="depositar.Card number" defaultMessage="Card number" />
               </label>
               <input
+              id="cardnumber"
                 type="text"
                 name="cardNumber"
                 placeholder=""
@@ -132,11 +136,12 @@ function DepositForm() {
               {errors.cardNumber && <p className="text-red-500 text-xs mt-1">{errors.cardNumber}</p>}
             </div>
             <div className="mb-6">
-              <label htmlFor="amount" className="block text-gray-900  text-sm font-medium mt-11 ">
+              <label htmlFor="csv" className="block text-gray-900  text-sm font-medium mt-11 ">
                 <FormattedMessage id="depositar.CSV" defaultMessage="CSV" />
               </label>
 
               <input
+              id="csv"
                 type="number"
                 name="csv"
 
@@ -151,7 +156,7 @@ function DepositForm() {
               <button
                 type="submit"
                 className="w-full px-4 my-20 py-5 text-xl text-white bg-blue-500 rounded-3xl hover:bg-blue-600 focus:outline-none color-pagar"
-                href="/confirmacionDeposito"
+                
               >
                 <FormattedMessage id="depositar.pagar" defaultMessage="Pay" />
               </button>

@@ -4,11 +4,12 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const ConfirmacionDeposito = () => {
-  
+  const navigate = useNavigate();
   const location = useLocation();
-  const {amount, balance} = location.state;
+  const { amount, balance, email } = location.state || { amount: 0, balance: 0, email: "" };
   const [isLoading, setIsLoading] = useState(true);
 
 
@@ -21,13 +22,16 @@ const ConfirmacionDeposito = () => {
 
     if (balance !== undefined) {
       console.log("cargo balance", balance);
-      setIsLoading(false); 
+      setIsLoading(false);
     }
   }, [balance]);
 
   if (isLoading) {
     return <div>loading...</div>;
   }
+  const handleReturn = () => {
+    navigate('/homeLogin', { state: { email: email } });
+  };
 
 
 
@@ -36,13 +40,14 @@ const ConfirmacionDeposito = () => {
       <div className="text-center">
         <h1 className="text-4xl font-bold mb-4"> <FormattedMessage id="confirmacionDeposito.titulo" defaultMessage="Deposit confirmed!" /></h1>
         <p className="text-lg mb-8"> <FormattedMessage id="confirmacionDeposito.mensaje" defaultMessage="Your deposit has been succesfully processed!" /></p>
-        <p className="text-lg mb-8 font-bold"> <FormattedMessage id="confirmacionDeposito.balance" defaultMessage="Your balance is: "/>{calcularBalance()}</p>
-        <a
-          href="/"
+        <p className="text-lg mb-8 font-bold"> <FormattedMessage id="confirmacionDeposito.balance" defaultMessage="Your balance is: " />{calcularBalance()}</p>
+        <button
+          onClick={handleReturn}
           className="px-6 py-3 text-white bg-green-500 rounded-lg hover:bg-green-700 focus:outline-none transition duration-300 ease-in-out"
         >
           <FormattedMessage id="formulario.confirmacion.volver" defaultMessage="Go to homepage" />
-        </a>
+        </button>
+
       </div>
     </div>
   );
