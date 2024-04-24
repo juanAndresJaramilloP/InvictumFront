@@ -103,6 +103,28 @@ describe('NavBar', () => {
         reportesElements.forEach(element => expect(element).not.toBeChecked());
         educacionElements.forEach(element => expect(element).not.toBeChecked());
     });
+    it('renders upload button when the role is false', async () => {
+        global.fetch = jest.fn(() => Promise.resolve({
+            json: () => Promise.resolve([{ email: 'test@example.com', role: false }])
+        }));
     
+        await renderWithRouterAndIntl(<NavBarLogin email="test@example.com" password="password123" />);
+        await waitFor(() => expect(fetch).toHaveBeenCalled());
     
+        const educacionElements = screen.queryAllByText('Subir reportes');
+    
+        educacionElements.forEach(element => expect(element).toBeChecked());
+    });
+    
+    it('does not render upload button if role is true', async () => {
+        global.fetch = jest.fn(() => Promise.resolve({
+            json: () => Promise.resolve([{ email: 'test@example.com', role: true }])
+        }));
+
+        await renderWithRouterAndIntl(<NavBarLogin email="test@example.com" password="password123" />);
+        await waitFor(() => expect(fetch).toHaveBeenCalled());
+    
+        const educacionElements = screen.queryAllByText('Subir reportes');
+        educacionElements.forEach(element => expect(element).not.toBeChecked());
+    });
 });
