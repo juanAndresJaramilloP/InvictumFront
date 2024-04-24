@@ -4,6 +4,7 @@ import { IntlProvider } from 'react-intl';
 import Acordeon from '../AcordeonAprendizaje';
 import localeEsMessages from "../../locales/es";
 import '@testing-library/jest-dom/extend-expect'; // Importa extend-expect para tener todos los matchers de jest-dom disponibles
+import { BrowserRouter as Router } from 'react-router-dom';
 
 const informacionMock = [
   {
@@ -30,10 +31,11 @@ jest.mock('react-router-dom', () => ({
 
 describe('Acordeon Component', () => {
   test('debe estar cerrado por defecto', () => {
-    render(
+    render(<Router>
       <IntlProvider locale='es'  messages={localeEsMessages}>
         <Acordeon informacion={informacionMock} />
       </IntlProvider>
+      </Router>
     );
 
     const categorias = screen.getAllByRole('checkbox'); 
@@ -46,9 +48,11 @@ describe('Acordeon Component', () => {
 describe('Acordeon Component', () => {
   test('debe cambiar el estado al hacer clic en el checkbox', () => {
     render(
+      <Router>
       <IntlProvider locale='es' messages={localeEsMessages}>
         <Acordeon informacion={informacionMock} />
       </IntlProvider>
+      </Router>
     );
 
     const checkboxes = screen.getAllByRole('checkbox');

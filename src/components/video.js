@@ -4,24 +4,29 @@ import VideoPlayer from './VideoPlayer';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import NavBar from './NavBar';
-import { calcularVideosAnteriorSiguiente, IdVideo, linkVideo  } from './utils';
+import { calcularVideosAnteriorSiguiente, IdVideo, linkVideo } from './utils';
 import { useEffect } from "react";
 import { useState } from "react";
 import { FormattedMessage } from 'react-intl';
 import NavBarLogin from "./NavBarLogin";
+import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Video(props) {
+  const navigate = useNavigate();
   let { nombre } = useParams();
- 
+  const location = useLocation();
+  const { email = "" } = location.state || {};
+
   const [informacion, setInformacion] = useState(props.informacion);
 
- 
+
 
   const [linkDelVideo, setLinkDelVideo] = useState('');
   const [idDelVideo, setIdDelVideo] = useState('');
 
   const { videoAnterior, videoSiguiente } = calcularVideosAnteriorSiguiente(informacion, nombre);
-  
+
   useEffect(() => {
     if (props.informacion && props.informacion !== informacion) {
       setInformacion(props.informacion);
@@ -31,29 +36,34 @@ function Video(props) {
 
 
   useEffect(() => {
-    
-    
+
+
     const nuevoLink = linkVideo(informacion, nombre);
-    setLinkDelVideo(nuevoLink); 
+    setLinkDelVideo(nuevoLink);
 
     if (nuevoLink) {
-      
+
       const nuevoId = IdVideo(nuevoLink);
       console.log(nuevoId)
-      setIdDelVideo(nuevoId); 
+      setIdDelVideo(nuevoId);
     }
-    
-  }, [nombre, informacion]); 
+
+  }, [nombre, informacion]);
 
   if (!informacion || informacion.length === 0) {
 
     return <div>Cargando información...</div>;
   }
 
+  const handleMove = (link) => {
+    navigate(link, { state: { email: email } });
+
+  };
+
 
   return (
     <div className="flex flex-col justify-between ">
-      <NavBarLogin />
+      <NavBarLogin email={email} />
       <div className="anchoVideo mx-auto">
         <div className="video-nav-container my-5">
           <div className="video-nav-title">
@@ -63,25 +73,29 @@ function Video(props) {
           <div className="video-nav-buttons">
             <button
               className="nav-button mx-2"
-              onClick={() => console.log("Ir a la clase anterior")}
+              onClick={() => handleMove(`/Aprendizaje/videos/${videoAnterior}`)}
             >
-              <Link to={`/Aprendizaje/videos/${videoAnterior}`} className="nav-button mx-2">
               <FormattedMessage id="video.anterior" defaultMessage="Previous lesson" />
-              </Link>
-
             </button>
 
-            <Link to={`/Aprendizaje/videos/${videoSiguiente}`} className="nav-button mx-2">
-            <FormattedMessage id="video.siguiente" defaultMessage="Next lesson" />
-            </Link>
+            <button
+              className="nav-button mx-2"
+              onClick={() => handleMove(`/Aprendizaje/videos/${videoSiguiente}`)}
+            >
+              <FormattedMessage id="video.siguiente" defaultMessage="Next lesson" />
+            </button>
 
-            <Link to="/Aprendizaje" className="nav-button" onClick={() => console.log("Salir al menú principal")}>
-            <FormattedMessage id="video.menu" defaultMessage="Go to principal menu" />
-            </Link>
+            <button
+              className="nav-button"
+              onClick={() => handleMove("/Aprendizaje")}
+            >
+              <FormattedMessage id="video.menu" defaultMessage="Go to principal menu" />
+            </button>
           </div>
+
         </div>
         <div className="video-container mx-auto">
-        
+
           <VideoPlayer key={idDelVideo} className=" video " videoId={IdVideo(linkVideo(informacion, nombre))} />
 
 

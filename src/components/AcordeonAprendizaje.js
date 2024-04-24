@@ -3,8 +3,13 @@ import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/solid';
 import NavBar from './NavBar';
 import { FormattedMessage } from 'react-intl';
 import NavBarLogin from './NavBarLogin';
+import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Acordeon(props) {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { email = "" } = location.state || {};
 
   const informacion = props.informacion;
   const lenInfo = informacion.length;
@@ -17,12 +22,15 @@ function Acordeon(props) {
     nuevoEstado[index] = !abierto[index];
     setAbierto(nuevoEstado);
   };
+  const handleHijo = (link) => {
+    navigate(link, { state: { email: email } });
+  };
 
-  
+
 
   return (
     <div className="color-gris-fondo min-h-screen" >
-      <NavBarLogin />
+      <NavBarLogin email={email} />
 
       <div className="mt-20 mx-20">
 
@@ -44,10 +52,13 @@ function Acordeon(props) {
                 <div className="collapse-content ml-4">
                   {elemento.hijos.map((hijo, hijoIndex) => (
                     <div key={hijoIndex}>
-                      • <a href={obtenerLink(hijo.nombre)}
-                        className="text-blue-600 hover:text-blue-800 focus:text-blue-800">
+                      • <button
+                        onClick={() => handleHijo(obtenerLink(hijo.nombre))}
+                        className="text-blue-600 hover:text-blue-800 focus:text-blue-800"
+                      >
                         {hijo.nombre}
-                      </a>
+                      </button>
+
                     </div>
                   ))}
                 </div>

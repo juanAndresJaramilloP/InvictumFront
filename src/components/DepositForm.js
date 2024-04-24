@@ -4,9 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import { useEffect } from 'react';
 import NavBarLogin from './NavBarLogin';
+import { useLocation } from 'react-router-dom';
 
 function DepositForm() {
-
+  const location = useLocation();
+  const { email = "" } = location.state || {};
+  console.log(email);
   const balance =100;
   const [form, setForm] = useState({
     amount: '',
@@ -44,7 +47,7 @@ function DepositForm() {
     e.preventDefault();
     if (validateForm()) {
       console.log('Form is valid');
-      navigate('/confirmacionDeposito', {state:{amount:form.amount, balance:balance}});
+      navigate('/confirmacionDeposito', {state:{amount:form.amount, balance:balance, email: email}});
     } else {
       console.log('Form is invalid');
     }
@@ -56,7 +59,7 @@ function DepositForm() {
 
   return (
     <div className="">
-      <NavBarLogin />
+      <NavBarLogin email = {email}/>
    
       <button
         onClick={handleReturn}
@@ -153,7 +156,7 @@ function DepositForm() {
               <button
                 type="submit"
                 className="w-full px-4 my-20 py-5 text-xl text-white bg-blue-500 rounded-3xl hover:bg-blue-600 focus:outline-none color-pagar"
-                href="/confirmacionDeposito"
+                
               >
                 <FormattedMessage id="depositar.pagar" defaultMessage="Pay" />
               </button>
