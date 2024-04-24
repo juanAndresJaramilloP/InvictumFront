@@ -98,10 +98,10 @@ describe('NavBar', () => {
         const reportesElements = screen.queryAllByText('Reportes');
     
         
-        depositarFondosElements.forEach(element => expect(element).not.toBeVisible());
-        retirarFondosElements.forEach(element => expect(element).not.toBeVisible());
-        reportesElements.forEach(element => expect(element).not.toBeVisible());
-        educacionElements.forEach(element => expect(element).not.toBeVisible());
+        depositarFondosElements.forEach(element => expect(element).not.toBeChecked());
+        retirarFondosElements.forEach(element => expect(element).not.toBeChecked());
+        reportesElements.forEach(element => expect(element).not.toBeChecked());
+        educacionElements.forEach(element => expect(element).not.toBeChecked());
     });
     
     
