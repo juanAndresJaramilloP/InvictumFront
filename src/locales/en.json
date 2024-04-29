@@ -15,7 +15,7 @@
     "¡En Invictum, todos son bienvenidos!": "At Invictum, everyone is welcome!",
     "Sobre Nosotros": "About Us",
     "Nuestro Valor": "Our Value",
-    "¿Qué hacemos?": "What we do",
+    "¿Qué hacemos?": "What We Do",
     "home.quesehace": "At Invictum, we are eliminating traditional barriers to the world of investments. We provide the middle class and young adults the opportunity to access professional wealth building and management services through our digital platform.",
     "Nuestra Historia": "Our History",
     "home.historia.contenido": "Invictum was founded with the vision of making investment opportunities available to everyone, regardless of their social status or age. We believe in the power of technology to transform the investment industry and that belief is what drives us every day.",
@@ -30,7 +30,7 @@
     "Crear Cuenta": "Create Account",
     "Nombre y Apellido": "Name and Surname",
     "navbar.educacion": "Education",
-    "navbar.upload":"Upload a report",
+    "navbar.upload":"Upload Report",
     "navbar.transacciones": "Transactions",
     "navbar.depositar":"Deposit funds",
     "navbar.retirar":"Withdraw funds",
@@ -72,5 +72,10 @@
     "Configuración de administrador": "Admin settings",
     "Contraseña actual incorrecta": "Current password is incorrect",
     "Contraseña nueva incorrecta": "New password isn't equal in both fields or isn't valid as a password. Remember your password must be at least 5 characters long and have letters and numbers",
-    "Contraseña cambiada correctamente": "Password changed succesfully"
+    "Contraseña cambiada correctamente": "Password changed succesfully",
+    "Bienvenido": "Welcome!",
+    "SubirReporte": "To upload a report, first enter your client's email address, then click on the button below to upload the report",
+    "BuscarCliente": "Validate",
+    "CorreoInvalido": "Invalid email",
+    "subirArchivo": "Submit file"
 }

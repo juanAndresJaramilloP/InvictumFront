@@ -17,8 +17,8 @@ import WithdrawForm from './components/WithdrawForm.js';
 import ConfirmacionRetiro from './components/ConfirmacionRetiro.js';
 import CambioContrasenia from './components/CambioContrasenia.js';
 import HomeLogin from './components/HomeLogin.js';
-import NavBarLogin from './components/NavBarLogin.js';
 import AdminCuenta from './components/AdministrarCuenta.js';
+import SubirReporte from './components/SubirReporte.js';
 import { useEffect } from 'react';
 import { useState } from 'react';
 
@@ -71,6 +71,7 @@ function App() {
           <Route path="/confirmacionRetiro" element={<ConfirmacionRetiro  />} />
           <Route path="/reportes" element={<Reporte />} />
           <Route path="/reportesGestor" element={<ReporteGestor />} />
+          <Route path="/subirReporte" element={<SubirReporte />} />
           <Route path="/reestablecerContraseña" element={<CambioContrasenia />}/>
           <Route path="/homeLogin" element={<HomeLogin />}/>
           <Route path="/administrarCuenta" element={<AdminCuenta />}/>

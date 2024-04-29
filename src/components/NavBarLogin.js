@@ -15,27 +15,24 @@ const NavBarLogin = (props) => {
     const email = props.email;
     const password = props.password;
 
-    const [data, setData] = useState([]);
+    console.log("ROLE:", role)
     useEffect(() => {
         fetch('/users.json')
             .then(response => response.json())
             .then(jsonData => {
-                act(() => {
-                    setData(jsonData);
-                    const user = jsonData.find(obj => obj.email === email);
-                    if (user) {
+                // act(() => {
+                const user = jsonData.find(obj => obj.email === email);
 
-                        setFullName(user.full_name);
-                        setTiempo(user.tiempo);
-                        setBalance(user.balance);
-                        setRole(user.rol);
-
-                    }
-                });
+                setFullName(user.full_name);
+                setTiempo(user.tiempo);
+                setBalance(user.balance);
+                setRole(user.rol);
+                // });
             })
             .catch(error => console.log(error));
-    }, []);
+    }, [email]);
 
+    console.log("ROLE:", role)
     const handleHome = () => {
         navigate('/homeLogin', {
             state: { email: email, password: password }
@@ -76,32 +73,38 @@ const NavBarLogin = (props) => {
         });
     }
     const handleUpload = () => {
-        //navigate('/upload', { state: { email: email } });
+        navigate('/subirReporte', {
+            state: {
+                email: email,
+                password: password,
+                name: fullName
+            }
+        });
 
     }
     function renderMenu() {
         if (role) {
             return (
-                
-                    <div>
-                        <li><a onClick={handleAprendizaje}><FormattedMessage id="navbar.educacion" defaultMessage="Education" /></a></li>
-                        <li>
-                            <details>
-                                <summary><FormattedMessage id="navbar.transacciones" defaultMessage="Transactions" /></summary>
-                                <ul className="p-2 text-black">
-                                    <li><a onClick={handleDepositFund}><FormattedMessage id="navbar.depositar" defaultMessage="Deposit funds" /></a></li>
-                                    <li><a onClick={handleWithdrawFund}><FormattedMessage id="navbar.retirar" defaultMessage="Withdraw funds" /></a></li>
-                                </ul>
-                            </details>
-                        </li>
-                        <li><a onClick={handleVerReporte}>Reportes</a></li>
-                    </div>
-                
+
+                <div>
+                    <li><a onClick={handleAprendizaje}><FormattedMessage id="navbar.educacion" defaultMessage="Education" /></a></li>
+                    <li>
+                        <details>
+                            <summary><FormattedMessage id="navbar.transacciones" defaultMessage="Transactions" /></summary>
+                            <ul className="p-2 text-black">
+                                <li><a onClick={handleDepositFund}><FormattedMessage id="navbar.depositar" defaultMessage="Deposit funds" /></a></li>
+                                <li><a onClick={handleWithdrawFund}><FormattedMessage id="navbar.retirar" defaultMessage="Withdraw funds" /></a></li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li><a onClick={handleVerReporte}>Reportes</a></li>
+                </div>
+
             );
         } else {
             return (
                 <div>
-                    <li><a onClick={handleUpload}><FormattedMessage id="navbar.upload" defaultMessage="Upload report" /></a></li>
+                    <li><a onClick={handleUpload}><FormattedMessage id="navbar.upload" defaultMessage="Upload Report" /></a></li>
                 </div>
             );
         }
@@ -119,8 +122,10 @@ const NavBarLogin = (props) => {
                         {renderMenu()}
                     </ul>
                 </div>
-                <img className='h-20' src={logo} alt="Logo" />
-                <a className="btn btn-ghost p-0 text-xl" onClick={handleHome}>NVICTUM</a>
+                <div className="hidden sm:flex items-center">
+                    <img className='h-20' src={logo} alt="Logo" />
+                    <a className="btn btn-ghost p-0 text-xl" onClick={handleHome}>NVICTUM</a>
+                </div>
             </div>
             <div className="navbar-center hidden md:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -145,15 +150,15 @@ const NavBarLogin = (props) => {
             </div>
 
 
-            <div className="navbar-end flex mr-8">
+            <div className="navbar-end flex mr-2 sm:mr-8">
                 <p className="text-xl mr-4">{fullName}</p>
-                <details className="dropdown dropdown-end">
-                    <summary><img className='h-20 bg-black rounded-full p-3 mr-4' src={profileImage} alt="Profile Image" /></summary>
-                    <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+                <div className="dropdown dropdown-end">
+                    <div tabIndex={0} role="button" className="btn btn-ghost"><img className='bg-black rounded-full p-3 max-h-16 max-w-16' src={profileImage} alt="Profile Image" /></div>
+                    <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
                         <li onClick={handleAdminAccount}><a className='text-black'><FormattedMessage id="Configuración de administrador" /></a></li>
                         <li onClick={handleChangePassword}><a className='text-black'><FormattedMessage id="Reestablecer Contraseña" /></a></li>
                     </ul>
-                </details>
+                </div>
             </div>
         </div>
     );

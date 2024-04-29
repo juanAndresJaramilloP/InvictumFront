@@ -11,6 +11,7 @@ const Login = () => {
 
     const [data, setData] = useState([]);
     const [isEmailValid, setValidEmail] = useState(true);
+    const [isPasswordValid, setValidPassword] = useState(true);
 
     useEffect(() => {
         fetch('/users.json')
@@ -19,9 +20,10 @@ const Login = () => {
             .catch(error => console.log(error));
     }, []);
 
-    const checkEmail = (emailToCheck) => {
-        const found = data.some(obj => obj.email === emailToCheck);
+    const checkAccount = (emailToCheck, passwordToCheck) => {
+        const found = data.some(obj => obj.email === emailToCheck && obj.password === passwordToCheck);
         setValidEmail(found);
+        setValidPassword(found);
         return found;
     };
 
@@ -35,16 +37,14 @@ const Login = () => {
     };
 
     const handleLogin = () => {
-        console.log(data);
         if (data.length === 0) {
             console.log('Data is still fetching...');
             return;
         }
-        const sendEmail = email;
-        const sendPassword = password;
-        if (checkEmail(email)) {
+
+        if (checkAccount(email, password)) {
             navigate('/homeLogin', {
-                state: { email: sendEmail, password: sendPassword }
+                state: { email: email, password: password }
             });
         }
     };
@@ -62,9 +62,9 @@ const Login = () => {
     return (
         <div className= "h-screen bg-slate-300 flex justify-center items-center">
             <div>
-                {!isEmailValid && <div role="alert" className="alert alert-error">
+                {!isEmailValid && !isPasswordValid && <div role="alert" className="alert alert-error">
                     <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                    <span><FormattedMessage id="Correo inválido" /></span>
+                    <span><FormattedMessage id='Correo o contraseña inválidos'/></span>
                 </div>}
                 <div className="flex container justify-center mx-auto">
                     <div className="hero w-screen bg-base-200 rounded-md lg:max-w-screen-md">
@@ -95,7 +95,7 @@ const Login = () => {
                                     </div>
                                     <div className="form-control mt-6">
                                         <button className="btn btn-primary" onClick={handleLogin}><FormattedMessage id="Iniciar Sesión" /></button>
-                                        {!isEmailValid && <p className="text-red-500">Correo no registrado</p>}
+                                        {!isEmailValid && !isPasswordValid && <p className="text-red-500"><FormattedMessage id='Correo o contraseña inválidos'/></p>}
                                     </div>
                                     <div className="form-control mt-6">
                                         <button className="btn btn-outline" onClick={handleCreateAccount}><FormattedMessage id="Crear Cuenta" /></button>

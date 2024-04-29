@@ -2,7 +2,7 @@
     "id": 1,
     "full_name": "Malchy Rosencwaig",
     "email": "mrosencwaig0@unesco.org",
-    "password": "aA6\"AM",
+    "password": "aA6AM",
     "rol": true,
     "tiempo": 1,
     "balance": 100
@@ -34,7 +34,7 @@
     "id": 5,
     "full_name": "Editha Knowler",
     "email": "eknowler4@goo.gl",
-    "password": "yyyy",
+    "password": "yyyyy",
     "rol": false,
     "tiempo": 5,
     "balance": 100

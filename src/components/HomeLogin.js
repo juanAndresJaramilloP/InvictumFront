@@ -19,9 +19,8 @@ import img7 from '../assets/7.png';
 function HomeLogin() {
 
     const location = useLocation();
-    const navigate = useNavigate();
-    const [email, setEmail] = useState(location.state.email);
-    const [password, setPassword] = useState(location.state.password);
+    console.log('Location state:', location.state);
+    const {email, password} = location.state;
 
     return (
         <div>
