@@ -26,7 +26,7 @@
     "id": 4,
     "full_name": "Dorian Gandy",
     "email": "dgandy3@theglobeandmail.com",
-    "password": "iK3?!",
+    "password": "yyyy",
     "rol": true,
     "tiempo": 5,
     "balance": 100
@@ -34,7 +34,7 @@
     "id": 5,
     "full_name": "Editha Knowler",
     "email": "eknowler4@goo.gl",
-    "password": "yC1#}T7T2d",
+    "password": "yyyy",
     "rol": false,
     "tiempo": 5,
     "balance": 100
