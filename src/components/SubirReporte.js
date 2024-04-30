@@ -71,9 +71,9 @@ const SubirReporte = () => {
                                     <div className="form-control mt-6">
                                         {isRoleValid ? (
                                             <div className='flex flex-col justify-center items-center'>
-                                                <input type="text" placeholder="Title" className="input input-bordered w-full max-w-xs mb-2" required onChange={(e) => setTitle(e.target.value)} />
-                                                <input type="file" placeholder="pdf" accept='application/pdf' className="file-input file-input-bordered w-full max-w-xs" required onChange={(e) => setFile(e.target.files[0])}/>
-                                                <button className="btn mt-7 max-w-fit" onClick={validateClient}><FormattedMessage id="subirArchivo" /></button>
+                                                <input type="text" placeholder="Title" data-testid="TituloEnabled" className="input input-bordered w-full max-w-xs mb-2" required onChange={(e) => setTitle(e.target.value)} />
+                                                <input type="file" placeholder="pdf" data-testid="PdfEnabled" accept='application/pdf' className="file-input file-input-bordered w-full max-w-xs" required onChange={(e) => setFile(e.target.files[0])}/>
+                                                <button className="btn mt-7 max-w-fit" data-testid="BtnEnabled" onClick={validateClient}><FormattedMessage id="subirArchivo" /></button>
                                             </div>
                                         ) : (
                                             <div className='flex flex-col justify-center items-center'>
