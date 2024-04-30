@@ -10,7 +10,8 @@ import { useLocation } from 'react-router-dom';
 
 function WithdrawtForm() {
   const location = useLocation();
-  const { email = "" } = location.state || {};
+  const { email, password, name, role} = location.state;
+
   const balance = 100;
 
   const [form, setForm] = useState({
@@ -57,7 +58,7 @@ function WithdrawtForm() {
     e.preventDefault();
     if (validateForm()) {
       console.log('Form is valid');
-      navigate('/confirmacionRetiro',  {state:{amount:form.amount, balance:balance, email: email}});
+      navigate('/confirmacionRetiro',  {state:{amount:form.amount, balance:balance, email: email, password: password, name: name, role: role}});
     } else {
       console.log('Form is invalid');
     }
@@ -80,7 +81,7 @@ function WithdrawtForm() {
 
   return (
     <div className="">
-      <NavBarLogin email = {email}/>
+      <NavBarLogin email = {email} password={password} name={name} role={role}/>
       <button
         onClick={handleReturn}
         className="flex items-center justify-center bg-blue-500 hover:bg-blue-400 text-black font-bold py-2 px-4 m-10 color-gris-fondo rounded focus:outline-none focus:shadow-outline"

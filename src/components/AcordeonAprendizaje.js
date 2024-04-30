@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/solid';
-import NavBar from './NavBar';
 import { FormattedMessage } from 'react-intl';
 import NavBarLogin from './NavBarLogin';
 import { useLocation } from 'react-router-dom';
@@ -9,10 +7,9 @@ import { useNavigate } from 'react-router-dom';
 function Acordeon(props) {
   const navigate = useNavigate();
   const location = useLocation();
-  const { email = "" } = location.state || {};
+  const { email, password, name, role } = location.state;
 
   const informacion = props.informacion;
-  const lenInfo = informacion.length;
   const obtenerLink = (nombre) => { return ("/Aprendizaje/videos/" + nombre) };
 
   const [abierto, setAbierto] = useState(new Array(informacion.length).fill(false));
@@ -23,14 +20,14 @@ function Acordeon(props) {
     setAbierto(nuevoEstado);
   };
   const handleHijo = (link) => {
-    navigate(link, { state: { email: email } });
+    navigate(link, { state: { email: email, password: password, name: name, role: role } });
   };
 
 
 
   return (
     <div className="color-gris-fondo min-h-screen" >
-      <NavBarLogin email={email} />
+      <NavBarLogin email={email} password={password} name={name} role={role}/>
 
       <div className="mt-20 mx-20">
 

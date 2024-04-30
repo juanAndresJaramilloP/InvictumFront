@@ -2,14 +2,13 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 const ConfirmacionDeposito = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { amount, balance, email } = location.state || { amount: 0, balance: 0, email: "" };
+  const { amount, balance, email, password, name, role } = location.state || { amount: 0, balance: 0, email: "", password: "", name: "", role: true };
   const [isLoading, setIsLoading] = useState(true);
 
 
@@ -30,7 +29,7 @@ const ConfirmacionDeposito = () => {
     return <div>loading...</div>;
   }
   const handleReturn = () => {
-    navigate('/homeLogin', { state: { email: email } });
+    navigate('/homeLogin', { state: { email: email, password: password, name: name, role: role } });
   };
 
 

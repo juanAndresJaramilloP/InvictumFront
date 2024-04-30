@@ -25,7 +25,7 @@ jest.mock('../InitializePdfjs.js', () => ({
 jest.mock('react-router-dom', () => ({
     ...jest.requireActual('react-router-dom'),
     useLocation: () => ({
-        state: { email: 'test@example.com', tiempo: 3 }
+        state: { email: 'gkeeffe1@flavors.me', password: "oF9)i)bLA", name:"Georgeanna Keeffe", role: false }
     })
 }));
 

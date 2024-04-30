@@ -1,6 +1,4 @@
-import logo from '../Invictum.svg'
-import LoginButton from './LoginButton';
-import LogoutButton from './LogoutButton';
+import logo from '../Invictum.svg';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { useNavigate } from 'react-router-dom';

@@ -4,84 +4,82 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
 import { useEffect, useState } from "react";
-import { act } from "react-dom/test-utils";
 
 const NavBarLogin = (props) => {
   const navigate = useNavigate();
-  const [fullName, setFullName] = useState("");
-  const [tiempo, setTiempo] = useState("");
-  const [balance, setBalance] = useState("");
-  const [role, setRole] = useState(true);
-  const email = props.email;
-  const password = props.password;
+  // const [fullName, setFullName] = useState("");
+  // const [tiempo, setTiempo] = useState("");
+  // const [balance, setBalance] = useState("");
+  // const [role, setRole] = useState(true);
+  // const email = props.email;
+  // const password = props.password;
+  const {email, password, name, role} = props;
 
-  console.log("ROLE:", role);
-  useEffect(() => {
-    fetch("/users.json")
-      .then((response) => response.json())
-      .then((jsonData) => {
-        //act(() => { no comentar para unitarias, comentar para cypress
+  // useEffect(() => {
+  //   fetch("/users.json")
+  //     .then((response) => response.json())
+  //     .then((jsonData) => {
+  //       const user = jsonData.find((obj) => obj.email === email);
+  //       setFullName(user.full_name);
+  //       setTiempo(user.antiguedad);
+  //       setBalance(user.balance);
+  //       setRole(user.rol);
+  //     })
+  //     .catch(error => console.log(error));
+  // }, [email]);
 
-        const user = jsonData.find((obj) => obj.email === email);
-
-                setFullName(user.full_name);
-                setTiempo(user.antiguedad);
-                setBalance(user.balance);
-                setRole(user.rol);
-                // });
-            })
-            .catch(error => console.log(error));
-    }, [email]);
-
-  console.log("ROLE:", role);
   const handleHome = () => {
     navigate("/homeLogin", {
-      state: { email: email, password: password },
+      state: { email: email, password: password, name: name, role: role },
     });
   };
 
   const handleAdminAccount = () => {
     navigate("/administrarCuenta", {
-      state: { email: email, password: password },
+      state: { email: email, password: password, name: name, role: role },
     });
   };
 
   const handleChangePassword = () => {
     navigate("/reestablecerContraseña", {
-      state: { email: email, password: password },
+      state: { email: email, password: password, name: name, role: role },
     });
   };
 
   const handleDepositFund = () => {
     navigate("/Depositar", {
-      state: { email: email },
+      state: { email: email, password: password, name: name, role: role },
     });
   };
   const handleWithdrawFund = () => {
     navigate("/Retirar", {
-      state: { email: email },
+      state: { email: email, password: password, name: name, role: role },
     });
   };
 
   const handleVerReporte = () => {
     navigate("/reportes", {
-      state: { email: email, tiempo: tiempo },
+      state: { email: email, password: password, name: name, role: role },
     });
   };
+  
   const handleAprendizaje = () => {
     navigate("/Aprendizaje", {
-      state: { email: email },
+      state: { email: email, password: password, name: name, role: role },
     });
   };
   const handleUpload = () => {
     navigate("/subirReporte", {
-      state: {
-        email: email,
-        password: password,
-        name: fullName,
-      },
+      state: { email: email, password: password, name: name, role: role },
     });
   };
+
+  const handleVerReporteGestion = () => {
+    navigate("/reportesGestor", {
+      state: { email: email, password: password, name: name, role: role },
+    });
+  };
+
   function renderMenu() {
     if (role) {
       return (
@@ -182,7 +180,7 @@ const NavBarLogin = (props) => {
           {role ? (
             <>
               <li>
-                <a onClick={handleAprendizaje}>
+                <a className=" text-lg" onClick={handleAprendizaje}>
                   <FormattedMessage
                     id="navbar.educacion"
                     defaultMessage="Education"
@@ -191,13 +189,13 @@ const NavBarLogin = (props) => {
               </li>
               <li>
                 <details>
-                  <summary>
+                  <summary className=" text-lg">
                     <FormattedMessage
                       id="navbar.transacciones"
                       defaultMessage="Transactions"
                     />
                   </summary>
-                  <ul className="p-2 text-black w-32">
+                  <ul className="p-2 text-black w-32 z-[1]">
                     <li>
                       <a onClick={handleDepositFund}>
                         <FormattedMessage
@@ -218,24 +216,34 @@ const NavBarLogin = (props) => {
                 </details>
               </li>
               <li>
-                <a onClick={handleVerReporte}>Reportes</a>
+                <a className=" text-lg" onClick={handleVerReporte}><FormattedMessage id="Reportes"/></a>
               </li>
             </>
           ) : (
-            <li>
-              <a onClick={handleUpload}>
-                <FormattedMessage
-                  id="navbar.upload"
-                  defaultMessage="Upload report"
-                />
-              </a>
-            </li>
+            <>
+              <li>
+                <a className=" text-lg" onClick={handleUpload}>
+                  <FormattedMessage
+                    id="navbar.upload"
+                    defaultMessage="Upload report"
+                  />
+                </a>
+              </li>
+              <li>
+                <a className=" text-lg" onClick={handleVerReporteGestion}>
+                  <FormattedMessage
+                    id="Reportes.gestion"
+                    defaultMessage="Management Reports"
+                  />
+                </a>
+              </li>
+            </>
           )}
         </ul>
       </div>
 
       <div className="navbar-end flex mr-2 sm:mr-8">
-        <p className="text-xl mr-4">{fullName}</p>
+        <p className="text-xl mr-4">{name}</p>
         <div className="dropdown dropdown-end">
           <div tabIndex={0} role="button" className="btn btn-ghost">
             <img

@@ -28,6 +28,12 @@ jest.mock('react-router-dom', () => ({
   useNavigate: () => jest.fn(),
 }));
 
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useLocation: () => ({
+      state: { email: 'mrosencwaig0@unesco.org', password: "aA6AM", name: "Malchy Rosencwaig", role : true}
+  })
+}));
 
 describe('Acordeon Component', () => {
   test('debe estar cerrado por defecto', () => {

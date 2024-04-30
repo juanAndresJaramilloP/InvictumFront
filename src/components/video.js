@@ -2,8 +2,6 @@ import "./video.css";
 import { useParams } from 'react-router-dom';
 import VideoPlayer from './VideoPlayer';
 import React from 'react';
-import { Link } from 'react-router-dom';
-import NavBar from './NavBar';
 import { calcularVideosAnteriorSiguiente, IdVideo, linkVideo } from './utils';
 import { useEffect } from "react";
 import { useState } from "react";
@@ -16,13 +14,10 @@ function Video(props) {
   const navigate = useNavigate();
   let { nombre } = useParams();
   const location = useLocation();
-  const { email = "" } = location.state || {};
+  const { email, password, name, role} = location.state;
 
   const [informacion, setInformacion] = useState(props.informacion);
 
-
-
-  const [linkDelVideo, setLinkDelVideo] = useState('');
   const [idDelVideo, setIdDelVideo] = useState('');
 
   const { videoAnterior, videoSiguiente } = calcularVideosAnteriorSiguiente(informacion, nombre);
@@ -39,7 +34,6 @@ function Video(props) {
 
 
     const nuevoLink = linkVideo(informacion, nombre);
-    setLinkDelVideo(nuevoLink);
 
     if (nuevoLink) {
 
@@ -63,7 +57,7 @@ function Video(props) {
 
   return (
     <div className="flex flex-col justify-between ">
-      <NavBarLogin email={email} />
+      <NavBarLogin email = {email} password={password} name={name} role={role}/>
       <div className="anchoVideo mx-auto">
         <div className="video-nav-container my-5">
           <div className="video-nav-title">

@@ -8,6 +8,8 @@ const Login = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [found, setFound] = useState(undefined);
+    const [checkingAccount, setCheckingAccount] = useState(false);
 
     const [data, setData] = useState([]);
     const [isEmailValid, setValidEmail] = useState(true);
@@ -20,12 +22,28 @@ const Login = () => {
             .catch(error => console.log(error));
     }, []);
 
+    useEffect(() => {
+        if (found !== undefined && found != null && found?.email) {
+            console.log(found.rol);
+            setCheckingAccount(false);
+            console.log('Account checked succesfully...');
+            navigate('/homeLogin', {
+                state: { email: email, password: password, name: found.full_name, role: found.rol}
+            });
+        }
+    }, [found]);
+    
     const checkAccount = (emailToCheck, passwordToCheck) => {
-        const found = data.some(obj => obj.email === emailToCheck && obj.password === passwordToCheck);
-        setValidEmail(found);
-        setValidPassword(found);
-        console.log("al revisar el email da %d", found);
-        return found;
+        if(data.length === 0) {
+            console.log('Data is still fetching...');
+            return;
+        }else {
+            const foundUser = data.find(obj => obj.email === emailToCheck && obj.password === passwordToCheck);
+            setFound(foundUser);
+            setValidEmail(foundUser);
+            setValidPassword(foundUser);
+            return foundUser;
+        }
     };
 
 
@@ -43,21 +61,15 @@ const Login = () => {
             console.log('Data is still fetching...');
             return;
         }
-
-        if (checkAccount(email, password)) {
-            navigate('/homeLogin', {
-                state: { email: email, password: password }
-            });
-        }
+        checkAccount(email, password)
+        console.log('Checking Account ...');
     };
 
     const handleCreateAccount = (e) => {
         e.preventDefault();
-        const sendEmail = email;
-        const sendPassword = password;
         if (email && password.length > 4) {
             navigate('/crearcuenta', {
-                state: { email: sendEmail, password: sendPassword }
+                state: { email: email, password: password}
             });
         }
     }
@@ -99,6 +111,7 @@ const Login = () => {
                                     <div className="form-control mt-6">
                                         <button className="btn btn-primary" data-testid='login' onClick={handleLogin}><FormattedMessage id="Iniciar Sesión" /></button>
                                         {!isEmailValid && !isPasswordValid && <p className="text-red-500"><FormattedMessage id='Correo o contraseña inválidos'/></p>}
+                                        {checkingAccount && isEmailValid && isPasswordValid && <span className="loading loading-dots loading-md"></span>}
                                     </div>
                                     <div className="form-control mt-6">
                                         <button className="btn btn-outline" onClick={handleCreateAccount}><FormattedMessage id="Crear Cuenta" /></button>

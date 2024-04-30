@@ -4,7 +4,6 @@ import Footer from './Footer';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
-import { useState } from 'react';
 
 import img1 from '../assets/1.png';
 import img2 from '../assets/2.png';
@@ -19,12 +18,11 @@ import img7 from '../assets/7.png';
 function HomeLogin() {
 
     const location = useLocation();
-    console.log('Location state:', location.state);
-    const {email, password} = location.state;
+    const {email, password, name, role} = location.state;
 
     return (
         <div>
-            <NavBarLogin email={email} password={password}/>
+            <NavBarLogin email={email} password={password} name={name} role={role}/>
             <div className="container justify-center mx-auto shadow-2xl">
                 <div className="hero min-h-screen bg-home-img1">
                     <div className="hero-overlay bg-opacity-10"></div>

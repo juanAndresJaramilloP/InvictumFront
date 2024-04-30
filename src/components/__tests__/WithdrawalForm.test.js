@@ -7,6 +7,14 @@ import localeEsMessages from "../../locales/es";
 import { BrowserRouter } from 'react-router-dom';
 
 
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useLocation: () => ({
+      state: { email: 'mrosencwaig0@unesco.org', password: "aA6AM", name: "Malchy Rosencwaig", role : true}
+  })
+}));
+
+
 const renderWithRouterAndIntl = (component, locale = 'es', messages = localeEsMessages) => {
   return {
     ...render(

@@ -8,7 +8,8 @@ import { useLocation } from 'react-router-dom';
 
 function DepositForm() {
   const location = useLocation();
-  const { email = "" } = location.state || {};
+  const {email, password, name, role} = location.state;
+
   console.log(email);
   const balance =100;
   const [form, setForm] = useState({
@@ -59,7 +60,7 @@ function DepositForm() {
 
   return (
     <div className="">
-      <NavBarLogin email = {email}/>
+      <NavBarLogin email = {email} password={password} name={name} role={role}/>
    
       <button
         onClick={handleReturn}

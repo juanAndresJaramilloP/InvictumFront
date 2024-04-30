@@ -2,47 +2,58 @@ import React from 'react';
 import NavBarLogin from './NavBarLogin';
 import { pdfjs } from 'react-pdf';
 import { Document, Page } from 'react-pdf';
-import { useState } from 'react';
+import {useEffect, useState } from 'react';
 import pdf from '../assets/reporte1.pdf';
 import './Reporte.css'
 import pdfIcon from '../assets/pdfIcon.svg';
 import { FormattedMessage } from 'react-intl';
 import { useLocation } from 'react-router-dom';
-import { initializePdfjs } from './InitializePdfjs.js'; 
-
+import { initializePdfjs } from './InitializePdfjs.js';
+initializePdfjs();
 // pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 //     'pdfjs-dist/build/pdf.worker.min.js',
 //     import.meta.url,
 // ).toString();
 
 // pdfjs.GlobalWorkerOptions.workerSrc = 'pdfjs-dist/build/pdf.worker.min.js';
-initializePdfjs();
+
 
 const Reporte = () => {
-   
+
     const [numPages, setNumPages] = useState();
     const [pageNumber, setPageNumber] = useState(1);
+    const [antiguedad, setAntiguedad] = useState(0);
+    const [balance, setBalance] = useState(0);
     const location = useLocation();
 
-    const {email, tiempo} = location.state;
+    const {email, password, name, role} = location.state;
+
+    useEffect(() => {
+        fetch("/users.json")
+            .then((response) => response.json())
+            .then((jsonData) => {
+                const user = jsonData.find((obj) => obj.email === email && obj.password === password);
+                setAntiguedad(user.antiguedad);
+                setBalance(user.balance);
+            })
+            .catch(error => console.log(error));
+    }, [email, password]);
 
     function onDocumentLoadSuccess({ numPages }) {
         setNumPages(numPages);
     }
 
-    const renderizarReportes = () => 
-    {
+    const renderizarReportes = () => {
         const reportes = [];
-        for (let i = 0; i < tiempo; i++)
-        {
-            reportes.push(<li key={i}><button className="btn btn-ghost"> <img src={pdfIcon} className=' h-6'/><FormattedMessage id="Reporte Patrimonial" /> 2024/02</button></li>);
+        for (let i = 0; i < antiguedad; i++) {
+            reportes.push(<li key={i}><button className="btn btn-ghost"> <img src={pdfIcon} className=' h-6' /><FormattedMessage id="Reporte Patrimonial" /> 2024/02</button></li>);
         }
         return reportes;
     }
-console.log(email);
+    console.log(email);
     return (
         <div>
-            <NavBarLogin email = {email}/>
+            <NavBarLogin email={email} password={password} name={name} role={role} />
             <div className="drawer lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col items-center justify-center" role="drawer-content">
@@ -60,7 +71,7 @@ console.log(email);
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
-                        {renderizarReportes()}                        
+                        {renderizarReportes()}
                     </ul>
                 </div>
             </div>

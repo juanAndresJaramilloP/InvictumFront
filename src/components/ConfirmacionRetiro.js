@@ -11,7 +11,8 @@ import { useNavigate } from 'react-router-dom';
 const ConfirmacionRetiro = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { amount, balance, email } = location.state || { amount: 0, balance: 0, email: "" };
+  const { amount, balance, email, password, name, role } = location.state || { amount: 0, balance: 0, email: "", password: "", name: "", role: true};
+  
   const [calculatedBalance, setCalculatedBalance] = useState();
 
   useEffect(() => {
@@ -27,7 +28,7 @@ const ConfirmacionRetiro = () => {
   }, [balance, amount]);
   
   const handleReturn = () => {
-    navigate('/homeLogin', { state: { email: email } });
+    navigate('/homeLogin', { state: { email: email, password: password, name: name, role: role } });
   };
 
   return (

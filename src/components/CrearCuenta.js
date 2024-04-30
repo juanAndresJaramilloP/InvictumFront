@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import logo from '../Invictum.svg';
-import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 
 const Login = () => {
 
     const location = useLocation();
-    const navigate = useNavigate();
 
-    const { email, password } = location.state;
+    const {email, password} = location.state;
     const [name, setName] = useState('');
 
     const handleNameChange = (e) => {

@@ -1,8 +1,7 @@
 import React from 'react';
 import NavBarLogin from './NavBarLogin';
-import { pdfjs } from 'react-pdf';
 import { Document, Page } from 'react-pdf';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import pdf from '../assets/reporteGestion.pdf';
 import './Reporte.css'
 import pdfIcon from '../assets/pdfIcon.svg';
@@ -14,14 +13,28 @@ initializePdfjs();
 const ReporteGestor = () => {
     const [numPages, setNumPages] = useState();
     const [pageNumber, setPageNumber] = useState(1);
+    const [antiguedad, setAntiguedad] = useState(0);
+    const [balance, setBalance] = useState(0);
     const location = useLocation();
 
-    const {email, tiempo} = location.state;
+    const {email, password, name, role} = location.state;
+
+    useEffect(() => {
+        fetch("/users.json")
+            .then((response) => response.json())
+            .then((jsonData) => {
+                const user = jsonData.find((obj) => obj.email === email && obj.password === password);
+                setAntiguedad(user.antiguedad);
+                setBalance(user.balance);
+            })
+            .catch(error => console.log(error));
+    }, [email, password]);
+
 
     const renderizarReportes = () => 
     {
         const reportes = [];
-        for (let i = 0; i < tiempo; i++)
+        for (let i = 0; i < antiguedad; i++)
         {
             reportes.push(<li key={i}><button className="btn btn-ghost"> <img src={pdfIcon} className=' h-6'/><FormattedMessage id="Reporte Patrimonial" /> 2024/02</button></li>);
         }
@@ -34,7 +47,7 @@ const ReporteGestor = () => {
 
     return (
         <div>
-            <NavBarLogin />
+            <NavBarLogin email={email} password={password} name={name} role={role}/>
             <div className="drawer lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col items-center justify-center" role="drawer-content">

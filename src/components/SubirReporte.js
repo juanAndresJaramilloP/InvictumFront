@@ -14,7 +14,7 @@ const SubirReporte = () => {
     const [title, setTitle] = useState("");
     const [file, setFile] = useState("");
 
-    const { email, password, name } = location.state;
+    const { email, password, name, role } = location.state;
 
 
     const handleEmailChange = (e) => {
@@ -51,7 +51,7 @@ const SubirReporte = () => {
 
     return (
         <div>
-            <NavBarLogin email={email} password={password} />
+            <NavBarLogin email={email} password={password} name={name} role={role}/>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content text-center mb-80">
                     <div className="max-w-xl">
