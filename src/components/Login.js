@@ -11,6 +11,7 @@ const Login = () => {
 
     const [data, setData] = useState([]);
     const [isEmailValid, setValidEmail] = useState(true);
+    const [isPasswordValid, setValidPassword] = useState(true);
 
     useEffect(() => {
         fetch('/users.json')
@@ -19,9 +20,10 @@ const Login = () => {
             .catch(error => console.log(error));
     }, []);
 
-    const checkEmail = (emailToCheck) => {
-        const found = data.some(obj => obj.email === emailToCheck);
+    const checkAccount = (emailToCheck, passwordToCheck) => {
+        const found = data.some(obj => obj.email === emailToCheck && obj.password === passwordToCheck);
         setValidEmail(found);
+        setValidPassword(found);
         console.log("al revisar el email da %d", found);
         return found;
     };
@@ -35,22 +37,22 @@ const Login = () => {
         setPassword(e.target.value);
     };
 
-    const handleLogin = () => {
-        console.log(data);
+    const handleLogin = (e) => {
+        e.preventDefault();
         if (data.length === 0) {
             console.log('Data is still fetching...');
             return;
         }
-        const sendEmail = email;
-        const sendPassword = password;
-        if (checkEmail(email)) {
+
+        if (checkAccount(email, password)) {
             navigate('/homeLogin', {
-                state: { email: sendEmail, password: sendPassword }
+                state: { email: email, password: password }
             });
         }
     };
 
-    const handleCreateAccount = () => {
+    const handleCreateAccount = (e) => {
+        e.preventDefault();
         const sendEmail = email;
         const sendPassword = password;
         if (email && password.length > 4) {
@@ -63,9 +65,9 @@ const Login = () => {
     return (
         <div className= "h-screen bg-slate-300 flex justify-center items-center">
             <div>
-                {!isEmailValid && <div role="alert" className="alert alert-error">
+                {!isEmailValid && !isPasswordValid && <div role="alert" className="alert alert-error">
                     <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                    <span><FormattedMessage id="Correo inválido" /></span>
+                    <span><FormattedMessage id='Correo o contraseña inválidos'/></span>
                 </div>}
                 <div className="flex container justify-center mx-auto">
                     <div className="hero w-screen bg-base-200 rounded-md lg:max-w-screen-md">
@@ -91,12 +93,12 @@ const Login = () => {
                                         </label>
                                         <label className="input input-bordered flex items-center gap-2">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4 opacity-70"><path fillRule="evenodd" d="M14 6a4 4 0 0 1-4.899 3.899l-1.955 1.955a.5.5 0 0 1-.353.146H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.293a.5.5 0 0 1 .146-.353l3.955-3.955A4 4 0 1 1 14 6Zm-4-2a.75.75 0 0 0 0 1.5.5.5 0 0 1 .5.5.75.75 0 0 0 1.5 0 2 2 0 0 0-2-2Z" clipRule="evenodd" /></svg>
-                                            <input type="password" className="grow" value={password} onChange={handlePasswordChange} minLength="5" required />
+                                            <input type="password" data-testid="password" className="grow" value={password} onChange={handlePasswordChange} minLength="5" required />
                                         </label>
                                     </div>
                                     <div className="form-control mt-6">
-                                        <button className="btn btn-primary" onClick={handleLogin}><FormattedMessage id="Iniciar Sesión" /></button>
-                                        {!isEmailValid && <p className="text-red-500">Correo no registrado</p>}
+                                        <button className="btn btn-primary" data-testid='login' onClick={handleLogin}><FormattedMessage id="Iniciar Sesión" /></button>
+                                        {!isEmailValid && !isPasswordValid && <p className="text-red-500"><FormattedMessage id='Correo o contraseña inválidos'/></p>}
                                     </div>
                                     <div className="form-control mt-6">
                                         <button className="btn btn-outline" onClick={handleCreateAccount}><FormattedMessage id="Crear Cuenta" /></button>

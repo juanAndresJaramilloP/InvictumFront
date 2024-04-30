@@ -33,7 +33,7 @@
     "navbar.transacciones": "Transacciones",
     "navbar.depositar":"Depositar fondos",
     "navbar.retirar":"Retirar fondos",
-    "navbar.upload":"Subir reportes",
+    "navbar.upload":"Subir Reporte",
     "depositar.amount":"Ingrese la cantidad a depositar en USD",
     "depositar.Cardholder's name":"Nombre del titular de la tarjeta",
     "depositar.Card number":"Numero de tarjeta",
@@ -72,5 +72,10 @@
     "Configuración de administrador": "Configuración de administrador",
     "Contraseña actual incorrecta": "Contraseña actual incorrecta",
     "Contraseña nueva incorrecta": "La contraseña nueva no es igual en ambos campos o no es válida como contraseña. Recuerde que su contraseña debe tener al menos 5 caracteres de largo e incluir números y letras",
-    "Contraseña cambiada correctamente": "Contraseña reestablecida correctamente"
+    "Contraseña cambiada correctamente": "Contraseña reestablecida correctamente",
+    "Bienvenido": "¡Bienvenido!",
+    "SubirReporte": "Para cargar un informe, primero ingrese la dirección de correo electrónico de su cliente, luego haga clic en el botón a continuación para cargar el informe",
+    "BuscarCliente": "Validar",
+    "CorreoInvalido": "Correo inválido",
+    "subirArchivo": "Subir Archivo"
 }
