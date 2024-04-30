@@ -24,15 +24,14 @@ const NavBarLogin = (props) => {
 
         const user = jsonData.find((obj) => obj.email === email);
 
-        setFullName(user.full_name);
-        setTiempo(user.tiempo);
-        setBalance(user.balance);
-        setRole(user.rol);
-
-        //});
-      })
-      .catch((error) => console.log(error));
-  }, [email]);
+                setFullName(user.full_name);
+                setTiempo(user.antiguedad);
+                setBalance(user.balance);
+                setRole(user.rol);
+                // });
+            })
+            .catch(error => console.log(error));
+    }, [email]);
 
   console.log("ROLE:", role);
   const handleHome = () => {

@@ -4,7 +4,7 @@
     "email": "mrosencwaig0@unesco.org",
     "password": "aA6AM",
     "rol": true,
-    "tiempo": 1,
+    "antiguedad": 1,
     "balance": 100
   }, {
     "id": 2,
@@ -12,7 +12,7 @@
     "email": "gkeeffe1@flavors.me",
     "password": "oF9)i)bLA",
     "rol": false,
-    "tiempo": 2,
+    "antiguedad": 2,
     "balance": 100
   }, {
     "id": 3,
@@ -20,7 +20,7 @@
     "email": "douver2@senate.gov",
     "password": "eW0%=SM<i4",
     "rol": true,
-    "tiempo": 3,
+    "antiguedad": 3,
     "balance": 100
   }, {
     "id": 4,
@@ -28,7 +28,7 @@
     "email": "dgandy3@theglobeandmail.com",
     "password": "yyyy",
     "rol": true,
-    "tiempo": 5,
+    "antiguedad": 5,
     "balance": 100
   }, {
     "id": 5,
@@ -36,7 +36,7 @@
     "email": "eknowler4@goo.gl",
     "password": "yyyyy",
     "rol": false,
-    "tiempo": 5,
+    "antiguedad": 5,
     "balance": 100
   }, {
     "id": 6,
@@ -44,7 +44,7 @@
     "email": "njeffcock5@gizmodo.com",
     "password": "yP7(BD",
     "rol": true,
-    "tiempo": 3,
+    "antiguedad": 3,
     "balance": 100
   }, {
     "id": 7,
@@ -52,7 +52,7 @@
     "email": "jseres6@aol.com",
     "password": "nJ7}Ri&Om+",
     "rol": false,
-    "tiempo": 3,
+    "antiguedad": 3,
     "balance": 100
   }, {
     "id": 8,
@@ -60,7 +60,7 @@
     "email": "ndiem7@bizjournals.com",
     "password": "nD5sdfh",
     "rol": true,
-    "tiempo": 3,
+    "antiguedad": 3,
     "balance": 100
   }, {
     "id": 9,
@@ -68,7 +68,7 @@
     "email": "cbrakespear8@vkontakte.ru",
     "password": "lF0.K.+.Bc",
     "rol": false,
-    "tiempo": 3,
+    "antiguedad": 3,
     "balance": 100
   }, {
     "id": 10,
@@ -76,7 +76,7 @@
     "email": "ddunthorn9@reverbnation.com",
     "password": "tV9!<@@X",
     "rol": true,
-    "tiempo": 3,
+    "antiguedad": 3,
     "balance": 100
   }, {
     "id": 11,
@@ -84,7 +84,7 @@
     "email": "afeldsterna@ocn.ne.jp",
     "password": "fC5=pkW",
     "rol": false,
-    "tiempo": 3,
+    "antiguedad": 3,
     "balance": 100
   }, {
     "id": 12,
@@ -92,7 +92,7 @@
     "email": "akleinsternb@wix.com",
     "password": "tH3~#1RBZF",
     "rol": true,
-    "tiempo": 3,
+    "antiguedad": 3,
     "balance": 100
   }, {
     "id": 13,
@@ -100,7 +100,7 @@
     "email": "nryriec@state.gov",
     "password": "zY7&1'1+l",
     "rol": true,
-    "tiempo": 3,
+    "antiguedad": 3,
     "balance": 100
   }, {
     "id": 14,
@@ -108,7 +108,7 @@
     "email": "wriepld@barnesandnoble.com",
     "password": "sG9@N0",
     "rol": true,
-    "tiempo": 3,
+    "antiguedad": 3,
     "balance": 100
   }, {
     "id": 15,
@@ -116,7 +116,7 @@
     "email": "mboline@ibm.com",
     "password": "gZ1(g,nD",
     "rol": true,
-    "tiempo": 3,
+    "antiguedad": 3,
     "balance": 100
   }, {
     "id": 16,
@@ -124,7 +124,7 @@
     "email": "pmallabarf@toplist.cz",
     "password": "pM9\"V",
     "rol": true,
-    "tiempo": 3,
+    "antiguedad": 3,
     "balance": 100
   }, {
     "id": 17,
@@ -132,7 +132,7 @@
     "email": "nspolleng@japanpost.jp",
     "password": "qV5`OR7|",
     "rol": false,
-    "tiempo": 3,
+    "antiguedad": 3,
     "balance": 100
   }, {
     "id": 18,
@@ -140,7 +140,7 @@
     "email": "nlewsamh@dmoz.org",
     "password": "fI6!|Yi",
     "rol": true,
-    "tiempo": 3,
+    "antiguedad": 3,
     "balance": 100
   }, {
     "id": 19,
@@ -148,7 +148,7 @@
     "email": "tninnolii@storify.com",
     "password": "hK3&Sf\\F",
     "rol": false,
-    "tiempo": 3,
+    "antiguedad": 3,
     "balance": 100
   }, {
     "id": 20,
@@ -156,6 +156,6 @@
     "email": "agibbj@home.pl",
     "password": "gS2&+q",
     "rol": false,
-    "tiempo": 3,
+    "antiguedad": 3,
     "balance": 100
   }]
