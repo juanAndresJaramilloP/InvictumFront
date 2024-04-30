@@ -22,6 +22,7 @@ const Login = () => {
     const checkEmail = (emailToCheck) => {
         const found = data.some(obj => obj.email === emailToCheck);
         setValidEmail(found);
+        console.log("al revisar el email da %d", found);
         return found;
     };
 

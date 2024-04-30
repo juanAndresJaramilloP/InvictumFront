@@ -20,7 +20,7 @@ const NavBarLogin = (props) => {
         fetch('/users.json')
             .then(response => response.json())
             .then(jsonData => {
-                act(() => {
+                //act(() => { no comentar para unitarias, comentar para cypress
                     setData(jsonData);
                     const user = jsonData.find(obj => obj.email === email);
                     if (user) {
@@ -31,7 +31,7 @@ const NavBarLogin = (props) => {
                         setRole(user.rol);
 
                     }
-                });
+                //});
             })
             .catch(error => console.log(error));
     }, []);
