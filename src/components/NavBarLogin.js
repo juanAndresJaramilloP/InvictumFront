@@ -7,26 +7,7 @@ import { useEffect, useState } from "react";
 
 const NavBarLogin = (props) => {
   const navigate = useNavigate();
-  // const [fullName, setFullName] = useState("");
-  // const [tiempo, setTiempo] = useState("");
-  // const [balance, setBalance] = useState("");
-  // const [role, setRole] = useState(true);
-  // const email = props.email;
-  // const password = props.password;
   const {email, password, name, role} = props;
-
-  // useEffect(() => {
-  //   fetch("/users.json")
-  //     .then((response) => response.json())
-  //     .then((jsonData) => {
-  //       const user = jsonData.find((obj) => obj.email === email);
-  //       setFullName(user.full_name);
-  //       setTiempo(user.antiguedad);
-  //       setBalance(user.balance);
-  //       setRole(user.rol);
-  //     })
-  //     .catch(error => console.log(error));
-  // }, [email]);
 
   const handleHome = () => {
     navigate("/homeLogin", {
@@ -179,7 +160,7 @@ const NavBarLogin = (props) => {
         <ul className="menu menu-horizontal px-1">
           {role ? (
             <>
-              <li>
+              <li id = 'botonEducacionL'>
                 <a className=" text-lg" onClick={handleAprendizaje}>
                   <FormattedMessage
                     id="navbar.educacion"
@@ -189,7 +170,7 @@ const NavBarLogin = (props) => {
               </li>
               <li>
                 <details>
-                  <summary className=" text-lg">
+                  <summary className=" text-lg" id="summaryButtonL">
                     <FormattedMessage
                       id="navbar.transacciones"
                       defaultMessage="Transactions"
@@ -215,7 +196,7 @@ const NavBarLogin = (props) => {
                   </ul>
                 </details>
               </li>
-              <li>
+              <li id="reportesButton">
                 <a className=" text-lg" onClick={handleVerReporte}><FormattedMessage id="Reportes"/></a>
               </li>
             </>

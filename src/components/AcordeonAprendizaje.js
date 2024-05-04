@@ -31,11 +31,11 @@ function Acordeon(props) {
 
       <div className="mt-20 mx-20">
 
-        <h2 className="text-4xl font-semibold mx-4 mb-16"><FormattedMessage id="acordeon.titulo" defaultMessage="What do you want to learn today?" /></h2>
+        <h2 id="tituloAcordeon" className="text-4xl font-semibold mx-4 mb-16"><FormattedMessage id="acordeon.titulo" defaultMessage="What do you want to learn today?" /></h2>
 
-        <div className="flex flex-wrap">
+        <div id="moduloAprendizaje"  className="flex flex-wrap">
           {informacion.map((elemento, index) => (
-            <div className="w-full md:w-1/2 p-2" key={index}>
+            <div id={`elemento-${index}`}   className="w-full md:w-1/2 p-2" key={index}>
               <div className={`collapse collapse-arrow bg-blue-200 mb-2 rounded-3xl ${abierto[index] ? 'collapse-open' : ''}`}>
                 <input type="checkbox"
                   name={`accordion-${index}`}

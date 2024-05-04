@@ -1,16 +1,16 @@
 [{
     "id": 1,
     "full_name": "Malchy Rosencwaig",
-    "email": "mrosencwaig0@unesco.org",
-    "password": "aA6AM",
+    "email": "cliente@gmail.com",
+    "password": "1234",
     "rol": true,
     "antiguedad": 1,
     "balance": 100
   }, {
     "id": 2,
     "full_name": "Georgeanna Keeffe",
-    "email": "gkeeffe1@flavors.me",
-    "password": "oF9)i)bLA",
+    "email": "administrador@gmail.com",
+    "password": "1234",
     "rol": false,
     "antiguedad": 2,
     "balance": 100
@@ -129,16 +129,16 @@
   }, {
     "id": 17,
     "full_name": "Nil Spollen",
-    "email": "nspolleng@japanpost.jp",
-    "password": "qV5`OR7|",
+    "email": "a@g.com",
+    "password": "1",
     "rol": false,
     "antiguedad": 3,
     "balance": 100
   }, {
     "id": 18,
     "full_name": "Neill Lewsam",
-    "email": "nlewsamh@dmoz.org",
-    "password": "fI6!|Yi",
+    "email": "c@g.com",
+    "password": "1",
     "rol": true,
     "antiguedad": 3,
     "balance": 100
