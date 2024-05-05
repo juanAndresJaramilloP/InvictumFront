@@ -8,7 +8,8 @@ import pdfIcon from '../assets/pdfIcon.svg';
 import { FormattedMessage } from 'react-intl';
 import { useLocation } from 'react-router-dom';
 import { initializePdfjs } from './InitializePdfjs.js'; 
-initializePdfjs();
+import PDFViewer from "tailwind-pdf-viewer";
+
 
 const ReporteGestor = () => {
     const [numPages, setNumPages] = useState();
@@ -34,9 +35,10 @@ const ReporteGestor = () => {
     const renderizarReportes = () => 
     {
         const reportes = [];
+        const j = antiguedad;
         for (let i = 0; i < antiguedad; i++)
         {
-            reportes.push(<li key={i}><button className="btn btn-ghost"> <img src={pdfIcon} className=' h-6'/><FormattedMessage id="Reporte Patrimonial" /> 2024/02</button></li>);
+            reportes.push(<li id={i} key={i}><button className="btn btn-ghost"> <img src={pdfIcon} className=' h-6'/><FormattedMessage id="Reporte Patrimonial" /> 2024/0{j-i}</button></li>);
         }
         return reportes;
     }
@@ -51,20 +53,14 @@ const ReporteGestor = () => {
             <div className="drawer lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col items-center justify-center" role="drawer-content">
-                    <label htmlFor="my-drawer-2" className="btn btn-neutral drawer-button lg:hidden rounded-lg mt-3"><svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg></label>
-                    <div className=' p-8 bg-stone-200 mt-4 rounded-lg'>
-                        <p>Page {pageNumber} of {numPages}</p>
-                        <Document file={pdf} onLoadSuccess={onDocumentLoadSuccess}>
-                            {Array.apply(null, Array(numPages)).map((x, i) => i + 1).map(page => {
-                                return (
-                                    <Page key={page} pageNumber={page} renderTextLayer={false} renderAnnotationLayer={false} />)
-                            })}
-                        </Document>
+                    <label htmlFor="my-drawer-2" className="btn btn-neutral drawer-button lg:hidden rounded-lg mt-3"><svg id="boton" xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg></label>
+                    <div id= "PDFV" className=' p-8 bg-stone-200 mt-4 rounded-lg'>
+                        <PDFViewer className="pdf-viewer" pdfURL={pdf}  />
                     </div>
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
-                    <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+                    <ul  className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
                         {renderizarReportes()}
                     </ul>
                 </div>

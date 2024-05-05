@@ -211,7 +211,7 @@ const NavBarLogin = (props) => {
                 </a>
               </li>
               <li>
-                <a className=" text-lg" onClick={handleVerReporteGestion}>
+                <a   id="reportesButton" className=" text-lg" onClick={handleVerReporteGestion}>
                   <FormattedMessage
                     id="Reportes.gestion"
                     defaultMessage="Management Reports"
