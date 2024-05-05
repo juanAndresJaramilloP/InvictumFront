@@ -203,7 +203,7 @@ const NavBarLogin = (props) => {
           ) : (
             <>
               <li>
-                <a className=" text-lg" onClick={handleUpload}>
+                <a id="subirReporte" className=" text-lg" onClick={handleUpload}>
                   <FormattedMessage
                     id="navbar.upload"
                     defaultMessage="Upload report"
