@@ -42,10 +42,10 @@ function WithdrawtForm() {
 
 
     tempErrors.bankName = form.bankName ? '' :  <FormattedMessage id="retirar.error.bank" defaultMessage="The bank's name is required." />;
-    // Validate accounts id to ensure it's 16 digits
+
     tempErrors.accountId = /^\d{16}$/.test(form.accountId) ? '' :<FormattedMessage id="retirar.error.account" defaultMessage="Account id is invalid. It should have 16 digits." />;
 
-    // Check if cardholder is provided, is a number, and is 3 digits
+
     tempErrors.cardholder = form.cardholder  ? '' : <FormattedMessage id="depositar.error.cardholder" defaultMessage="Cardholder name is required" />;
 
     setErrors(tempErrors);
@@ -98,13 +98,13 @@ function WithdrawtForm() {
           <div className="flex justify-between items-center mt-4 px-4 w-full"></div>
 
 
-          <h2 className="text-3xl font-semibold text-center text-gray-700 font-inter -mt-20"><FormattedMessage id="retirar.titulo" defaultMessage="Withdraw funds" /></h2>
+          <h2 id='withdrawTitle' className="text-3xl font-semibold text-center text-gray-700 font-inter -mt-20"><FormattedMessage id="retirar.titulo" defaultMessage="Withdraw funds" /></h2>
 
           <div style={{ width: '72px' }}>
           </div>
 
           <p
-        
+            id='withdrawAvailable'
             className="w-full px-4 my-20 py-5 text-xl text-white bg-blue-500 rounded-3xl focus:outline-none color-disponible text-center  rounded-3x1"
 
           >
@@ -113,11 +113,12 @@ function WithdrawtForm() {
           <form className="mt-6" onSubmit={handleSubmit}>
             <div className="mb-4">
 
-              <label htmlFor="amount" className="block text-gray-900 text-sm font-medium mt-20">
+              <label id='withdrawAmountTitle' htmlFor="amount" className="block text-gray-900 text-sm font-medium mt-20">
               <FormattedMessage id="retirar.amount" defaultMessage="Insert withdrawal amount in USD" />
               </label>
 
               <input
+  
                 type="number"
                 name="amount"
                 id='amount'
@@ -130,7 +131,7 @@ function WithdrawtForm() {
               {errors.amount && <p className="text-red-500 text-xs mt-1">{errors.amount}</p>}
             </div>
             <div className="mb-4">
-              <label htmlFor="bankName" className="block text-gray-900  text-sm font-medium mt-11 ">
+              <label id="bankNameTitle" htmlFor="bankName" className="block text-gray-900  text-sm font-medium mt-11 ">
               <FormattedMessage id="retirar.bank" defaultMessage="Your bank's name" />
               </label>
 
@@ -147,7 +148,7 @@ function WithdrawtForm() {
               {errors.bankName && <p className="text-red-500 text-xs mt-1">{errors.bankName}</p>}
             </div>
             <div className="mb-4">
-              <label htmlFor="accountId" className="block text-gray-900  text-sm font-medium mt-11 ">
+              <label id="accountIdTitle" htmlFor="accountId" className="block text-gray-900  text-sm font-medium mt-11 ">
               <FormattedMessage id="retirar.account" defaultMessage="Account number" />
               </label>
               <input
@@ -163,7 +164,7 @@ function WithdrawtForm() {
               {errors.accountId && <p className="text-red-500 text-xs mt-1">{errors.accountId}</p>}
             </div>
             <div className="mb-6">
-              <label htmlFor="cardholderName" className="block text-gray-900  text-sm font-medium mt-11 ">
+              <label id="cardholderNameTitle" htmlFor="cardholderName" className="block text-gray-900  text-sm font-medium mt-11 ">
               <FormattedMessage id="retirar.cardholder" defaultMessage="Cardholder's name" />
               </label>
 
@@ -181,6 +182,7 @@ function WithdrawtForm() {
             </div>
             <div className="mb-6">
               <button
+                id='withdrawButton'
                 type="submit"
                 className="w-full px-4 my-20 py-5 text-xl text-white bg-blue-500 rounded-3xl hover:bg-blue-600 focus:outline-none color-pagar"
          

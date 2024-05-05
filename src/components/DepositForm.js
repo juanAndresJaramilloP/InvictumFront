@@ -78,7 +78,7 @@ function DepositForm() {
           <div className="flex justify-between items-center mt-4 px-4 w-full"></div>
 
 
-          <h2 className="text-3xl font-semibold text-center text-gray-700 font-inter -mt-20"><FormattedMessage id="navbar.depositar" defaultMessage="Deposit funds" /></h2>
+          <h2 id="depositTitle" className="text-3xl font-semibold text-center text-gray-700 font-inter -mt-20"><FormattedMessage id="navbar.depositar" defaultMessage="Deposit funds" /></h2>
 
           <div style={{ width: '72px' }}>
           </div>
@@ -87,7 +87,7 @@ function DepositForm() {
           <form className="mt-6" onSubmit={handleSubmit}>
             <div className="mb-4">
 
-              <label htmlFor="amount" className="block text-gray-900 text-sm font-medium mt-20">
+              <label id="depositAmountTitle" htmlFor="amount" className="block text-gray-900 text-sm font-medium mt-20">
                 <FormattedMessage id="depositar.amount" defaultMessage="Insert deposit amount in USD" />
               </label>
 
@@ -104,7 +104,7 @@ function DepositForm() {
               {errors.amount && <p className="text-red-500 text-xs mt-1">{errors.amount}</p>}
             </div>
             <div className="mb-4">
-              <label htmlFor="cardholder" className="block text-gray-900  text-sm font-medium mt-11 ">
+              <label id="cardholderTitle" htmlFor="cardholder" className="block text-gray-900  text-sm font-medium mt-11 ">
                 <FormattedMessage id="depositar.Cardholder's name" defaultMessage="Cardholder's name" />
               </label>
 
@@ -121,7 +121,7 @@ function DepositForm() {
               {errors.cardHolderName && <p className="text-red-500 text-xs mt-1">{errors.cardHolderName}</p>}
             </div>
             <div className="mb-4">
-              <label htmlFor="cardnumber" className="block text-gray-900  text-sm font-medium mt-11 ">
+              <label id = "cardnumberTitle" htmlFor="cardnumber" className="block text-gray-900  text-sm font-medium mt-11 ">
                 <FormattedMessage id="depositar.Card number" defaultMessage="Card number" />
               </label>
               <input
@@ -137,7 +137,7 @@ function DepositForm() {
               {errors.cardNumber && <p className="text-red-500 text-xs mt-1">{errors.cardNumber}</p>}
             </div>
             <div className="mb-6">
-              <label htmlFor="csv" className="block text-gray-900  text-sm font-medium mt-11 ">
+              <label id="csvTitle" htmlFor="csv" className="block text-gray-900  text-sm font-medium mt-11 ">
                 <FormattedMessage id="depositar.CSV" defaultMessage="CSV" />
               </label>
 
@@ -154,7 +154,8 @@ function DepositForm() {
               {errors.csv && <p className="text-red-500 text-xs mt-1">{errors.csv}</p>}
             </div>
             <div className="mb-6">
-              <button
+              <button 
+                id='depositButton'
                 type="submit"
                 className="w-full px-4 my-20 py-5 text-xl text-white bg-blue-500 rounded-3xl hover:bg-blue-600 focus:outline-none color-pagar"
                 
