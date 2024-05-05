@@ -35,7 +35,7 @@ function Acordeon(props) {
 
         <div id="moduloAprendizaje"  className="flex flex-wrap">
           {informacion.map((elemento, index) => (
-            <div id={`elemento-${index}`}   className="w-full md:w-1/2 p-2" key={index}>
+            <div    className="w-full md:w-1/2 p-2" key={index}>
               <div className={`collapse collapse-arrow bg-blue-200 mb-2 rounded-3xl ${abierto[index] ? 'collapse-open' : ''}`}>
                 <input type="checkbox"
                   name={`accordion-${index}`}
@@ -43,13 +43,14 @@ function Acordeon(props) {
                   onChange={() => toggleAcordeon(index)}
                   className="peer"
                 />
-                <div className="collapse-title text-xl font-medium">
+                <div id={`elemento-${index}`} className="collapse-title text-xl font-medium">
                   {elemento.nombre}
                 </div>
                 <div className="collapse-content ml-4">
                   {elemento.hijos.map((hijo, hijoIndex) => (
                     <div key={hijoIndex}>
                       • <button
+                        id={hijoIndex}
                         onClick={() => handleHijo(obtenerLink(hijo.nombre))}
                         className="text-blue-600 hover:text-blue-800 focus:text-blue-800"
                       >

@@ -177,7 +177,7 @@ const NavBarLogin = (props) => {
                     />
                   </summary>
                   <ul className="p-2 text-black w-32 z-[1]">
-                    <li>
+                    <li id="depositButtonL">
                       <a onClick={handleDepositFund}>
                         <FormattedMessage
                           id="navbar.depositar"
@@ -185,7 +185,7 @@ const NavBarLogin = (props) => {
                         />
                       </a>
                     </li>
-                    <li>
+                    <li id="withdrawButtonL">
                       <a onClick={handleWithdrawFund}>
                         <FormattedMessage
                           id="navbar.retirar"

@@ -50,7 +50,7 @@ function Video(props) {
   }
 
   const handleMove = (link) => {
-    navigate(link, { state: { email: email } });
+    navigate(link, { state: { email: email, password:password, name:name, role:role } });
 
   };
 
