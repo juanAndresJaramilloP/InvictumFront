@@ -23,30 +23,32 @@ function App() {
   const [objetos, setObjetos] = useState([]);
 
   useEffect(() => {
-    const URL = "https://raw.githubusercontent.com/davidzamora9aSyC/datosAprendizaje/main/aprendizajev2.json";
+    const URL = "http://localhost:3000/api/v1/temas-educativos";
     fetch(URL)
       .then(data => data.json())
       .then(data => {
         // Función para transformar la estructura JSON en un formato manejable
         const transformData = (items) => {
           return items.map(item => {
-            if (item.hijos && item.hijos.length) {
+            if (item.recursos && item.recursos.length) {
               return {
                 nombre: item.nombre,
-                hijos: transformData(item.hijos) // Llamada recursiva para los hijos
+                hijos: item.recursos.map(recurso => ({
+                  nombre: recurso.name,
+                  link: recurso.url
+                }))
               };
             } else {
-
               return {
                 nombre: item.nombre,
-                link: item.link ? item.link : undefined,
-
+                link: item.url ? item.url : undefined
               };
             }
           });
         };
         const transformedData = transformData(data);
         setObjetos(transformedData);
+        console.log(transformedData)
       });
   }, []);
 
