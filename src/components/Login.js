@@ -10,7 +10,7 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [found, setFound] = useState(undefined);
     const [checkingAccount, setCheckingAccount] = useState(false);
-
+    const [error, setError] = useState(null);
     const [data, setData] = useState([]);
     const [isEmailValid, setValidEmail] = useState(true);
     const [isPasswordValid, setValidPassword] = useState(true);
@@ -55,18 +55,40 @@ const Login = () => {
         setPassword(e.target.value);
     };
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
-        if (data.length === 0) {
-            console.log('Data is still fetching...');
-            return;
+    
+        const loginData = {
+          username: email,
+          password: password
+        };
+    
+        try {
+          const response = await fetch('http://localhost:3000/api/v1/users/login', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(loginData),
+          });
+    
+          if (!response.ok) {
+            throw new Error('Login failed');
+          }
+    
+          const data = await response.json();
+          localStorage.setItem('authToken', data.token);
+          setFound(true);
+        } catch (error) {
+          setError(error.message);
+          console.error('Error:', error);
         }
-        checkAccount(email, password)
-        console.log('Checking Account ...');
-    };
+      };
+    
 
     const handleCreateAccount = (e) => {
         e.preventDefault();
+        console.log("boton de crear cuaenta presionado")
         if (email && password.length > 4) {
             navigate('/crearcuenta', {
                 state: { email: email, password: password}
