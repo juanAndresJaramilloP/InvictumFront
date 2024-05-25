@@ -8,10 +8,7 @@ import { useLocation } from 'react-router-dom';
 
 function DepositForm() {
   const location = useLocation();
-  const {email, password, name, role} = location.state;
-
-  console.log(email);
-  const balance =100;
+  const { email, password, name, role } = location.state;
   const [form, setForm] = useState({
     amount: '',
     cardHolderName: '',
@@ -19,7 +16,44 @@ function DepositForm() {
     csv: ''
   });
   const [errors, setErrors] = useState({});
+  const [clientId, setClientId] = useState('');
+  const [balance, setBalance] = useState(0);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem('authToken');
+
+    const validateUser = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/api/v1/users/validate', {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+        const data = await response.json();
+        setClientId(data.id);
+        getClientBalance(data.id);
+      } catch (error) {
+        console.error('Error validating user:', error);
+      }
+    };
+
+    const getClientBalance = async (id) => {
+      try {
+        const response = await fetch(`http://localhost:3000/api/v1/clientes/${id}`, {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+        const data = await response.json();
+        setBalance(data.balance);
+      } catch (error) {
+        console.error('Error fetching client balance:', error);
+      }
+    };
+
+    validateUser();
+  }, [location.pathname]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -30,12 +64,8 @@ function DepositForm() {
     let tempErrors = {};
 
     tempErrors.amount = form.amount ? '' : <FormattedMessage id="depositar.error.amount" defaultMessage="Amount is required and it must be a number" />;
-
     tempErrors.cardHolderName = form.cardHolderName ? '' : <FormattedMessage id="depositar.error.cardholder" defaultMessage="Cardholder name is required" />;
-
-
     tempErrors.cardNumber = /^\d{16}$/.test(form.cardNumber) ? '' : <FormattedMessage id="depositar.error.cardnumber" defaultMessage="Card number is invalid. It should have 16 digits" />;
-
     tempErrors.csv = form.csv && /^\d{3}$/.test(form.csv.toString()) ? '' : <FormattedMessage id="depositar.error.csv" defaultMessage="CSV is invalid and must be a 3 digit number" />;
 
     setErrors(tempErrors);
@@ -43,19 +73,45 @@ function DepositForm() {
     return Object.values(tempErrors).every(x => x === '');
   };
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
       console.log('Form is valid');
-      navigate('/confirmacionDeposito', {state:{amount:form.amount, balance:balance, email: email}});
+      const newBalance = balance + parseFloat(form.amount);
+      const updateData = {
+        nombre: name,
+        correo: email,
+        contrasena: "12345",
+        rol: 1,
+        balance: newBalance
+      };
+
+      const token = localStorage.getItem('authToken');
+
+      fetch(`http://localhost:3000/api/v1/clientes/${clientId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(updateData)
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+      navigate('/confirmacionDeposito', { state: { amount: form.amount, balance: newBalance, email: email, id: clientId } });
     } else {
       console.log('Form is invalid');
     }
   };
+
   const handleReturn = () => {
-    navigate('/homeLogin');
-  }
+    navigate('/');
+  };
 
 
   return (
@@ -158,7 +214,7 @@ function DepositForm() {
                 id='depositButton'
                 type="submit"
                 className="w-full px-4 my-20 py-5 text-xl text-white bg-blue-500 rounded-3xl hover:bg-blue-600 focus:outline-none color-pagar"
-                
+                style={{ backgroundColor: 'blue' }}
               >
                 <FormattedMessage id="depositar.pagar" defaultMessage="Pay" />
               </button>

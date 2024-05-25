@@ -33,7 +33,6 @@ const Login = () => {
                 });
 
                 if (response.ok) {
-                    console.log('Authentication successful');
                     navigate('/');
                 } else {
                     console.log('Failed to create account');

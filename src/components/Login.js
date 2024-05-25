@@ -15,38 +15,6 @@ const Login = () => {
     const [isEmailValid, setValidEmail] = useState(true);
     const [isPasswordValid, setValidPassword] = useState(true);
 
-    useEffect(() => {
-        fetch('/users.json')
-            .then(response => response.json())
-            .then(jsonData => setData(jsonData))
-            .catch(error => console.log(error));
-    }, []);
-
-    useEffect(() => {
-        if (found !== undefined && found != null && found?.email) {
-            console.log(found.rol);
-            setCheckingAccount(false);
-            console.log('Account checked succesfully...');
-            navigate('/homeLogin', {
-                state: { email: email, password: password, name: found.full_name, role: found.rol}
-            });
-        }
-    }, [found]);
-    
-    const checkAccount = (emailToCheck, passwordToCheck) => {
-        if(data.length === 0) {
-            console.log('Data is still fetching...');
-            return;
-        }else {
-            const foundUser = data.find(obj => obj.email === emailToCheck && obj.password === passwordToCheck);
-            setFound(foundUser);
-            setValidEmail(foundUser);
-            setValidPassword(foundUser);
-            return foundUser;
-        }
-    };
-
-
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
     };
@@ -57,12 +25,12 @@ const Login = () => {
 
     const handleLogin = async (e) => {
         e.preventDefault();
-    
+      
         const loginData = {
           username: email,
           password: password
         };
-    
+      
         try {
           const response = await fetch('http://localhost:3000/api/v1/users/login', {
             method: 'POST',
@@ -71,19 +39,25 @@ const Login = () => {
             },
             body: JSON.stringify(loginData),
           });
-    
+      
           if (!response.ok) {
             throw new Error('Login failed');
           }
-    
+      
           const data = await response.json();
-          localStorage.setItem('authToken', data.token);
-          setFound(true);
+      
+          if (data.token) {
+            localStorage.setItem('authToken', data.token);
+            navigate('/', { state: { token: data.token } }); 
+          } else {
+            throw new Error('Token not received');
+          }
         } catch (error) {
           setError(error.message);
           console.error('Error:', error);
         }
       };
+      
     
 
     const handleCreateAccount = (e) => {

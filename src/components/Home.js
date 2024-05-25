@@ -4,7 +4,7 @@ import NavBarLogin from './NavBarLogin';
 import Footer from './Footer';
 import { useNavigate } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
-
+import { useLocation } from 'react-router-dom';
 import img1 from '../assets/1.png';
 import img2 from '../assets/2.png';
 import img3 from '../assets/3.png';
@@ -12,22 +12,61 @@ import img4 from '../assets/4.png';
 import img5 from '../assets/5.png';
 import img6 from '../assets/6.png';
 import img7 from '../assets/7.png';
-
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 
 function Home() {
 
-  
-
     const navigate = useNavigate();
-
-    const handleLogin = () => {
+    const [userData, setUserData] = useState({ email: '', name: '', role: '' });
+    const [error, setError] = useState('');
+    const password = "";
+  
+    useEffect(() => {
+      const token = localStorage.getItem('authToken');
+      if (token) {
+        const validateToken = async () => {
+          try {
+            const response = await fetch('http://localhost:3000/api/v1/users/validate', {
+              method: 'GET',
+              headers: {
+                'Authorization': `Bearer ${token}`
+              }
+            });
+  
+            if (!response.ok) {
+              throw new Error('Token validation failed');
+            }
+  
+            const data = await response.json();
+            setUserData({
+              email: data.username,
+              name: data.name,
+              role: data.role
+            });
+          } catch (error) {
+            setError(error.message);
+            console.error('Error:', error);
+            // If token validation fails, redirect to login
+            navigate('/login');
+          }
+        };
+  
+        validateToken();
+      } else {
+        // If no token, redirect to login
         navigate('/login');
+      }
+    }, [navigate]);
+  
+    const handleLogin = () => {
+      navigate('/login');
     }
 
     return (
         <div>
-           <NavBar />
+           <NavBarLogin email={userData.email} password={password} name={userData.name} role={userData.role}/>
             <div className="container justify-center mx-auto shadow-2xl">
                 <div className="hero min-h-screen bg-home-img1">
                     <div className="hero-overlay bg-opacity-10"></div>

@@ -11,24 +11,10 @@ import { useNavigate } from 'react-router-dom';
 const ConfirmacionRetiro = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { amount, balance, email, password, name, role } = location.state || { amount: 0, balance: 0, email: "", password: "", name: "", role: true};
-  
-  const [calculatedBalance, setCalculatedBalance] = useState();
-
-  useEffect(() => {
-    const calcularBalance = () => {
-      const cantidadNumerica = parseFloat(amount);
-      if (!balance || !cantidadNumerica) {
-        return 91; 
-      }
-      return parseFloat(balance) - cantidadNumerica;
-    };
-
-    setCalculatedBalance(calcularBalance());
-  }, [balance, amount]);
+  const {balance } = location.state || { balance: 0};
   
   const handleReturn = () => {
-    navigate('/homeLogin', { state: { email: email, password: password, name: name, role: role } });
+    navigate('/' );
   };
 
   return (
@@ -41,7 +27,7 @@ const ConfirmacionRetiro = () => {
           <FormattedMessage id="retirar.confirmacion.mensaje" defaultMessage="Your withdrawal has been successfully confirmed." />
         </p>
         <p id="withdrawConfirmationBalance" className="text-lg mb-8 font-bold"> 
-          <FormattedMessage id="confirmacionDeposito.balance" defaultMessage="Your current balance is: "/>{calculatedBalance}
+          <FormattedMessage id="confirmacionDeposito.balance" defaultMessage="Your current balance is: "/>{balance}
         </p>
         <button 
           id="withdrawConfirmationButton"

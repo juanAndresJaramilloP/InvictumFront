@@ -4,13 +4,17 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
 import { useEffect, useState } from "react";
+import NavBar from "./NavBar";
 
 const NavBarLogin = (props) => {
   const navigate = useNavigate();
   const {email, password, name, role} = props;
-
+  const isLoggedIn = email !== '';
+  if (!isLoggedIn) {
+    return <NavBar />;
+  }
   const handleHome = () => {
-    navigate("/homeLogin", {
+    navigate("/", {
       state: { email: email, password: password, name: name, role: role },
     });
   };
