@@ -54,10 +54,7 @@ function Home() {
         };
   
         validateToken();
-      } else {
-        // If no token, redirect to login
-        navigate('/login');
-      }
+      } 
     }, [navigate]);
   
     const handleLogin = () => {

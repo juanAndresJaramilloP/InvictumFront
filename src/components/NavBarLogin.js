@@ -8,11 +8,12 @@ import NavBar from "./NavBar";
 
 const NavBarLogin = (props) => {
   const navigate = useNavigate();
-  const {email, password, name, role} = props;
+  const { email, password, name, role } = props;
   const isLoggedIn = email !== '';
   if (!isLoggedIn) {
     return <NavBar />;
   }
+
   const handleHome = () => {
     navigate("/", {
       state: { email: email, password: password, name: name, role: role },
@@ -36,6 +37,7 @@ const NavBarLogin = (props) => {
       state: { email: email, password: password, name: name, role: role },
     });
   };
+
   const handleWithdrawFund = () => {
     navigate("/Retirar", {
       state: { email: email, password: password, name: name, role: role },
@@ -47,12 +49,13 @@ const NavBarLogin = (props) => {
       state: { email: email, password: password, name: name, role: role },
     });
   };
-  
+
   const handleAprendizaje = () => {
     navigate("/Aprendizaje", {
       state: { email: email, password: password, name: name, role: role },
     });
   };
+
   const handleUpload = () => {
     navigate("/subirReporte", {
       state: { email: email, password: password, name: name, role: role },
@@ -63,6 +66,11 @@ const NavBarLogin = (props) => {
     navigate("/reportesGestor", {
       state: { email: email, password: password, name: name, role: role },
     });
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('authToken');
+    navigate("/login");
   };
 
   function renderMenu() {
@@ -164,7 +172,7 @@ const NavBarLogin = (props) => {
         <ul className="menu menu-horizontal px-1">
           {role ? (
             <>
-              <li id = 'botonEducacionL'>
+              <li id='botonEducacionL'>
                 <a className=" text-lg" onClick={handleAprendizaje}>
                   <FormattedMessage
                     id="navbar.educacion"
@@ -215,7 +223,7 @@ const NavBarLogin = (props) => {
                 </a>
               </li>
               <li>
-                <a   id="reportesButton" className=" text-lg" onClick={handleVerReporteGestion}>
+                <a id="reportesButton" className=" text-lg" onClick={handleVerReporteGestion}>
                   <FormattedMessage
                     id="Reportes.gestion"
                     defaultMessage="Management Reports"
@@ -249,6 +257,11 @@ const NavBarLogin = (props) => {
             <li onClick={handleChangePassword}>
               <a className="text-black">
                 <FormattedMessage id="Reestablecer Contraseña" />
+              </a>
+            </li>
+            <li onClick={handleLogout}>
+              <a className="text-black">
+                <FormattedMessage id="Cerrar sesión" defaultMessage="Logout" />
               </a>
             </li>
           </ul>

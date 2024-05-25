@@ -1,17 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import logo from '../Invictum.svg';
 import { useNavigate } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 
 const Login = () => {
-
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [found, setFound] = useState(undefined);
-    const [checkingAccount, setCheckingAccount] = useState(false);
     const [error, setError] = useState(null);
-    const [data, setData] = useState([]);
     const [isEmailValid, setValidEmail] = useState(true);
     const [isPasswordValid, setValidPassword] = useState(true);
 
@@ -56,22 +52,23 @@ const Login = () => {
           setError(error.message);
           console.error('Error:', error);
         }
-      };
+    };
       
-    
-
     const handleCreateAccount = (e) => {
         e.preventDefault();
-        console.log("boton de crear cuaenta presionado")
         if (email && password.length > 4) {
             navigate('/crearcuenta', {
-                state: { email: email, password: password}
+                state: { email: email, password: password }
             });
         }
     }
 
+    const handleGoHome = () => {
+        navigate('/');
+    }
+
     return (
-        <div className= "h-screen bg-slate-300 flex justify-center items-center">
+        <div className="h-screen bg-slate-300 flex justify-center items-center">
             <div>
                 {!isEmailValid && !isPasswordValid && <div role="alert" className="alert alert-error">
                     <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
@@ -107,11 +104,14 @@ const Login = () => {
                                     <div className="form-control mt-6">
                                         <button className="btn btn-primary" data-testid='login' onClick={handleLogin}><FormattedMessage id="Iniciar Sesión" /></button>
                                         {!isEmailValid && !isPasswordValid && <p className="text-red-500"><FormattedMessage id='Correo o contraseña inválidos'/></p>}
-                                        {checkingAccount && isEmailValid && isPasswordValid && <span className="loading loading-dots loading-md"></span>}
                                     </div>
                                     <div className="form-control mt-6">
                                         <button className="btn btn-outline" onClick={handleCreateAccount}><FormattedMessage id="Crear Cuenta" /></button>
                                     </div>
+                                    <div className="form-control mt-6">
+                                        <button className="btn btn-secondary" onClick={handleGoHome}><FormattedMessage id="Volver a Inicio" /></button>
+                                    </div>
+                                    {error && <p className="text-red-500 mt-4">{error}</p>}
                                 </form>
                             </div>
                         </div>
