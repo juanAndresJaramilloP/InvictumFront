@@ -74,7 +74,7 @@ const NavBarLogin = (props) => {
   };
 
   function renderMenu() {
-    if (role) {
+    if (role==1) {
       return (
         <div>
           <li>
@@ -170,7 +170,7 @@ const NavBarLogin = (props) => {
       </div>
       <div className="navbar-center hidden md:flex">
         <ul className="menu menu-horizontal px-1">
-          {role ? (
+          {(role==1) ? (
             <>
               <li id='botonEducacionL'>
                 <a className=" text-lg" onClick={handleAprendizaje}>
