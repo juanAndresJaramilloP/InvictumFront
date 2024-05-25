@@ -48,8 +48,8 @@ function Home() {
           } catch (error) {
             setError(error.message);
             console.error('Error:', error);
-            // If token validation fails, redirect to login
-            navigate('/login');
+
+  
           }
         };
   
