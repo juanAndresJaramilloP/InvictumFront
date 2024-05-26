@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavBarLogin from './NavBarLogin';
 import { FormattedMessage } from 'react-intl';
 import { useLocation } from 'react-router-dom';
@@ -11,8 +11,28 @@ const SubirReporte = () => {
     const [title, setTitle] = useState("");
     const [file, setFile] = useState(null);
     const [clientId, setClientId] = useState(null);
+    const [managerId, setManagerId] = useState(null);
 
     const { email, password, name, role } = location.state;
+
+    useEffect(() => {
+        validateUser();
+    }, []);
+
+    const validateUser = async () => {
+        const token = localStorage.getItem('authToken');
+        try {
+            const response = await fetch('http://localhost:3000/api/v1/users/validate', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            const data = await response.json();
+            setManagerId(data.id);
+        } catch (error) {
+            console.log('Error al validar el usuario:', error);
+        }
+    };
 
     const handleEmailChange = (e) => {
         setClientEmail(e.target.value);
@@ -84,6 +104,7 @@ const SubirReporte = () => {
                 const reportData = await response.json();
                 const reportId = reportData.id;
                 await linkReportToClient(clientId, reportId, token);
+                await linkReportToManager(managerId, reportId, token);
                 alert('Archivo subido con éxito');
             } else {
                 const errorData = await response.json();
@@ -113,6 +134,26 @@ const SubirReporte = () => {
         } catch (error) {
             console.log(error);
             alert('Error al vincular el reporte con el cliente');
+        }
+    }
+
+    const linkReportToManager = async (managerId, reportId, token) => {
+        try {
+            const response = await fetch(`http://localhost:3000/api/v1/gestores/${managerId}/reportes/${reportId}`, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                console.log('Error:', errorData);
+                alert('Error al vincular el reporte con el gestor');
+            }
+        } catch (error) {
+            console.log(error);
+            alert('Error al vincular el reporte con el gestor');
         }
     }
 
