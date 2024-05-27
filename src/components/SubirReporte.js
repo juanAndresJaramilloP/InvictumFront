@@ -48,22 +48,21 @@ const SubirReporte = () => {
         if (clientEmail && validateEmailFormat()) {
             const token = localStorage.getItem('authToken');
             try {
-                const response = await fetch('http://localhost:3000/api/v1/clientes', {
+                const response = await fetch(`http://localhost:3000/api/v1/clientes/email/${clientEmail}`, {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }
                 });
-                const jsonData = await response.json();
-                const user = jsonData.find(obj => obj.correo === clientEmail);
-                if (user) {
-                    setIsRoleValid(user.rol);
-                    setIsEmailValid(true);
-                    setClientId(user.id);
-                } else {
+                if (response.status === 404) {
                     setIsRoleValid(false);
                     setIsEmailValid(false);
                     setClientId(null);
+                } else {
+                    const user = await response.json();
+                    setIsRoleValid(user.rol === 1);
+                    setIsEmailValid(true);
+                    setClientId(user.id);
                 }
             } catch (error) {
                 console.log(error);
